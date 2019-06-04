@@ -1,0 +1,51 @@
+@using Microsoft.AspNetCore.Identity
+@model IEnumerable<EdmanOnlineShop.Models.Product>
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@{
+    ViewData["Title"] = "Products";
+}
+
+
+<div class="row mb-2">
+    <div class="col">
+        <h2 class="h2"> Products </h2>
+        @if (User.IsInRole("Admin"))
+        {
+            <a href="/Products/ProductsTable"> Products Table </a>
+        }
+    </div>
+    <div class="col-3">
+        <form action="">
+            <input type="text" name="ProductSearch" class="form-control" placeholder="Search products">
+        </form>
+    </div>
+</div>
+
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-3 col-md-8 mb-3 padding-0">
+            <a href="/Products/ViewProduct?productId=@Html.DisplayFor(modelItem => item.ProductID)">
+                <div class="card h-100 card-product">
+                    @{
+                        var base64 = Convert.ToBase64String(item.ProductImage);
+                        var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                    }
+                    <div class="img-holder" style="height: 250px!important;">
+                        <img class="card-img-top m-auto" src="@imgSrc" alt="">
+                    </div>
+                    <h4 class="card-title">
+                        @Html.DisplayFor(modelItem => item.ProductName)
+                    </h4>
+                    <h5 class="product-price">
+                        ₱<span class="price">@Html.DisplayFor(modelItem => item.Price)</span>
+                    </h5>
+                </div>
+            </a>
+
+        </div>
+    }
+</div>

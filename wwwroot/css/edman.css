@@ -1,0 +1,252 @@
+/*body {*/
+/*    font-family: "Segoe UI", sans-serif;*/
+/*}*/
+
+.form-control, .btn, .card, .card-body, .card-footer, .card-img-top {
+    border-radius: 0!important;
+}
+
+.card-product:hover {
+    border-color: #e7e7e7;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 2px 5px rgba(200, 200, 200, 0.4);
+}
+.text-primary, a {
+    color: #F48024;;
+}
+
+.btn-primary {
+    background: #f48024;  
+    border-color: #f48024;
+    outline: 0!important;
+}
+
+.btn-primary:hover, .btn-primary:active, .btn-primary:focus{
+    border-color: #f48024!important;
+    background: #dd6f23!important;
+    outline: 0!important;
+    transition: all 0.2s ease;
+
+}
+
+.btn-primary:active {
+    box-shadow: 0 3px 10px #e7e7e7!important;
+    transform: translateY(-5px);
+    transition: all 0.2s ease;
+
+}
+
+a:hover {
+    color: #dd6f23;
+    text-decoration: none;
+}
+
+
+textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+.uneditable-input:focus {
+    border-color: rgba(244, 128, 36, 0.8);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(244, 128, 36, 0.2);
+    outline: 0 none;
+    transition: all 0.2s ease;
+}
+
+
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.uneditable-input {
+    transition: all 0.2s ease;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+#img-upload{
+    width: 100%;
+}
+
+.h2 {
+    font-weight: 500;
+    font-size: 24px;
+    padding-top: 1rem;
+    padding-bottom: 0.25rem;
+    margin: 0!important;
+}
+
+h4.card-title {
+    font-weight: 400!important;
+    color: #202020;
+    font-size: 16px;
+    margin-bottom: 0;
+    padding-bottom: 6px;
+    margin-top: 10px;
+}
+
+.product-price {
+    font-weight: 400!important;
+    font-size: 18px;
+    color: #f48024;;
+}
+.product-price-lg{
+    font-weight: 400!important;
+    font-size: 32px;
+   
+}
+
+.card-product {
+    padding: 0.8rem;
+    border-color: white;
+}
+
+.padding-0{
+    padding: 2px!important;
+}
+
+
+.side-image {
+    background-image: url("/images/work_cover.jpg");
+    background-size: cover;
+    background-position: -200px 0px;
+}
+
+.btn#logout {
+    text-decoration: none ! important;
+    padding: 0!important;
+}
+
+.dropdown-menu {
+    border-radius: 0!important;
+    margin-top: 9px;
+    border-top: 0;
+}
+
+#register_card {
+box-shadow: 0px 5px 20px rgba(102, 102, 102, 0.12);}
+
+.list-group-item {
+    padding: 0.5rem 1rem!important;
+}
+
+.list-group-item.active {
+    border-color: #f48024;
+    background: #f48024;
+}
+
+
+.dropdown-item:active {
+    background: #f48024;!important;
+    color: white!important;
+}
+
+
+
+.form-control, .btn{
+    font-size: 16px!important;
+    padding: 0.2rem 0.5rem!important;
+    height: auto!important;
+}
+
+label {
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.form-group {
+    margin-bottom: 8px;
+
+}
+
+.btn-link:active {
+    color: white!important;
+}
+
+
+.sidebar {
+    background: #fafafa;
+    box-shadow: 0 3px 25px rgba(50, 50, 50, 0.10);
+}
+
+.dropdown-menu {
+    border: 1px solid #e7e7e7!important;
+}
+
+#content-wrapper {
+    padding-left: 1rem;
+}
+
+.nav-link {
+    color: #0c0c0c;
+}
+
+.nav-link.active {
+    background: #343a40!important;
+    border-radius: 0!important;
+}
+.nav-link:hover{
+    color: #888;
+}
+
+.sidebar .nav-item .nav-link {
+    color: #202020!important;
+}
+
+.sidebar .nav-item .nav-link:hover {
+    color: #f48024!important;
+}
+
+.product-description {
+    font-size: 13px!important;
+}
+
+.product-name {
+    font-size: 34px;
+    font-weight: 300;
+}
+
+.form-group label{
+    font-weight: 500;
+    color: #343a40;
+}

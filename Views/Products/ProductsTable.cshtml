@@ -1,0 +1,41 @@
+@model IEnumerable<EdmanOnlineShop.Models.Product>
+
+@{
+    ViewData["Title"] = "Products Table";
+    Layout = "_DashboardLayout";
+}
+
+<div class="row mb-2">
+    <div class="col">
+        <h2 class="h2"> Products </h2>
+        <a class="btn btn-primary" href="/Products/Add"> Add Product </a>
+    </div>
+</div>
+
+
+        <table id="products_table" class="table table-bordere    d table-sm">    
+            <thead>
+            <tr>
+                <th scope="col">Product ID</th>
+                <th scope="col">Product Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Price</th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td > @Html.DisplayFor(modelItem => item.ProductID)</td>
+                    <td > @Html.DisplayFor(modelItem => item.ProductName)</td>
+                    <td > @Html.DisplayFor(modelItem => item.ProductDescription)</td>
+                    <td > @Html.DisplayFor(modelItem => item.Price)</td>
+                    <td> <a class="btn btn-dark btn-sm" asp-action="Edit" asp-route-productID="@item.ProductID"> Edit </a>
+                     <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-productID="@item.ProductID"> Delete </a>
+                        </td>
+                    
+                </tr>
+            }
+            </tbody>
+        </table>
