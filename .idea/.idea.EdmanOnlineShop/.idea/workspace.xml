@@ -1,23 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6bc8facf-1553-478b-b52c-b26f2a3c4b5a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Models/CartItemViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.EdmanOnlineShop/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EdmanOnlineShop/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.EdmanOnlineShop/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EdmanOnlineShop/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/EdmanOnlineShop/DesignTimeBuild/.dtbcache" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/EdmanOnlineShop/DesignTimeBuild/.dtbcache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/EdmanOnlineShop/v16/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/EdmanOnlineShop/v16/.suo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/EdmanOnlineShop/v16/Server/sqlite3/storage.ide" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/EdmanOnlineShop/v16/Server/sqlite3/storage.ide" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/CartController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/CartController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/DummyData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/DummyData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ViewModels/CartViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/CartViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/Cart/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Cart/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/Dashboard/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Dashboard/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/Products/ViewProduct.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Products/ViewProduct.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/Shared/_LoginPartial.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Shared/_LoginPartial.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wwwroot/css/edman.css" beforeDir="false" afterPath="$PROJECT_DIR$/wwwroot/css/edman.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wwwroot/js/site.js" beforeDir="false" afterPath="$PROJECT_DIR$/wwwroot/js/site.js" afterDir="false" />
-    </list>
+    <list default="true" id="6bc8facf-1553-478b-b52c-b26f2a3c4b5a" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,17 +78,19 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Views/Cart/Index.cshtml">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="321">
-                  <caret line="47" selection-start-line="47" selection-end-line="47" />
+                <state relative-caret-position="612">
+                  <caret line="59" column="34" lean-forward="true" selection-start-line="59" selection-start-column="34" selection-end-line="59" selection-end-column="34" />
                   <folding>
-                    <marker date="1559760665311" expanded="true" signature="48:108" ph="@..." />
-                    <marker date="1559760665311" expanded="true" signature="199:3322" ph="@..." />
-                    <marker date="1559760665311" expanded="true" signature="231:329" ph="{...}" />
-                    <marker date="1559760665311" expanded="true" signature="329:3322" ph="{...}" />
-                    <marker date="1559760665311" expanded="true" signature="430:3291" ph="{...}" />
-                    <marker date="1559760665311" expanded="true" signature="669:903" ph="@..." />
-                    <marker date="1559760665311" expanded="true" signature="3386:3886" ph="@..." />
-                    <marker date="1559760665311" expanded="true" signature="3418:3886" ph="{...}" />
+                    <element signature="n#style#0;n#input#0;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#button#0;n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                    <marker date="1559760777193" expanded="true" signature="48:108" ph="@..." />
+                    <marker date="1559760777193" expanded="true" signature="199:3358" ph="@..." />
+                    <marker date="1559760777193" expanded="true" signature="231:329" ph="{...}" />
+                    <marker date="1559760777193" expanded="true" signature="329:3358" ph="{...}" />
+                    <marker date="1559760777193" expanded="true" signature="430:3327" ph="{...}" />
+                    <marker date="1559760777193" expanded="true" signature="669:903" ph="@..." />
+                    <marker date="1559760777193" expanded="true" signature="3422:3922" ph="@..." />
+                    <marker date="1559760777193" expanded="true" signature="3454:3922" ph="{...}" />
                   </folding>
                 </state>
               </provider>
@@ -259,7 +245,7 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/wwwroot/css/edman.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="330">
+                <state relative-caret-position="639">
                   <caret line="318" column="29" selection-start-line="318" selection-start-column="29" selection-end-line="318" selection-end-column="29" />
                 </state>
               </provider>
@@ -631,12 +617,12 @@
       <workItem from="1559524345920" duration="3273000" />
       <workItem from="1559558102193" duration="39397000" />
       <workItem from="1559672606429" duration="3863000" />
-      <workItem from="1559679442205" duration="41037000" />
+      <workItem from="1559679442205" duration="41294000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="87570000" />
+    <option name="totallyTimeSpent" value="87827000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -656,7 +642,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32594937" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32594937" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.33016878" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1422,17 +1408,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Views/Cart/Index.cshtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="47" selection-start-line="47" selection-end-line="47" />
+        <state relative-caret-position="612">
+          <caret line="59" column="34" lean-forward="true" selection-start-line="59" selection-start-column="34" selection-end-line="59" selection-end-column="34" />
           <folding>
-            <marker date="1559760665311" expanded="true" signature="48:108" ph="@..." />
-            <marker date="1559760665311" expanded="true" signature="199:3322" ph="@..." />
-            <marker date="1559760665311" expanded="true" signature="231:329" ph="{...}" />
-            <marker date="1559760665311" expanded="true" signature="329:3322" ph="{...}" />
-            <marker date="1559760665311" expanded="true" signature="430:3291" ph="{...}" />
-            <marker date="1559760665311" expanded="true" signature="669:903" ph="@..." />
-            <marker date="1559760665311" expanded="true" signature="3386:3886" ph="@..." />
-            <marker date="1559760665311" expanded="true" signature="3418:3886" ph="{...}" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <marker date="1559760777193" expanded="true" signature="48:108" ph="@..." />
+            <marker date="1559760777193" expanded="true" signature="199:3358" ph="@..." />
+            <marker date="1559760777193" expanded="true" signature="231:329" ph="{...}" />
+            <marker date="1559760777193" expanded="true" signature="329:3358" ph="{...}" />
+            <marker date="1559760777193" expanded="true" signature="430:3327" ph="{...}" />
+            <marker date="1559760777193" expanded="true" signature="669:903" ph="@..." />
+            <marker date="1559760777193" expanded="true" signature="3422:3922" ph="@..." />
+            <marker date="1559760777193" expanded="true" signature="3454:3922" ph="{...}" />
           </folding>
         </state>
       </provider>
