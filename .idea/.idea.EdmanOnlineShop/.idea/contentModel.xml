@@ -6,6 +6,7 @@
     <e p="C:\Users\laure\.Rider2019.1\system\extResources" t="IncludeRecursive" />
     <e p="C:\Users\laure\.Rider2019.1\system\resharper-host\local\Transient\ReSharperHost\v191\SolutionCaches\_EdmanOnlineShop.-31651900.00" t="ExcludeRecursive" />
     <e p="C:\Users\laure\Desktop\EdmanOnlineShop" t="IncludeRecursive">
+      <e p=".gitignore" t="Include" />
       <e p="appsettings.Development.json" t="Include" />
       <e p="appsettings.json" t="Include" />
       <e p="Areas" t="Include">
