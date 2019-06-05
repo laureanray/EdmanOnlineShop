@@ -23,30 +23,36 @@
 
   <ItemGroup>
     <_ResolveComReferenceCache Remove="obj\Debug\netcoreapp2.2\EdmanOnlineShop.csproj.ResolveComReference.cache" />
+    <_ResolveComReferenceCache Remove="obj\Debug\netcoreapp2.2\EdmanOnlineShop.csproj.ResolveComReference.cache" />
   </ItemGroup>
 
 
   <ItemGroup>
+    <IntermediateAssembly Remove="obj\Debug\netcoreapp2.2\EdmanOnlineShop.dll" />
     <IntermediateAssembly Remove="obj\Debug\netcoreapp2.2\EdmanOnlineShop.dll" />
   </ItemGroup>
 
 
   <ItemGroup>
     <_DebugSymbolsIntermediatePath Remove="obj\Debug\netcoreapp2.2\EdmanOnlineShop.pdb" />
+    <_DebugSymbolsIntermediatePath Remove="obj\Debug\netcoreapp2.2\EdmanOnlineShop.pdb" />
   </ItemGroup>
 
 
   <ItemGroup>
+    <_DeploymentManifestEntryPoint Remove="obj\Debug\netcoreapp2.2\EdmanOnlineShop.dll" />
     <_DeploymentManifestEntryPoint Remove="obj\Debug\netcoreapp2.2\EdmanOnlineShop.dll" />
   </ItemGroup>
 
 
   <ItemGroup>
     <ApplicationManifest Remove="obj\Debug\netcoreapp2.2\EdmanOnlineShop.dll.manifest" />
+    <ApplicationManifest Remove="obj\Debug\netcoreapp2.2\EdmanOnlineShop.dll.manifest" />
   </ItemGroup>
 
 
   <ItemGroup>
+    <DeployManifest Remove="obj\Debug\netcoreapp2.2\EdmanOnlineShop.application" />
     <DeployManifest Remove="obj\Debug\netcoreapp2.2\EdmanOnlineShop.application" />
   </ItemGroup>
 
