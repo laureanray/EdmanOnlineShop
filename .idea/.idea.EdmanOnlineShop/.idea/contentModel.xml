@@ -137,6 +137,7 @@
         <e p="ApplicationRole.cs" t="Include" />
         <e p="ApplicationUser.cs" t="Include" />
         <e p="CartItem.cs" t="Include" />
+        <e p="CartItemViewModel.cs" t="Include" />
         <e p="Category.cs" t="Include" />
         <e p="ErrorViewModel.cs" t="Include" />
         <e p="Inventory.cs" t="Include" />

@@ -1,12 +1,27 @@
+using System.Collections.Generic;
+
 namespace EdmanOnlineShop.ViewModels
 {
     public class CartViewModel
     {
-        public int ProductID { get; set; }
-        public string ProductName { get; set; }
-        public string ProductDescription { get; set; }
-        public int CartViewID { get; set; }
-        public int Quantity { get; set; }
-        public decimal ProductPrice { get; set; }
+        public List<CartItemViewModel> CartItems { get; set; }
+
+        public decimal Total
+        {
+            get
+            {
+                decimal total = 0;
+                foreach (var ci in CartItems)
+                {
+                    for (int i = 0; i < ci.Quantity; i++)
+                    {
+                        total += ci.Price;
+                    }
+                }
+
+                return total;
+            }
+            
+        }
     }
 }

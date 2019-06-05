@@ -1,10 +1,83 @@
-@* @model IEnumerable<EdmanOnlineShop.Models.CartItem> *@
-@* @{ *@
-@*     ViewBag.Title = "Category"; *@
-@*     Layout = "_DashboardLayout"; *@
-@* } *@
-@* *@
-@* @foreach (var item in Model) *@
-@* { *@
-@*     <p> @Html.DisplayFor(item.)</p> *@
-@* } *@
+@model EdmanOnlineShop.ViewModels.CartViewModel
+@{
+    ViewBag.Title = "Category";
+    Layout = "_Layout";
+}
+
+
+<div class="wrapper">
+    <div class="row">
+        <div class="col-8">
+                @if (Model.CartItems.Count == 0)
+                {
+                    <h1 class="display-4"> Empty Cart :(</h1>
+                }
+                else{
+                
+                    foreach (var cartItem in Model.CartItems)
+            {
+                <div class="card mb-1">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-2 p-0 pr-2 pl-2 m-0">
+                                @{
+                                    var base64 = Convert.ToBase64String(@cartItem.ProductImage);
+                                    var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                                }
+                                <img src="@imgSrc" class="img-fluid" alt=""/>
+                            </div>
+                            <div class="col-10 p-0 m-0">
+                                <h4 class="product-name-h4"> @Html.DisplayFor(modelItem => cartItem.ProductName)</h4>
+
+                                <div class="row mr-4">
+                                    <div class="col-7">
+                                        <p class="product-price-cart">
+                                            ₱
+                                            <span class="price">
+                                                @Html.DisplayFor(modelItem => cartItem.Price)</span>
+                                        </p>
+                                    </div>
+                                    <div class="col-5">
+                                        <label for=""> Quantity</label>
+
+                                        <div class="form-row">
+                                            <form class="form-inline" asp-action="UpdateQuantity" asp-route-productId="@cartItem.ProductID">
+                                                <div class="col p-0 m-0">
+                                                    <input type="number" class="form-control" style="width: 60px!important;" name="quantity" id="quantity" value="@cartItem.Quantity"/>
+                                                </div>
+                                                <div class="col p-0 m-0">
+                                                    <input type="submit"  class="btn btn-dark btn-block" value="Update"/>
+                                                </div>
+                                            </form>
+                                            <div class="col p-0 m-0">
+                                                <form asp-action="DeleteFromCart" asp-route-productId="@cartItem.ProductID">
+                                                    <button class="btn btn-danger btn-block" style="width: 70px!important;" > Delete </button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        
+                    }   
+             </div>
+        <div class="col-4">
+            @if (Model.CartItems.Count != 0)
+            {
+                <form >
+                    <h6> Order Summary </h6>
+                    <p class="text-muted"> Total Ammount Due:  </p>
+                    <h5 >          ₱<span class="price">@Model.Total </span></h5>
+                    <button class="btn btn-primary btn-lg">
+                        <i class="fas fa-fw fa-cart-plus"></i>
+                        Proceed To Checkout
+                    </button>
+                </form>
+            }
+        </div>
+    </div>
+</div>

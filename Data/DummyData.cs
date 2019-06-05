@@ -374,29 +374,7 @@ namespace EdmanOnlineShop.Data
             {
                 context.Categories.Add(ct);
             }
-            context.SaveChanges();
-
-            var cartItems = new CartItem[]
-            {
-                new CartItem
-                {
-                    Quantity = 25,
-                    ProductID = 1,
-                    UserID = "d80a10c6-bc9f-4553-8096-9914b3d414bb"
-                },
-                new CartItem
-                {
-                    Quantity = 12,
-                    ProductID = 2,
-                    UserID = "d80a10c6-bc9f-4553-8096-9914b3d414bb"
-                }
-            };
-
-            foreach (var cartItem in cartItems)
-            {
-                context.CartItems.Add(cartItem);
-            }
-            
+       
             context.SaveChanges();
 
         }

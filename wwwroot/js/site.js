@@ -64,6 +64,8 @@ $(document).ready( function() {
         $(this).html(new_price);
     });
     
+    
+    
     $(".product-name-card").each(function(){
         $clamp(this, {clamp: 2} );
     });

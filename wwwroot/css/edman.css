@@ -314,3 +314,13 @@ select[name='products_table_length'], select[name='categories_table_length']{
 #products_table, #categories_table {
     display: none;
 }
+
+.product-price-cart {
+    color: #f48024!important;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.product-name-h4 {
+    font-size: 24px;
+}
