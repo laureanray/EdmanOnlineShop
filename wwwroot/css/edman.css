@@ -310,3 +310,7 @@ select[name='products_table_length'], select[name='categories_table_length']{
     max-height: 25px;
     max-width: 160px;
 }
+
+#products_table, #categories_table {
+    display: none;
+}

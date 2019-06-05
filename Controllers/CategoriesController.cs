@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Mime;
@@ -107,6 +108,26 @@ namespace EdmanOnlineShop.Controllers
             {
                 try
                 {
+                    Category check =
+                        await _context.Categories.SingleOrDefaultAsync(ct => ct.CategoryName == model.CategoryName);
+                    
+                    var categories = await _context.Categories.ToListAsync();
+                    model.Categories = new List<Category>();
+
+                    if (categories != null)
+                    {
+                        foreach (var cat in categories)
+                        {
+                            model.Categories.Add(cat);
+                        }
+                    }
+
+                    if (check != null)
+                    {
+                        ModelState.AddModelError(string.Empty, "This category already exists");
+
+                        return View("Index", model);
+                    }
                     var category = new Category
                     {
                         CategoryName = model.CategoryName

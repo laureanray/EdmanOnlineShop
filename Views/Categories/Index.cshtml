@@ -13,9 +13,12 @@
             <div class="form-row">
                 <div class="col">
                     <input type="text" class="form-control" asp-for="CategoryName">
+                                                            <span asp-validation-for="CategoryName" class="text-danger"></span>
+
                 </div>
                 <div class="col">
                     <input type="submit"  class="btn btn-primary" value="Add New Category">
+
                 </div>
             </div>
         </form>

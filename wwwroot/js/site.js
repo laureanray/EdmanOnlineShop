@@ -38,6 +38,7 @@ $(document).ready( function() {
         readURL(this);
     });
     
+    
     try {
         $("#products_table").DataTable({
             columnDefs: [ {
@@ -50,6 +51,9 @@ $(document).ready( function() {
             } ]
         });
         $("#categories_table").DataTable();
+        
+        $("#categories_table").show();
+        $("#products_table").show();
     }catch(err){
         console.log('not datatable');
     }
