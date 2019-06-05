@@ -282,7 +282,8 @@ namespace EdmanOnlineShop.Data
                     Price = (decimal) 45500.00,
                     ProductDescription = "The Bosch line of cordless tools uses the industry's most advanced Lithium-ion technology for greater battery life and more run time, all in a lighter package. The lightweight design of the PS130 12V Max hammer drill/driver is ideal for easy handling in overhead operations and tight spaces and lets users tackle professional jobs with ease. The Bosch PS41 12V Max impact driver offers the precision of variable speed, a light body and a short head length.",
                     ProductName = "12V Max 2-Tool Combo Kit with 3/8 In. Hammer Drill/Driver and Impact Driver",
-                    ProductImage = sampleImage1
+                    ProductImage = sampleImage1,
+                    CategoryID = 1
                 },
                 new Product
                 {
@@ -290,8 +291,8 @@ namespace EdmanOnlineShop.Data
                     Price = (decimal) 52132.00,
                     ProductDescription = "The Bosch GKT13-225 Track Saw with Plunge Action delivers precision and power, ideal for making table-saw quality cuts to wood and wood-based sheet goods such as laminated particle boards and plywood. The track-guidance system provides exact adjustments for precision end-to-end cuts and plunge cuts. The saw and track combination makes it a more easily transportable alternative to a table saw. The precision of the track saw and blade combine with the optional Bosch tracks (sold separately) to deliver a straight fast finish cuts. The saw is engineered to fit precisely to the tracks. The saw includes constant electronics to help maintain speed under load. The saw also features a spindle lock, a swiveling hose port and a lock-off mechanism. It features overload protection. It has a single pivot point for both bevel and non-bevel cuts, from -1° (for slight undercuts) to +47° cuts. It allows for efficient dust extraction when connected to a suitable vacuum cleaner. The GKT13-225L Kit includes a 48-tooth 6-1/2 In. track saw blade, blade-change wrench, and an L-Boxx case. Bosch offers a full range of optional attachments, including four different track lengths, connector for connecting multiple tracks, an angle guide and a rip fence.",
                     ProductName = "6-1/2 In. Track Saw with Plunge Action and L-Boxx Carrying Case",
-                    ProductImage = sampleImage2
-
+                    ProductImage = sampleImage2,
+                    CategoryID = 1
                 }
             };
 
@@ -302,6 +303,31 @@ namespace EdmanOnlineShop.Data
 
             context.SaveChanges();
 
+            var inventories = new Inventory[]
+            {
+                new Inventory
+                {
+                    ProductID = 1,
+                    Quantity = 100,
+                    CriticalLevel = 10,
+                    InventoryDate = DateTime.Now
+                },
+                new Inventory
+                {
+                    ProductID = 2,
+                    Quantity = 100,
+                    CriticalLevel = 10,
+                    InventoryDate = DateTime.Now
+                }
+            };
+
+            foreach (Inventory iv in inventories)
+            {
+                context.Inventories.Add(iv);
+            }
+            
+            context.SaveChanges();
+            
             var requests = new Request[]
             {
                 new Request

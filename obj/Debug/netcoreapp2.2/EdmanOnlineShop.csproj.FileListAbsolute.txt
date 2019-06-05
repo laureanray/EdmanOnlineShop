@@ -71,4 +71,8 @@ C:\Users\laure\Desktop\EdmanOnlineShop\obj\Debug\netcoreapp2.2\Razor\Views\Share
 C:\Users\laure\Desktop\EdmanOnlineShop\obj\Debug\netcoreapp2.2\Razor\Views\Products\Add.g.cshtml.cs
 C:\Users\laure\Desktop\EdmanOnlineShop\obj\Debug\netcoreapp2.2\Razor\Views\Products\Edit.g.cshtml.cs
 C:\Users\laure\Desktop\EdmanOnlineShop\obj\Debug\netcoreapp2.2\Razor\Views\Categories\Index.g.cshtml.cs
-C:\Users\laure\Desktop\EdmanOnlineShop\obj\Debug\netcoreapp2.2\Razor\Views\Products\Delete.g.cshtml.cs
+C:\Users\laure\Desktop\EdmanOnlineShop\obj\Debug\netcoreapp2.2\Razor\Views\Inventories\Index.g.cshtml.cs
+C:\Users\laure\Desktop\EdmanOnlineShop\obj\Debug\netcoreapp2.2\Razor\Views\Products\Archive.g.cshtml.cs
+C:\Users\laure\Desktop\EdmanOnlineShop\obj\Debug\netcoreapp2.2\Razor\Views\Products\Archived.g.cshtml.cs
+C:\Users\laure\Desktop\EdmanOnlineShop\obj\Debug\netcoreapp2.2\Razor\Views\Products\Restore.g.cshtml.cs
+C:\Users\laure\Desktop\EdmanOnlineShop\obj\Debug\netcoreapp2.2\Razor\Views\Categories\Edit.g.cshtml.cs

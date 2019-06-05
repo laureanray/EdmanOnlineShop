@@ -11,14 +11,13 @@
 
         </li>
         @if (User.IsInRole("Customer"))
-        {
-            <li class="nav-item">
-                <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new {area = ""})">
-                    <button type="submit" class="nav-link btn btn-link text-dark">My Cart <span class="badge badge-primary">0 items in cart</span></button>
-                </form>
-            </li>
-        }
-            <li class="nav-item">
+         {
+             <li class="nav-item">
+                 <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">                         <i class="fas fa-fw fa-shopping-cart"></i>
+ My Cart</a>
+             </li>
+         }
+        <li class="nav-item">
             <div class="dropdown">
                 <a href="javascript:void(0);" class="nav-link dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     @UserManager.FindByNameAsync(User.Identity.Name).Result.FirstName
@@ -26,13 +25,13 @@
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
                     <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Manage Account</a>
-                    
+
                     @if (!User.IsInRole("Customer"))
                     {
                         <a class="dropdown-item" href="/Dashboard">Dashboard</a>
                     }
-                 
-                    
+
+
                     <form class="dropdown-item" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new {area = ""})">
                         <button type="submit" class="btn btn-link text-dark" id="logout">Logout</button>
                     </form>

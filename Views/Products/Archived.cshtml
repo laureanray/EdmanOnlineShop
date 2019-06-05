@@ -5,15 +5,9 @@
     Layout = "_DashboardLayout";
 }
 
-<div class="row mb-2">
-    <div class="col">
-        <h2 class="h2"> Products </h2>
-        <a class="btn btn-primary" href="/Products/Add"> Add Product </a>
-    </div>
-</div>
 
 
-        <table id="products_table" class="table table-bordered table-sm">    
+        <table id="products_table" class="table table-bordere    d table-sm">    
             <thead>
             <tr>
                 <th scope="col">Product ID</th>
@@ -31,8 +25,8 @@
                     <td > @Html.DisplayFor(modelItem => item.ProductName)</td>
                     <td > @Html.DisplayFor(modelItem => item.ProductDescription)</td>
                     <td > @Html.DisplayFor(modelItem => item.Price)</td>
-                    <td> <a class="btn btn-dark btn-sm" asp-action="Edit" asp-route-productID="@item.ProductID"> Edit </a>
-                     <a class="btn btn-danger btn-sm" asp-action="Archive" asp-route-productID="@item.ProductID"> Archive </a>
+                    <td> 
+                     <a class="btn btn-danger btn-sm" asp-action="Restore" asp-route-productID="@item.ProductID"> Restore </a>
                         </td>
                     
                 </tr>

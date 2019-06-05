@@ -85,6 +85,7 @@
         <e p="CategoriesController.cs" t="Include" />
         <e p="DashboardController.cs" t="Include" />
         <e p="HomeController.cs" t="Include" />
+        <e p="InventoriesController.cs" t="Include" />
         <e p="ProductsController.cs" t="Include" />
       </e>
       <e p="Data" t="Include">
@@ -119,6 +120,10 @@
           <e p="20190604140013_AAsdasd.Designer.cs" t="Include" />
           <e p="20190604143637_newmigrationddeleteotherfields.cs" t="Include" />
           <e p="20190604143637_newmigrationddeleteotherfields.Designer.cs" t="Include" />
+          <e p="20190605072419_Inventory.cs" t="Include" />
+          <e p="20190605072419_Inventory.Designer.cs" t="Include" />
+          <e p="20190605083608_ModifiedPorducts.cs" t="Include" />
+          <e p="20190605083608_ModifiedPorducts.Designer.cs" t="Include" />
           <e p="ApplicationDbContextModelSnapshot.cs" t="Include" />
         </e>
       </e>
@@ -129,6 +134,7 @@
         <e p="ApplicationUser.cs" t="Include" />
         <e p="Category.cs" t="Include" />
         <e p="ErrorViewModel.cs" t="Include" />
+        <e p="Inventory.cs" t="Include" />
         <e p="Order.cs" t="Include" />
         <e p="Product.cs" t="Include" />
         <e p="Request.cs" t="Include" />
@@ -149,13 +155,16 @@
       <e p="Startup.cs" t="Include" />
       <e p="ViewModels" t="Include">
         <e p="AddProductViewModel.cs" t="Include" />
-        <e p="DeleteProductViewModel.cs" t="Include" />
+        <e p="ArchiveProductViewModel.cs" t="Include" />
+        <e p="CategoryViewModel.cs" t="Include" />
         <e p="EditProductViewModel.cs" t="Include" />
+        <e p="IndexInventoryViewModel.cs" t="Include" />
       </e>
       <e p="Views" t="Include">
         <e p="_ViewImports.cshtml" t="Include" />
         <e p="_ViewStart.cshtml" t="Include" />
         <e p="Categories" t="Include">
+          <e p="Edit.cshtml" t="Include" />
           <e p="Index.cshtml" t="Include" />
         </e>
         <e p="Dashboard" t="Include">
@@ -165,12 +174,17 @@
           <e p="Index.cshtml" t="Include" />
           <e p="Privacy.cshtml" t="Include" />
         </e>
+        <e p="Inventories" t="Include">
+          <e p="Index.cshtml" t="Include" />
+        </e>
         <e p="Products" t="Include">
           <e p="Add.cshtml" t="Include" />
-          <e p="Delete.cshtml" t="Include" />
+          <e p="Archive.cshtml" t="Include" />
+          <e p="Archived.cshtml" t="Include" />
           <e p="Edit.cshtml" t="Include" />
           <e p="Index.cshtml" t="Include" />
           <e p="ProductsTable.cshtml" t="Include" />
+          <e p="Restore.cshtml" t="Include" />
           <e p="ViewProduct.cshtml" t="Include" />
         </e>
         <e p="Shared" t="Include">
@@ -281,6 +295,8 @@
             </e>
             <e p="LICENSE" t="Include" />
           </e>
+          <e p="clamp.min.js" t="Include" />
+          <e p="GLI18V1200Cdyn.png" t="Include" />
           <e p="jquery" t="Include">
             <e p="dist" t="Include">
               <e p="jquery.js" t="Include" />

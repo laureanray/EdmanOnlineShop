@@ -1,0 +1,25 @@
+@model EdmanOnlineShop.ViewModels.CategoryViewModel
+@{
+    ViewBag.Title = "Edit Category";
+    Layout = "_DashboardLayout";
+}
+
+
+<h2 class="h2"> Update Category </h2>
+<div class="card text-left mx-auto mt-4 mb-4" style="width: 100%;">
+    <div class="card-body">
+        <h4> Update </h4>
+        <label for="">New Category Name</label>
+        <form asp-action="Edit">
+            <div class="form-row">
+                <div class="col">
+                    <input type="text" class="form-control" asp-for="CategoryName">
+
+                </div>
+                <div class="col">
+                    <input type="submit" asp-controller="@Model.CategoryID" class="btn btn-primary" value="Apply Changes">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

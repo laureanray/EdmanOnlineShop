@@ -18,5 +18,7 @@ namespace EdmanOnlineShop.Data
         public DbSet<Order> Orders { get; set; }
         public DbSet<Request> Requests { get; set; }
         public DbSet<Category> Categories { get; set; }
+
+        public DbSet<Inventory> Inventories { get; set; }
     }
 }

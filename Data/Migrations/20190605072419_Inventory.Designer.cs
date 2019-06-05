@@ -4,14 +4,16 @@ using EdmanOnlineShop.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EdmanOnlineShop.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190605072419_Inventory")]
+    partial class Inventory
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -177,8 +179,6 @@ namespace EdmanOnlineShop.Data.Migrations
                     b.Property<DateTime>("DateAdded");
 
                     b.Property<DateTime?>("DateModified");
-
-                    b.Property<bool>("IsArchived");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");

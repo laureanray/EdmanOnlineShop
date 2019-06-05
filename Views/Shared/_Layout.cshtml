@@ -15,6 +15,8 @@
               crossorigin="anonymous"
               integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"/>
     </environment>
+        <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
     <link rel="stylesheet" href="~/css/site.css"/>
     <link rel="stylesheet" href="~/css/edman.css">
     <link rel="stylesheet" href="~/css/datatables.min.css"/>
@@ -25,7 +27,7 @@
 <body>
 <header>
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-        <div class="container">
+        <div class="container-fluid" style="width:90%!important; margin: auto!important;">
             <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
                 <img src="/images/brand.png" height="30" alt=""> | Edman Online Shop
             </a>
@@ -50,7 +52,7 @@
         </div>
     </nav>
 </header>
-<div class="container">
+<div class="container-fluid" style="width:90%!important; margin: auto;">
     <partial name="_CookieConsentPartial"/>
     <main role="main" class="pb-3">
         @RenderBody()
@@ -58,10 +60,11 @@
 </div>
 
 <footer class="border-top footer text-muted bg-light">
-    <div class="container">
+    <div class="container-fluid">
         &copy; 2019 - Edman Online Shop - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
     </div>
 </footer>
+        <script src="~/lib/clamp.min.js"></script>
 
 <environment include="Development">
     <script src="~/lib/jquery/dist/jquery.js"></script>

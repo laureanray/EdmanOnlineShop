@@ -24,5 +24,7 @@ namespace EdmanOnlineShop.Models
         [Range(0, 110, ErrorMessage = "<Categoasdry type is required.")]
         [Required(ErrorMessage = "Category type is required. ")]
         public int CategoryID { get; set; }
+        
+        public bool IsArchived { get; set; }
     }
 }

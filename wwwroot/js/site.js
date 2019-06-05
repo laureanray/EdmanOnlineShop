@@ -38,12 +38,35 @@ $(document).ready( function() {
         readURL(this);
     });
     
-    $("#products_table").DataTable();
+    try {
+        $("#products_table").DataTable({
+            columnDefs: [ {
+                targets: [1,2],
+                render: function ( data, type, row ) {
+                    return type === 'display' && data.length > 40 ?
+                        data.substr( 0, 40 ) +'…' :
+                        data;
+                }
+            } ]
+        });
+        $("#categories_table").DataTable();
+    }catch(err){
+        console.log('not datatable');
+    }
+    
     $('.price').each(function(){
         var price = $(this).html().trim();
         var new_price = formatMoney(price);
         $(this).html(new_price);
-    })
+    });
+    
+    $(".product-name-card").each(function(){
+        $clamp(this, {clamp: 2} );
+    });
+
+    $(".card-product").show();
+
+
     // $(".product-price").html(formatMoney($(".product-price").html()));
 });
 

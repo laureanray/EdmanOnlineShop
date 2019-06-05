@@ -25,12 +25,17 @@ namespace EdmanOnlineShop.Controllers
 
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Products.ToListAsync());
+            return View(await _context.Products.Where(pd => pd.IsArchived == false).ToListAsync());
         }
         [Authorize(Roles = "Admin, SalesClerk")]
         public async Task<IActionResult> ProductsTable()
         {
-            return View(await _context.Products.ToListAsync());
+            return View(await _context.Products.Where(pd => pd.IsArchived == false).ToListAsync());
+        }
+        
+        public async Task<IActionResult> Archived()
+        {
+            return View(await _context.Products.Where(pd => pd.IsArchived == true).ToListAsync());
         }
     
         public async Task<IActionResult> ViewProduct(int productId)
@@ -48,7 +53,7 @@ namespace EdmanOnlineShop.Controllers
         }
         
         [HttpGet]
-        public async Task<IActionResult> Delete(int? productId)
+        public async Task<IActionResult> Archive(int? productId)
         {
             if (productId == null)
             {
@@ -62,38 +67,103 @@ namespace EdmanOnlineShop.Controllers
                 return NotFound();
             }
             
-            DeleteProductViewModel vm = new DeleteProductViewModel();
+            ArchiveProductViewModel vm = new ArchiveProductViewModel();
             vm.ProductName = product.ProductName;
             vm.ProductID = product.ProductID;
+            vm.ProductDescription = product.ProductDescription;
 
 
             return View(vm);
         }
 
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("Archive")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> ArchiveConfirmed(int id)
         {
-            var product = await _context.Products.FindAsync(id);
-            if (product == null)
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var product = await _context.Products.FirstOrDefaultAsync(pd => pd.ProductID == id);
+                    if (product != null)
+                    {
+                        product.IsArchived = true;
+                        _context.Entry(product).State = EntityState.Modified;
+                        await _context.SaveChangesAsync();
+                        return RedirectToAction(nameof(ProductsTable));
+                    }
+                    return NotFound();
+                }
+                catch (DbUpdateException)
+                {
+                    ModelState.AddModelError("", "Unable to save changes. " +
+                                                 "Try again, and if the problem persists, " +
+                                                 "see your system administrator.");
+                    return RedirectToAction(nameof(ProductsTable));
+
+                }
+            }
+
+            return NotFound();
+        }
+        
+        [HttpGet]
+        public async Task<IActionResult> Restore(int? productId)
+        {
+            if (productId == null)
             {
                 return NotFound();
             }
 
-            try
-            {
-                _context.Products.Remove(product);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(ProductsTable));
+            var product = await _context.Products.AsNoTracking().FirstOrDefaultAsync(p => p.ProductID == productId);
 
-            }
-            catch (DbUpdateException)
+            if (product == null)
             {
-                return RedirectToAction(nameof(Delete), new { id = id, saveChangesError = true });
-
+                return NotFound();
             }
+            
+            ArchiveProductViewModel vm = new ArchiveProductViewModel();
+            vm.ProductName = product.ProductName;
+            vm.ProductID = product.ProductID;
+            vm.ProductDescription = product.ProductDescription;
+
+
+            return View(vm);
         }
         
+        
+        [HttpPost, ActionName("Restore")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> RestoreConfirm(int id)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var product = await _context.Products.FirstOrDefaultAsync(pd => pd.ProductID == id);
+                    if (product != null)
+                    {
+                        product.IsArchived = false;
+                        _context.Entry(product).State = EntityState.Modified;
+                        await _context.SaveChangesAsync();
+                        return RedirectToAction(nameof(Archived));
+                    }
+                    return NotFound();
+                }
+                catch (DbUpdateException)
+                {
+                    ModelState.AddModelError("", "Unable to save changes. " +
+                                                 "Try again, and if the problem persists, " +
+                                                 "see your system administrator.");
+                    return RedirectToAction(nameof(Archived));
+
+                }
+            }
+
+            return NotFound();
+        }
+
+
         [HttpGet]
         public async Task<IActionResult> Edit(int? productId)    
         {

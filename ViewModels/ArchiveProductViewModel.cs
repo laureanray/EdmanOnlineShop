@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace EdmanOnlineShop.ViewModels
 {
-    public class DeleteProductViewModel
+    public class ArchiveProductViewModel
     {
         public int ProductID { get; set; }
         public List<Category> Categories { get; set;} = new List<Category>();
@@ -23,5 +23,7 @@ namespace EdmanOnlineShop.ViewModels
         [Range(0, 110, ErrorMessage = "Category type is required.")]
         [Required(ErrorMessage = "Category type is required. ")]
         public int CategoryID { get; set; }
+        
+        public bool IsArchived { get; set; }
     }
 }

@@ -1,41 +1,45 @@
-@* *@
-@* @{ *@
-@*     ViewBag.Title = "Index"; *@
-@*     Layout = "_DashboardLayout"; *@
-@* } *@
-@* *@
-@* *@
-@* <div class="row mb-2"> *@
-@*     <div class="col"> *@
-@*         <h2 class="h2"> Categories </h2> *@
-@*         <a class="btn btn-primary" href="/Products/Add"> Add Product </a> *@
-@*     </div> *@
-@* </div> *@
-@* *@
-@* *@
-@* <table id="products_table" class="table table-bordere    d table-sm">     *@
-@*     <thead> *@
-@*     <tr> *@
-@*         <th scope="col">Product ID</th> *@
-@*         <th scope="col">Product Name</th> *@
-@*         <th scope="col">Description</th> *@
-@*         <th scope="col">Price</th> *@
-@*         <th scope="col"></th> *@
-@*     </tr> *@
-@*     </thead> *@
-@*     <tbody> *@
-@*     @foreach (var item in Model) *@
-@*     { *@
-@*         <tr> *@
-@*             <td > @Html.DisplayFor(modelItem => item.ProductID)</td> *@
-@*             <td > @Html.DisplayFor(modelItem => item.ProductName)</td> *@
-@*             <td > @Html.DisplayFor(modelItem => item.ProductDescription)</td> *@
-@*             <td > @Html.DisplayFor(modelItem => item.Price)</td> *@
-@*             <td> <a class="btn btn-dark btn-sm" asp-action="Edit" asp-route-productID="@item.ProductID"> Edit </a> *@
-@*                 <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-productID="@item.ProductID"> Delete </a> *@
-@*             </td> *@
-@*                      *@
-@*         </tr> *@
-@*     } *@
-@*     </tbody> *@
-@* </table> *@
+@model EdmanOnlineShop.ViewModels.CategoryViewModel
+@{
+    ViewBag.Title = "Category";
+    Layout = "_DashboardLayout";
+}
+
+<h2 class="h2"> Categories </h2>
+<div class="card text-left mx-auto mt-4 mb-4" style="width: 100%;">
+    <div class="card-body">
+        <h4> Add New Category </h4>
+        <label for="">New Category Name</label>
+        <form asp-action="Add">
+            <div class="form-row">
+                <div class="col">
+                    <input type="text" class="form-control" asp-for="CategoryName">
+                </div>
+                <div class="col">
+                    <input type="submit"  class="btn btn-primary" value="Add New Category">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<table id="categories_table" class="table table-bordered table-sm">
+    <thead>
+    <tr>
+        <th scope="col">Product ID</th>
+        <th scope="col">Product Name</th>
+        <th scope="col">Edit</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var category in Model.Categories)
+    {
+        <tr>
+            <td > @Html.DisplayFor(modelItem => category.CategoryID)</td>
+            <td > @Html.DisplayFor(modelItem => category.CategoryName)</td>
+            <td>
+                <a class="btn btn-primary " asp-action="Edit" asp-route-id="@category.CategoryID"> Edit </a>
+            </td>
+
+        </tr>
+    }
+    </tbody>
+</table>

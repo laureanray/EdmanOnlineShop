@@ -1,0 +1,37 @@
+@model IEnumerable<EdmanOnlineShop.ViewModels.IndexInventoryViewModel>;
+
+@{
+    ViewData["Title"] = "Products Table";
+    Layout = "_DashboardLayout";
+}
+
+<div class="row mb-2">
+    <div class="col">
+        <h2 class="h2"> Inventory </h2>
+    </div>
+</div>
+
+         <table id="products_table" class="table  table-sm">
+             <thead>
+             <tr>
+                 <th scope="col">ID</th>
+                 <th scope="col">Product Name</th>
+                 <th scope="col">Quantity</th>
+                 <th scope="col">Critical</th>
+                 <th scope="col">Restock</th>
+             </tr>
+             </thead>
+             <tbody>
+              @foreach (var item in Model)
+              {
+                  <tr>
+                      <td > @Html.DisplayFor(modelItem => item.InventoryID)</td>
+                      <td > @Html.DisplayFor(modelItem => item.ProductName)</td>
+                      <td > @Html.DisplayFor(modelItem => item.Quantity)</td>
+                      <td > @Html.DisplayFor(modelItem => item.Crtitical)</td>
+                      <td> <a class="btn btn-primary text-light"> Restock</a>
+                          </td>
+                  </tr>
+              }
+             </tbody>
+         </table>
