@@ -2,38 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6bc8facf-1553-478b-b52c-b26f2a3c4b5a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Controllers/CartController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/CartItem.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViewModels/CartViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views/Cart/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.EdmanOnlineShop/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EdmanOnlineShop/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.EdmanOnlineShop/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EdmanOnlineShop/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/CategoriesController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/CategoriesController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/ApplicationDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/ApplicationDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/DummyData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/DummyData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Migrations/ApplicationDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Migrations/ApplicationDbContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/Product.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Product.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/Categories/Edit.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Categories/Edit.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/Categories/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Categories/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/Products/Add.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Products/Add.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/Shared/_DashboardLayout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Shared/_DashboardLayout.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp2.2/EdmanOnlineShop.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp2.2/EdmanOnlineShop.Views.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp2.2/EdmanOnlineShop.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp2.2/EdmanOnlineShop.Views.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp2.2/EdmanOnlineShop.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp2.2/EdmanOnlineShop.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp2.2/EdmanOnlineShop.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp2.2/EdmanOnlineShop.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/EdmanOnlineShop.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/EdmanOnlineShop.Views.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/EdmanOnlineShop.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/EdmanOnlineShop.Views.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/EdmanOnlineShop.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/EdmanOnlineShop.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/EdmanOnlineShop.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/EdmanOnlineShop.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/EdmanOnlineShop.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/EdmanOnlineShop.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/EdmanOnlineShop.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/EdmanOnlineShop.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/Razor/Views/Categories/Edit.g.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/Razor/Views/Categories/Edit.g.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/Razor/Views/Categories/Index.g.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/Razor/Views/Categories/Index.g.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/Razor/Views/Products/Add.g.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/Razor/Views/Products/Add.g.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/Razor/Views/Products/Archived.g.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/Razor/Views/Products/Archived.g.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/Razor/Views/Shared/_DashboardLayout.g.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/Razor/Views/Shared/_DashboardLayout.g.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wwwroot/css/edman.css" beforeDir="false" afterPath="$PROJECT_DIR$/wwwroot/css/edman.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wwwroot/js/site.js" beforeDir="false" afterPath="$PROJECT_DIR$/wwwroot/js/site.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -142,20 +111,19 @@
         <entry file="file://$PROJECT_DIR$/Views/Cart/Index.cshtml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="171">
-              <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+              <caret line="9" column="4" selection-end-line="9" selection-end-column="4" />
               <folding>
-                <marker date="1559740495173" expanded="true" signature="123:191" ph="@..." />
-                <marker date="1559740495173" expanded="true" signature="151:191" ph="{...}" />
+                <marker date="1559741882300" expanded="true" signature="0:250" ph="@*...*@" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ViewModels/CartViewModel.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="8" column="41" lean-forward="true" selection-start-line="1" selection-start-column="1" selection-end-line="8" selection-end-column="41" />
+            <state relative-caret-position="209">
+              <caret line="11" column="1" lean-forward="true" selection-end-line="11" selection-end-column="1" />
               <folding>
                 <marker date="1559740493550" expanded="true" signature="36:365" ph="{...}" />
                 <marker date="1559740493550" expanded="true" signature="69:363" ph="{...}" />
@@ -198,27 +166,22 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Controllers/CartController.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="22" column="15" lean-forward="true" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="15" />
+            <state relative-caret-position="475">
+              <caret line="25" column="3" selection-end-line="25" selection-end-column="3" />
               <folding>
-                <marker date="1559739920695" expanded="true" signature="6:126" ph="..." />
-                <marker date="1559739920695" expanded="true" signature="199:578" ph="{...}" />
-                <marker date="1559739920695" expanded="true" signature="322:374" ph="{...}" />
-                <marker date="1559739920695" expanded="true" signature="423:576" ph="{...}" />
-                <marker date="1559739920695" expanded="true" signature="528:570" ph="{...}" />
+                <marker date="1559741890810" expanded="true" signature="0:630" ph="/* using System.Threading.Tasks; ... */" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Models/Category.cs">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Views/Home/Index.cshtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
+            <state relative-caret-position="196">
+              <caret line="48" column="42" selection-start-line="48" selection-start-column="42" selection-end-line="48" selection-end-column="42" />
               <folding>
-                <marker date="1559727337096" expanded="true" signature="32:168" ph="{...}" />
-                <marker date="1559727337096" expanded="true" signature="61:166" ph="{...}" />
+                <marker date="1559741909942" expanded="true" signature="0:41" ph="@..." />
               </folding>
             </state>
           </provider>
@@ -379,7 +342,6 @@
         <option value="$PROJECT_DIR$/Views/Products/Archive.cshtml" />
         <option value="$PROJECT_DIR$/Areas/Identity/Pages/Account/Login.cshtml" />
         <option value="$PROJECT_DIR$/Views/Shared/_LoginPartial.cshtml" />
-        <option value="$PROJECT_DIR$/Views/Home/Index.cshtml" />
         <option value="$PROJECT_DIR$/Views/Shared/_Layout.cshtml" />
         <option value="$PROJECT_DIR$/Views/Products/ViewProduct.cshtml" />
         <option value="$PROJECT_DIR$/Views/Products/Edit.cshtml" />
@@ -403,9 +365,10 @@
         <option value="$PROJECT_DIR$/Data/ApplicationDbContext.cs" />
         <option value="$PROJECT_DIR$/Models/CartItem.cs" />
         <option value="$PROJECT_DIR$/Data/DummyData.cs" />
-        <option value="$PROJECT_DIR$/Controllers/CartController.cs" />
         <option value="$PROJECT_DIR$/Views/Cart/Index.cshtml" />
         <option value="$PROJECT_DIR$/ViewModels/CartViewModel.cs" />
+        <option value="$PROJECT_DIR$/Controllers/CartController.cs" />
+        <option value="$PROJECT_DIR$/Views/Home/Index.cshtml" />
       </list>
     </option>
   </component>
@@ -439,18 +402,6 @@
               <item name="" type="784c90a0:SolutionExplorerRootNode" />
               <item name="EdmanOnlineShop" type="24d0babc:SolutionExplorerModelNode" />
               <item name="EdmanOnlineShop" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Controllers" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="EdmanOnlineShop" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="EdmanOnlineShop" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Data" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="EdmanOnlineShop" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="EdmanOnlineShop" type="24d0babc:SolutionExplorerModelNode" />
               <item name="Models" type="24d0babc:SolutionExplorerModelNode" />
             </path>
             <path>
@@ -478,6 +429,13 @@
               <item name="EdmanOnlineShop" type="24d0babc:SolutionExplorerModelNode" />
               <item name="Views" type="24d0babc:SolutionExplorerModelNode" />
               <item name="Categories" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="EdmanOnlineShop" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="EdmanOnlineShop" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Views" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Home" type="24d0babc:SolutionExplorerModelNode" />
             </path>
             <path>
               <item name="" type="784c90a0:SolutionExplorerRootNode" />
@@ -564,12 +522,12 @@
       <workItem from="1559524345920" duration="3273000" />
       <workItem from="1559558102193" duration="39397000" />
       <workItem from="1559672606429" duration="3863000" />
-      <workItem from="1559679442205" duration="26316000" />
+      <workItem from="1559679442205" duration="27292000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72849000" />
+    <option name="totallyTimeSpent" value="73825000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -582,9 +540,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-263" y="-1088" width="1936" height="1066" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2707889" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2707889" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -601,7 +558,7 @@
       <window_info anchor="bottom" id="Database Changes" order="11" />
       <window_info anchor="bottom" id="Unit Tests" order="12" weight="0.32978722" />
       <window_info anchor="bottom" id="REST Client" order="13" />
-      <window_info anchor="bottom" id="Terminal" order="14" weight="0.32805908" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="14" visible="true" weight="0.32805908" />
       <window_info anchor="bottom" id="Event Log" order="15" side_tool="true" />
       <window_info anchor="bottom" id="Build" order="16" weight="0.37658226" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -810,19 +767,6 @@
           <folding>
             <element signature="n#style#0;n#div#0;n#nav#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Views/Home/Index.cshtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="83" column="14" lean-forward="true" selection-start-line="83" selection-start-column="14" selection-end-line="83" selection-end-column="14" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#header#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#header#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#header#0;n#!!top" expanded="true" />
-            <marker date="1559725967366" expanded="true" signature="0:41" ph="@..." />
           </folding>
         </state>
       </provider>
@@ -1284,20 +1228,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Controllers/CartController.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="22" column="15" lean-forward="true" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="15" />
-          <folding>
-            <marker date="1559739920695" expanded="true" signature="6:126" ph="..." />
-            <marker date="1559739920695" expanded="true" signature="199:578" ph="{...}" />
-            <marker date="1559739920695" expanded="true" signature="322:374" ph="{...}" />
-            <marker date="1559739920695" expanded="true" signature="423:576" ph="{...}" />
-            <marker date="1559739920695" expanded="true" signature="528:570" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Views/Products/Index.cshtml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
@@ -1324,17 +1254,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Views/Cart/Index.cshtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-          <folding>
-            <marker date="1559740495173" expanded="true" signature="123:191" ph="@..." />
-            <marker date="1559740495173" expanded="true" signature="151:191" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ViewModels/CategoryViewModel.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
@@ -1347,13 +1266,43 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Views/Cart/Index.cshtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="4" selection-end-line="9" selection-end-column="4" />
+          <folding>
+            <marker date="1559741882300" expanded="true" signature="0:250" ph="@*...*@" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ViewModels/CartViewModel.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="41" lean-forward="true" selection-start-line="1" selection-start-column="1" selection-end-line="8" selection-end-column="41" />
+        <state relative-caret-position="209">
+          <caret line="11" column="1" lean-forward="true" selection-end-line="11" selection-end-column="1" />
           <folding>
             <marker date="1559740493550" expanded="true" signature="36:365" ph="{...}" />
             <marker date="1559740493550" expanded="true" signature="69:363" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controllers/CartController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="25" column="3" selection-end-line="25" selection-end-column="3" />
+          <folding>
+            <marker date="1559741890810" expanded="true" signature="0:630" ph="/* using System.Threading.Tasks; ... */" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/Home/Index.cshtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="48" column="42" selection-start-line="48" selection-start-column="42" selection-end-line="48" selection-end-column="42" />
+          <folding>
+            <marker date="1559741909942" expanded="true" signature="0:41" ph="@..." />
           </folding>
         </state>
       </provider>
