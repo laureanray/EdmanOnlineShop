@@ -77,3 +77,4 @@ C:\Users\laure\Desktop\EdmanOnlineShop\obj\Debug\netcoreapp2.2\EdmanOnlineShop.V
 C:\Users\laure\Desktop\EdmanOnlineShop\obj\Debug\netcoreapp2.2\EdmanOnlineShop.dll
 C:\Users\laure\Desktop\EdmanOnlineShop\obj\Debug\netcoreapp2.2\EdmanOnlineShop.pdb
 C:\Users\laure\Desktop\EdmanOnlineShop\obj\Debug\netcoreapp2.2\EdmanOnlineShop.csproj.CopyComplete
+C:\Users\laure\Desktop\EdmanOnlineShop\obj\Debug\netcoreapp2.2\Razor\Views\Orders\Index.g.cshtml.cs

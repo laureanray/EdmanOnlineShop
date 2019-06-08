@@ -324,3 +324,7 @@ select[name='products_table_length'], select[name='categories_table_length']{
 .product-name-h4 {
     font-size: 24px;
 }
+
+.view-product {
+    margin-top: 3rem!important;
+}

@@ -107,7 +107,7 @@ namespace EdmanOnlineShop.Controllers
             var user = await _userManager.GetUserAsync(HttpContext.User);
             if (user == null)
             {
-                return NotFound();
+                return RedirectToAction(nameof(Index));
             }
 
             var userId = user.Id;
