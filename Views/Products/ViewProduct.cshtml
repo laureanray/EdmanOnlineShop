@@ -4,39 +4,55 @@
     ViewData["Title"] = "Products";
 }
 
-<div class="row">
-</div>
-<div class="row view-product">
 
-    <div class="col-4">
-        @{
-            var base64 = Convert.ToBase64String(@Model.ProductImage);
-            var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
-        }
-        <img src="@imgSrc" class="img-fluid" alt="">
+
+<div class="container-fluid" style="width: 90%!important; margin: auto!important;">
+    <div class="row">
+        <div class="col mt-3">
+               <nav aria-label="breadcrumb">
+                 <ol class="breadcrumb" style="border-radius: 0!important; background: #fafafa;">
+                   <li class="breadcrumb-item"><a href="#">Home</a></li>
+                     <li class="breadcrumb-item"><a href="#">Products</a></li>
+                     <li class="breadcrumb-item"><a href="#">Category</a></li>
+                     <li class="breadcrumb-item active" aria-current="page">@Model.ProductName</li>
+                 </ol>
+               </nav>
+        </div>
     </div>
-    <div class="col-8">
-        <h4 class="product-name"> @Html.DisplayFor(model => model.ProductName)</h4>
-        <p class="text-muted product-description"> @Html.DisplayFor(model => model.ProductDescription)</p>
-        <h2 class="product-price product-price-lg"> ₱ <span class="price"> @Html.DisplayFor(model => model.Price) </span></h2>
-        <div class="row mt-4">
-            <div class="col-3 pr-0">
+    <div class="row view-product m-0">
 
-                <button class="btn btn-dark btn-block btn-lg">
-                    <i class="fas fa-fw fa-shopping-cart"></i>
-                    Buy Now
-                </button>
+        <div class="col-4 pt-2 pb-2">
+            @{
+                var base64 = Convert.ToBase64String(@Model.ProductImage);
+                var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+            }
+            <img src="@imgSrc" class="img-fluid" alt="">
+        </div>
+        <div class="col-8">
+            <h4 class="product-name"> @Html.DisplayFor(model => model.ProductName)</h4>
+            <p class="text-muted product-description"> @Html.DisplayFor(model => model.ProductDescription)</p>
+            <h2 class="product-price product-price-lg"> ₱ <span class="price"> @Html.DisplayFor(model => model.Price) </span></h2>
+            <div class="row mt-4">
+                <div class="col-3 pr-0">
 
-            </div>
-            <div class="col-3 pl-0">
-                <form asp-controller="Cart" asp-route-productId="@Model.ProductID" asp-action="AddToCart">
-                    <button class="btn btn-primary btn-block btn-lg">
-                        <i class="fas fa-fw fa-cart-plus"></i>
-                        Add to Cart
+                    <button class="btn btn-dark btn-block btn-lg">
+                        <i class="fas fa-fw fa-shopping-cart"></i>
+                        Buy Now
                     </button>
-                </form>
 
+                </div>
+                <div class="col-3 pl-0">
+                    <form asp-controller="Cart" asp-route-productId="@Model.ProductID" asp-action="AddToCart">
+                        <button class="btn btn-primary btn-block btn-lg">
+                            <i class="fas fa-fw fa-cart-plus"></i>
+                            Add to Cart
+                        </button>
+                    </form>
+
+                </div>
             </div>
         </div>
     </div>
+
+
 </div>

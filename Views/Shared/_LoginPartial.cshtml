@@ -5,22 +5,19 @@
 <ul class="navbar-nav">
     @if (SignInManager.IsSignedIn(User))
     {
-        <li class="nav-item">
-        </li>
-        <li class="nav-item">
-
-        </li>
+        
         @if (User.IsInRole("Customer"))
          {
              <li class="nav-item">
-                 <a class="nav-link text-dark" href="/Cart">                         <i class="fas fa-fw fa-shopping-cart"></i>
+                 <a class="nav-link text-dark nav-link-edman" id="cart_link" href="/Cart">                         <i class="fas fa-fw fa-shopping-cart"></i>
  My Cart</a>
              </li>
          }
         <li class="nav-item">
             <div class="dropdown">
-                <a href="javascript:void(0);" class="nav-link dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    @UserManager.FindByNameAsync(User.Identity.Name).Result.FirstName
+                <a href="javascript:void(0);" class="nav-link nav-link-edman dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    @UserManager.FindByNameAsync(User.Identity.Name).Result.FirstName 
+                    @UserManager.FindByNameAsync(User.Identity.Name).Result.LastName
                 </a>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
@@ -33,7 +30,7 @@
 
 
                     <form class="dropdown-item" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new {area = ""})">
-                        <button type="submit" class="btn btn-link text-dark" id="logout">Logout</button>
+                        <button type="submit" class="btn btn-link text-dark btn-block" id="logout">Logout</button>
                     </form>
                 </div>
             </div>
@@ -42,10 +39,10 @@
     else
     {
         <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
+            <a class="nav-link  nav-link-edman" id="register_link" asp-area="Identity" asp-page="/Account/Register">Register</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
+            <a class="nav-link nav-link-edman" id="login_link" asp-area="Identity" asp-page="/Account/Login">Login</a>
         </li>
     }
 </ul>

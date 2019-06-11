@@ -78,3 +78,4 @@ C:\Users\laure\Desktop\EdmanOnlineShop\obj\Debug\netcoreapp2.2\EdmanOnlineShop.d
 C:\Users\laure\Desktop\EdmanOnlineShop\obj\Debug\netcoreapp2.2\EdmanOnlineShop.pdb
 C:\Users\laure\Desktop\EdmanOnlineShop\obj\Debug\netcoreapp2.2\EdmanOnlineShop.csproj.CopyComplete
 C:\Users\laure\Desktop\EdmanOnlineShop\obj\Debug\netcoreapp2.2\Razor\Views\Orders\Index.g.cshtml.cs
+C:\Users\laure\Desktop\EdmanOnlineShop\obj\Debug\netcoreapp2.2\Razor\Views\Cart\Checkout.g.cshtml.cs

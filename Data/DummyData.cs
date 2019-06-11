@@ -16,7 +16,11 @@ namespace EdmanOnlineShop.Data
         public static byte[] defaultImage;
         public static byte[] sampleImage1;
         public static byte[] sampleImage2;
-
+        public static byte[] sampleImage3;
+        public static byte[] sampleImage4;
+        public static byte[] sampleImage5;
+        public static byte[] sampleImage6;
+        
         public static async Task Initialize(ApplicationDbContext context,
             UserManager<ApplicationUser> userManager,
             RoleManager<ApplicationRole> roleManager, IHostingEnvironment hostingEnvironment)
@@ -28,7 +32,14 @@ namespace EdmanOnlineShop.Data
                 System.IO.File.ReadAllBytes(hostingEnvironment.ContentRootPath + "/wwwroot/images/sample.png");
             sampleImage2 =
                 System.IO.File.ReadAllBytes(hostingEnvironment.ContentRootPath + "/wwwroot/images/sample2.png");
-
+            sampleImage3 =
+                System.IO.File.ReadAllBytes(hostingEnvironment.ContentRootPath + "/wwwroot/images/sample3.png");
+            sampleImage4 =
+                System.IO.File.ReadAllBytes(hostingEnvironment.ContentRootPath + "/wwwroot/images/sample4.png");
+            sampleImage5 =
+                System.IO.File.ReadAllBytes(hostingEnvironment.ContentRootPath + "/wwwroot/images/sample5.png");
+            sampleImage6 =
+                System.IO.File.ReadAllBytes(hostingEnvironment.ContentRootPath + "/wwwroot/images/sample6.png");
             string Admin = "Admin";
             string AdminDescription = "Has access to all modules";
 
@@ -302,6 +313,42 @@ namespace EdmanOnlineShop.Data
                     ProductName = "6-1/2 In. Track Saw with Plunge Action and L-Boxx Carrying Case",
                     ProductImage = sampleImage2,
                     CategoryID = 1
+                },
+                new Product
+                {
+                    DateAdded = DateTime.Now,
+                    Price = (decimal) 143599.00,
+                    ProductDescription = "The CM8S 8-1/2 In. single bevel sliding compound miter saw features a Bosch exclusive design delivering a well-balanced saw with a top carry handle at the center of gravity and weighs only 37 pounds. These features easily provide one-handed portability on and off the job. Accessible controls make it easy to change bevel settings without reaching behind the saw. The integrated expanding work piece supports, large easy to read miter and bevel scales, and detent system provides quick and accurate cuts. The CM8S also has the same crosscut capacity (12-1/4 In.) as a 10 In. miter saw, at 30% lighter weight.",
+                    ProductName = "8-1/2 In. Single-Bevel Slide Miter Saw",
+                    ProductImage = sampleImage3,
+                    CategoryID = 2
+                },
+                new Product
+                {
+                    DateAdded = DateTime.Now,
+                    Price = (decimal) 253599.00,
+                    ProductDescription = "The Bosch 4100-10 10 In. Worksite Table Saw with Gravity-Rise Wheeled Stand delivers both professional rip capacity and outstanding portability for a tool that can get the job done, wherever it is. The powerful 15 Amp saw delivers 4.0 max HP for outstanding productivity. It also incorporates soft-start circuitry for smooth but quick ramp-up to the operating speed to manage the intensity of motor start-up and minimize the possibility of tripping a circuit breaker.. It includes Constant Response circuitry to help maintain speed under load, and overload protection. The SquareLock rip fence is engineered for maximum trueness and great ease-of-use, with the fence able to easily glide along the rail for one-handed operation. The lighter GTA47W Gravity-Rise Wheeled Stand has 8 In. treaded rubber-composite tires and a single-action design for easy set-up and transport. It is jobsite-ready with heavy-duty construction. The Smart Guard System is the first modular table saw blade guard, featuring a three-position adjustable riving knife, anti-kickback pawls and non-obstructed-view barrier guard assembly. The table saw provides a 29 In. x 21-1/2 In. square tabletop with a 25 In. rip capacity for ripping 4 Ft. wide sheets goods in half.",
+                    ProductName = "10 In. Worksite Table Saw with Gravity-Rise Wheeled Stand",
+                    ProductImage = sampleImage4,
+                    CategoryID = 2   
+                },
+                new Product
+                {
+                    DateAdded = DateTime.Now,
+                    Price = (decimal) 199513.50,
+                    ProductDescription = "The Bosch DDH183 18V EC Brushless Brute Tough 1/2 In. Drill/Driver Kit features a drill with power and advanced electronics. It offers KickBack Control, which reduces the risk from sudden rotational torque reaction in a bind-up scenario. The tool has an efficient EC Brushless motor for runtime and longer motor life, as well as producing a max of 663 In-Lbs. of torque. The drill has a precision clutch with 25+1 settings, for reduced overtightening, fewer damaged screw heads and a longer tool life. It also has variable-speed selector – one optimized for high-torque driving (0-480 rpm) and one best for high-speed drilling (0-2,100 rpm). With an upgraded, durable all-metal chuck, the drill has great bit grip and torque transfer. It features Bosch's Electronic Motor and Cell Protection, tough Durashield housing, an LED for illumination and a long belt clip. It is an easy tool to handle, with a sure-grip side-assist handle and an ergonomic grip zone.",
+                    ProductName = "18V EC Brushless Brute Tough 1/2 In. Drill/Driver",
+                    ProductImage = sampleImage5,
+                    CategoryID = 3
+                },
+                new Product
+                {
+                    DateAdded = DateTime.Now,
+                    Price = (decimal) 413510.25,
+                    ProductDescription = "The Bosch DDS183 18V EC Brushless Compact Tough 1/2 In. Drill/Driver is a powerful tool that features KickBack Control, which reduces the risk of sudden tool reactions in binding conditions. This integrated acceleration sensor automatically shuts the tool down when a potentially dangerous rotational torque reaction occurs in a bind-up scenario. This cordless drill was fitted with an upgraded, heavy-duty all-metal chuck, for better bit grip and torque transfer. With an efficient EC Brushless motor, this drill/driver provides longer tool life as well as great runtime. It delivers a powerful performance, with 531 In.-Lbs. of torque, two drilling speeds (0-1,900 rpm for high speed and 0-600 rpm for torque) and 20+1 clutch settings. It features the Compact Tough design, with a short head-length and a light weight to make handling easier, but also with professional power. This tool provides an ergonomic grip zone and Bosch's Electronic Motor Protection and Electronic Cell Protection, to help protect the tool and batteries from overload and overheating. It includes a long belt clip for a secure hold.",
+                    ProductName = "18V EC Brushless Compact Tough 1/2 In. Drill/Driver",
+                    ProductImage = sampleImage6,
+                    CategoryID = 3
                 }
             };
 
@@ -324,6 +371,34 @@ namespace EdmanOnlineShop.Data
                 new Inventory
                 {
                     ProductID = 2,
+                    Quantity = 100,
+                    CriticalLevel = 10,
+                    InventoryDate = DateTime.Now
+                },
+                new Inventory
+                {
+                    ProductID = 3,
+                    Quantity = 100,
+                    CriticalLevel = 10,
+                    InventoryDate = DateTime.Now
+                },
+                new Inventory
+                {
+                    ProductID = 4,
+                    Quantity = 100,
+                    CriticalLevel = 10,
+                    InventoryDate = DateTime.Now
+                },
+                new Inventory
+                {
+                    ProductID = 5,
+                    Quantity = 100,
+                    CriticalLevel = 10,
+                    InventoryDate = DateTime.Now
+                },
+                new Inventory
+                {
+                    ProductID = 5,
                     Quantity = 100,
                     CriticalLevel = 10,
                     InventoryDate = DateTime.Now
@@ -358,15 +433,15 @@ namespace EdmanOnlineShop.Data
             {
                 new Category
                 {
-                    CategoryName = "Category 1"
+                    CategoryName = "Power Tools"
                 },
                 new Category
                 {
-                    CategoryName = "Category 2"
+                    CategoryName = "Benchtop Tools"
                 },
                 new Category
                 {
-                    CategoryName = "Category 3"
+                    CategoryName = "Drills, Hammer Drills & Impact Drivers"
                 }
             };
 

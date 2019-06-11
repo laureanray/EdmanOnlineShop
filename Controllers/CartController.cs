@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using EdmanOnlineShop.Data;
 using EdmanOnlineShop.Models;
 using EdmanOnlineShop.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -16,11 +17,13 @@ namespace EdmanOnlineShop.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly UserManager<ApplicationUser> _userManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
 
-        public CartController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
+        public CartController(ApplicationDbContext context, UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
         {
             _context = context;
             _userManager = userManager;
+            _signInManager = signInManager;
         }
 
 
@@ -102,8 +105,45 @@ namespace EdmanOnlineShop.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        public async Task<IActionResult> Checkout()
+        {
+            CartViewModel vm = new CartViewModel();
+            var user = await _userManager.GetUserAsync(HttpContext.User);
+            var userId = user.Id;
+            vm.CartItems = new List<CartItemViewModel>();
+            var cartItems = await _context.CartItems.Where(ci => ci.UserID == userId).ToListAsync();
+            if (cartItems != null)
+            {
+                foreach (var ci in cartItems)
+                {
+                    var ProductID = ci.ProductID;
+
+                    var Product = await _context.Products.FirstOrDefaultAsync(pd => pd.ProductID == ProductID);
+
+                    vm.CartItems.Add(new CartItemViewModel
+                    {
+                        Price = Product.Price,
+                        Quantity = ci.Quantity,
+                        ProductDescription = Product.ProductDescription,
+                        ProductName = Product.ProductName,
+                        ProductID = Product.ProductID,
+                        ProductImage = Product.ProductImage
+                    });
+                }
+
+                return View(vm);
+            }
+
+            return View();
+        }
+
+        [Authorize(Roles = "Customer")]
         public async Task<IActionResult> AddToCart(int productId)
         {
+            if (!_signInManager.IsSignedIn(User))
+            {
+                return RedirectToPage("/Identity/Account/Login");
+            }
             var user = await _userManager.GetUserAsync(HttpContext.User);
             if (user == null)
             {

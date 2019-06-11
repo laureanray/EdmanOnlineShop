@@ -144,6 +144,7 @@ namespace EdmanOnlineShop.Controllers
                     if (product != null)
                     {
                         product.IsArchived = false;
+                        product.DateModified = DateTime.Now;
                         _context.Entry(product).State = EntityState.Modified;
                         await _context.SaveChangesAsync();
                         return RedirectToAction(nameof(Archived));
@@ -212,6 +213,7 @@ namespace EdmanOnlineShop.Controllers
                         product.ProductDescription = model.ProductDescription;
                         product.ProductName = model.ProductName;
                         product.CategoryID = model.CategoryID;
+                        product.DateModified = DateTime.Now;
 
                         if (model.ProductImage != null)
                         {
@@ -224,7 +226,7 @@ namespace EdmanOnlineShop.Controllers
                     
 
                      
-
+                        
                         _context.Entry(product).State = EntityState.Modified;
                     
                         await _context.SaveChangesAsync();
@@ -262,7 +264,8 @@ namespace EdmanOnlineShop.Controllers
                     ProductName = model.ProductName,
                     ProductDescription = model.ProductDescription,
                     CategoryID = model.CategoryID,
-                    Price = model.Price
+                    Price = model.Price,
+                    DateAdded = DateTime.Now
                 };
 
                 if (model.ProductImage != null)
@@ -278,11 +281,24 @@ namespace EdmanOnlineShop.Controllers
                 {
                     product.ProductImage = DummyData.defaultImage;
                 }
-                
+
+               
                 _context.Products.Add(product);
 
+                var inventory = new Inventory
+                {       
+                    Quantity = 100,
+                    CriticalLevel = 10,
+                    InventoryDate = DateTime.Now,
+                    Product = product
+                };
+                Console.WriteLine(product.ProductID);
+                _context.Inventories.Add(inventory);
+
                 await _context.SaveChangesAsync();
-                
+               
+        
+
                 return RedirectToAction("ProductsTable");
 
 

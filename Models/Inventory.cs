@@ -9,5 +9,7 @@ namespace EdmanOnlineShop.Models
         public int Quantity { get; set; }
         public int CriticalLevel { get; set; }
         public DateTime InventoryDate { get; set; }
+        
+        public Product Product { get; set; }
     }
 }

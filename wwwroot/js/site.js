@@ -71,7 +71,37 @@ $(document).ready( function() {
     });
 
     $(".card-product").show();
+    
+    
+    var pathname = window.location.pathname;
+    console.log(pathname);
+    $("#products_link, #cart_link, #register_link, #login_link").removeClass('edman_active');
+    switch(pathname)
+    {
+        case "/Products":
+            $("#products_link").addClass('edman-active');
+            break;
+        case "/Identity/Account/Login":
+            $("#login_link").addClass('edman-active');
+            break;
+        case "/Identity/Account/Register":
+            $("#register_link").addClass("edman-active");
+            break;
+        case "/Cart":
+            $("#cart_link").addClass('edman-active');
+            break;
+    }
+    
 
+    $("#payment_method").change(function(){
+        var value = $(this).val();
+        if(value === "0")
+        {
+            $("#credit_debit_form").hide();
+        }else{
+            $("#credit_debit_form").show();
+        }
+    });
 
     // $(".product-price").html(formatMoney($(".product-price").html()));
 });

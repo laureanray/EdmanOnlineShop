@@ -3,15 +3,40 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using EdmanOnlineShop.Data;
 using Microsoft.AspNetCore.Mvc;
 using EdmanOnlineShop.Models;
+using EdmanOnlineShop.ViewModels;
+using Microsoft.EntityFrameworkCore;
 
 namespace EdmanOnlineShop.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        private readonly ApplicationDbContext _context;
+
+        public HomeController(ApplicationDbContext context)
         {
+            _context = context;
+        }
+        public async Task<IActionResult> Index()
+        {
+            IndexViewModel vm = new IndexViewModel();
+            vm.Products = new List<Product>();
+
+            var products = await _context.Products.Distinct().OrderByDescending(d => d.DateAdded).Take(4).ToListAsync();
+
+            if (products != null)
+            {
+                foreach(var product in products)
+                {
+                    vm.Products.Add(product);
+                }
+
+
+                return View(vm);
+            }
+            
             return View();
         }
 
