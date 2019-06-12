@@ -270,27 +270,7 @@ namespace EdmanOnlineShop.Data
             {
                 return;
             }
-
-            var orders = new Order[]
-            {
-                new Order
-                {
-                    DateOrdered = DateTime.Now,
-                    PaymentMethod = PaymentMethod.CREDIT_CARD,
-                    UserID = 1,
-                    Status = Status.PLACED,
-                    Amount = (decimal) 231.32,
-                    Quantity = 32,
-                    ProductID = 1
-                }
-            };
-
-            foreach (Order od in orders)
-            {
-                context.Orders.Add(od);
-            }
-
-            context.SaveChanges();
+            
 
             var products = new Product[]
             {
@@ -398,7 +378,7 @@ namespace EdmanOnlineShop.Data
                 },
                 new Inventory
                 {
-                    ProductID = 5,
+                    ProductID = 6,
                     Quantity = 100,
                     CriticalLevel = 10,
                     InventoryDate = DateTime.Now

@@ -15,8 +15,10 @@
     transition: all 0.2s ease;
 }
 .text-primary, a {
-    color: #F48024;;
+    color: #F48024;
 }
+
+
 
 .btn-primary {
     background: #f48024;  
@@ -28,19 +30,18 @@
     font-size: 13px!important;
 }
 
+
 .btn-primary:hover, .btn-primary:active, .btn-primary:focus{
     border-color: #f48024!important;
     background: #dd6f23!important;
     outline: 0!important;
     transition: all 0.2s ease;
-
 }
 
 .btn-primary:active {
     box-shadow: 0 3px 10px #e7e7e7!important;
     transform: translateY(-5px);
     transition: all 0.2s ease;
-
 }
 
 a:hover {

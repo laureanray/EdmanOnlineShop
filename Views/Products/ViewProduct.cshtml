@@ -1,4 +1,4 @@
-@model EdmanOnlineShop.Models.Product
+@model EdmanOnlineShop.ViewModels.ViewProductViewModel
 
 @{
     ViewData["Title"] = "Products";
@@ -20,7 +20,6 @@
         </div>
     </div>
     <div class="row view-product m-0">
-
         <div class="col-4 pt-2 pb-2">
             @{
                 var base64 = Convert.ToBase64String(@Model.ProductImage);
@@ -33,6 +32,25 @@
             <p class="text-muted product-description"> @Html.DisplayFor(model => model.ProductDescription)</p>
             <h2 class="product-price product-price-lg"> ₱ <span class="price"> @Html.DisplayFor(model => model.Price) </span></h2>
             <div class="row mt-4">
+                <div class="col-3">
+                    
+                </div>
+                <div class="col-3">
+                    @if (Model.StocksLeft < Model.Critical)
+                    {
+                        @if (Model.StocksLeft == 1)
+                         {
+                             <p class="text-danger"> @Model.StocksLeft item left.  </p>
+                         }
+                         else
+                         {
+                             <p class="text-danger"> @Model.StocksLeft items left.  </p>
+
+                         }
+                    }
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-3 pr-0">
 
                     <button class="btn btn-dark btn-block btn-lg">
@@ -42,13 +60,25 @@
 
                 </div>
                 <div class="col-3 pl-0">
-                    <form asp-controller="Cart" asp-route-productId="@Model.ProductID" asp-action="AddToCart">
-                        <button class="btn btn-primary btn-block btn-lg">
-                            <i class="fas fa-fw fa-cart-plus"></i>
-                            Add to Cart
-                        </button>
-                    </form>
-
+                  
+                    @if (Model.StocksLeft == 0)
+                    {
+                        <form asp-controller="Cart" asp-route-productId="@Model.ProductID" asp-action="AddToCart">
+                            <button class="btn btn-primary btn-block btn-lg">
+                                <i class="fas fa-fw fa-plus"></i>
+                                Request     
+                            </button>
+                        </form>
+                    }
+                    else
+                    {
+                        <form asp-controller="Cart" asp-route-productId="@Model.ProductID" asp-action="AddToCart">
+                            <button class="btn btn-primary btn-block btn-lg">
+                                <i class="fas fa-fw fa-cart-plus"></i>
+                                Add to Cart
+                            </button>
+                        </form>
+                    }
                 </div>
             </div>
         </div>

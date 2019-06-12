@@ -40,8 +40,28 @@ namespace EdmanOnlineShop.Controllers
     
         public async Task<IActionResult> ViewProduct(int productId)
         {
-            return View(await _context.Products.SingleOrDefaultAsync(product => product.ProductID == productId));
+            ViewProductViewModel vm = new ViewProductViewModel();
+
+            var product = await _context.Products.SingleOrDefaultAsync(pd => pd.ProductID == productId);
+            if (product != null)
+            {
+                var inventory = await _context.Inventories.SingleOrDefaultAsync(iv => iv.ProductID == productId);
+                
+                vm.ProductDescription = product.ProductDescription;
+                vm.ProductName = product.ProductName;
+                vm.ProductID = product.ProductID;
+                vm.ProductImage = product.ProductImage;
+                vm.StocksLeft = inventory.Quantity;
+                vm.Price = product.Price;
+                vm.Critical = inventory.CriticalLevel;
+
+                return View(vm);
+
+            }
+
+            return NotFound();
         }
+        
         [Authorize(Roles = "Admin, SalesClerk")]
         
         [HttpGet]

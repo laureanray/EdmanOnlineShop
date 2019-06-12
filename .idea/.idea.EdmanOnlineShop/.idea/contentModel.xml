@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\laure\.Rider2019.1\config\consoles\db" t="IncludeRecursive" />
-    <e p="C:\Users\laure\.Rider2019.1\config\extensions" t="IncludeRecursive" />
     <e p="C:\Users\laure\.Rider2019.1\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\laure\.Rider2019.1\system\resharper-host\local\Transient\ReSharperHost\v191\SolutionCaches\_EdmanOnlineShop.-31651900.00" t="ExcludeRecursive" />
-    <e p="C:\Users\laure\Desktop\EdmanOnlineShop" t="IncludeRecursive">
+    <e p="C:\Users\laure\.Rider2019.1\system\resharper-host\local\Transient\ReSharperHost\v191\SolutionCaches\_EdmanOnlineShop.-1380588704.00" t="ExcludeRecursive" />
+    <e p="C:\Users\laure\Desktop\Projects\EdmanOnlineShop" t="IncludeRecursive">
       <e p=".gitignore" t="Include" />
       <e p="appsettings.Development.json" t="Include" />
       <e p="appsettings.json" t="Include" />
@@ -86,6 +84,7 @@
         <e p="CartController.cs" t="Include" />
         <e p="CategoriesController.cs" t="Include" />
         <e p="DashboardController.cs" t="Include" />
+        <e p="DeliveriesController.cs" t="Include" />
         <e p="HomeController.cs" t="Include" />
         <e p="InventoriesController.cs" t="Include" />
         <e p="OrdersController.cs" t="Include" />
@@ -129,6 +128,12 @@
           <e p="20190605083608_ModifiedPorducts.Designer.cs" t="Include" />
           <e p="20190605122534_NewMgiariosdiao.cs" t="Include" />
           <e p="20190605122534_NewMgiariosdiao.Designer.cs" t="Include" />
+          <e p="20190612053455_fuckawinawufnwd.cs" t="Include" />
+          <e p="20190612053455_fuckawinawufnwd.Designer.cs" t="Include" />
+          <e p="20190612114926_asdkaskda.cs" t="Include" />
+          <e p="20190612114926_asdkaskda.Designer.cs" t="Include" />
+          <e p="20190612143529_asdl.cs" t="Include" />
+          <e p="20190612143529_asdl.Designer.cs" t="Include" />
           <e p="ApplicationDbContextModelSnapshot.cs" t="Include" />
         </e>
       </e>
@@ -143,6 +148,7 @@
         <e p="ErrorViewModel.cs" t="Include" />
         <e p="Inventory.cs" t="Include" />
         <e p="Order.cs" t="Include" />
+        <e p="OrderDetails.cs" t="Include" />
         <e p="Product.cs" t="Include" />
         <e p="Request.cs" t="Include" />
       </e>
@@ -165,15 +171,18 @@
         <e p="ArchiveProductViewModel.cs" t="Include" />
         <e p="CartViewModel.cs" t="Include" />
         <e p="CategoryViewModel.cs" t="Include" />
+        <e p="CheckoutViewModel.cs" t="Include" />
         <e p="EditProductViewModel.cs" t="Include" />
         <e p="IndexInventoryViewModel.cs" t="Include" />
+        <e p="IndexOrderViewModel.cs" t="Include" />
         <e p="IndexViewModel.cs" t="Include" />
+        <e p="RestockInventoryViewModel.cs" t="Include" />
+        <e p="ViewProductViewModel.cs" t="Include" />
       </e>
       <e p="Views" t="Include">
         <e p="_ViewImports.cshtml" t="Include" />
         <e p="_ViewStart.cshtml" t="Include" />
         <e p="Cart" t="Include">
-          <e p="Checkout.cshtml" t="Include" />
           <e p="Index.cshtml" t="Include" />
         </e>
         <e p="Categories" t="Include">
@@ -183,15 +192,21 @@
         <e p="Dashboard" t="Include">
           <e p="Index.cshtml" t="Include" />
         </e>
+        <e p="Deliveries" t="Include">
+          <e p="Index.cshtml" t="Include" />
+        </e>
         <e p="Home" t="Include">
           <e p="Index.cshtml" t="Include" />
           <e p="Privacy.cshtml" t="Include" />
         </e>
         <e p="Inventories" t="Include">
           <e p="Index.cshtml" t="Include" />
+          <e p="Restock.cshtml" t="Include" />
         </e>
         <e p="Orders" t="Include">
+          <e p="Checkout.cshtml" t="Include" />
           <e p="Index.cshtml" t="Include" />
+          <e p="MyOrders.cshtml" t="Include" />
         </e>
         <e p="Products" t="Include">
           <e p="Add.cshtml" t="Include" />
@@ -260,6 +275,13 @@
         </e>
         <e p="favicon.png" t="Include" />
         <e p="images" t="Include">
+          <e p="62156694_439611409921421_7695438954606100480_n.jpg" t="Include" />
+          <e p="62188323_2870194229689908_8747024494024982528_n.jpg" t="Include" />
+          <e p="62234172_2364972457104276_2993900888906530816_n.jpg" t="Include" />
+          <e p="62258355_414338329417266_5831019653144510464_n.jpg" t="Include" />
+          <e p="62356995_405493556965461_2355652539514355712_n.jpg" t="Include" />
+          <e p="62595935_299275177683110_4130555230649581568_n.jpg" t="Include" />
+          <e p="64289919_462455017823565_8264760827018477568_n.jpg" t="Include" />
           <e p="a.jpg" t="Include" />
           <e p="brand.png" t="Include" />
           <e p="carousel-1.jpg" t="Include" />
@@ -284,6 +306,7 @@
             <e p="chart-pie-demo.js" t="Include" />
             <e p="datatables-demo.js" t="Include" />
           </e>
+          <e p="moment.js" t="Include" />
           <e p="sb-admin.js" t="Include" />
           <e p="sb-admin.min.js" t="Include" />
           <e p="site.js" t="Include" />

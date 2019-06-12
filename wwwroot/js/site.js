@@ -51,7 +51,17 @@ $(document).ready( function() {
             } ]
         });
         $("#categories_table").DataTable();
-        
+        $("#orders_table").DataTable({
+            columnDefs: [ {
+                targets: 0,
+                render: function ( data, type, row ) {
+                    return type === 'display' && data.length > 70 ?
+                        data.substr( 0, 70 ) +'…' :
+                        data;
+                }
+            } ]
+        });
+        $("#orders_table").show();
         $("#categories_table").show();
         $("#products_table").show();
     }catch(err){
@@ -89,6 +99,9 @@ $(document).ready( function() {
             break;
         case "/Cart":
             $("#cart_link").addClass('edman-active');
+            break;
+        case "/Orders/MyOrders":
+            $("#my_order_link").addClass('edman-active');
             break;
     }
     

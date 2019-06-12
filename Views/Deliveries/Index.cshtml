@@ -1,0 +1,38 @@
+@model EdmanOnlineShop.ViewModels.IndexOrderViewModel
+
+@{
+    ViewData["Title"] = "Deliveries";
+    Layout = "_Layout";
+}
+
+
+<h2 class="h2">Deliveries</h2>
+
+<table id="orders_table"  class="table table-bordered table-sm">    
+    <thead>
+    <tr>
+        <th scope="col">Product Name</th>
+        <th scope="col">User</th>
+        <th> Quantity </th>
+        <th> Amount </th>
+        <th> Payment Method </th>
+        <th> Status </th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.Orders)
+    {
+        <tr>
+            <td > <a href="/Products/ViewProduct?productId=@item.ProductID">@Html.DisplayFor(modelItem => item.ProductName)</a></td>
+            <td > @item.FirstName @item.LastName </td>
+            <td> @item.Quantity </td>    
+            <td> @item.Amount</td>
+            <td> @item.PaymentMethod</td>
+            <td> @item.Status
+                <a asp-action="Approve" asp-route-orderId="@item.OrderID" class="btn btn-primary"> Approve </a>
+                <a asp-action="Reject" asp-route-orderId="@item.OrderID" class="btn btn-danger"> Reject </a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

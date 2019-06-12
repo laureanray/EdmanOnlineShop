@@ -7,21 +7,21 @@ namespace EdmanOnlineShop.Models
     {
         CASH_ON_DELIVERY,
         CREDIT_CARD,
-        BANK_TO_BANK,
-        CHECK
+        DEBIT_CARD
     }
 
     public enum Status
     {
-        PLACED,
-        PROCESSED,
+        PENDING,
+        APPROVED,
+        REJECTED,
         SHIPPED,
         DELIVERED
     }
     public class Order
     {
             public int OrderID { get; set; }
-            public int UserID { get; set; }
+            public string UserID { get; set; }
             public int ProductID { get; set; }
             public int Quantity { get; set; }
             [Column(TypeName = "decimal(18,2)")]
@@ -29,5 +29,6 @@ namespace EdmanOnlineShop.Models
             public Status Status { get; set; }
             public DateTime DateOrdered { get; set; }
             public PaymentMethod PaymentMethod { get; set; }
+            public DateTime DateToDeliver { get; set; }
     }
 }

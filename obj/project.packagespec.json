@@ -1,10 +1,10 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "C:\\Users\\laure\\Desktop\\EdmanOnlineShop\\EdmanOnlineShop.csproj",
+    "projectUniqueName": "C:\\Users\\laure\\Desktop\\Projects\\EdmanOnlineShop\\EdmanOnlineShop.csproj",
     "projectName": "EdmanOnlineShop",
-    "projectPath": "C:\\Users\\laure\\Desktop\\EdmanOnlineShop\\EdmanOnlineShop.csproj",
-    "outputPath": "C:\\Users\\laure\\Desktop\\EdmanOnlineShop\\obj\\",
+    "projectPath": "C:\\Users\\laure\\Desktop\\Projects\\EdmanOnlineShop\\EdmanOnlineShop.csproj",
+    "outputPath": "C:\\Users\\laure\\Desktop\\Projects\\EdmanOnlineShop\\obj\\",
     "projectStyle": "PackageReference",
     "fallbackFolders": [
       "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

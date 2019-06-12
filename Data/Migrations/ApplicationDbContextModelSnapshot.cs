@@ -108,34 +108,19 @@ namespace EdmanOnlineShop.Data.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("EdmanOnlineShop.Models.Cart", b =>
-                {
-                    b.Property<int>("CartID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("UserID");
-
-                    b.HasKey("CartID");
-
-                    b.ToTable("Carts");
-                });
-
             modelBuilder.Entity("EdmanOnlineShop.Models.CartItem", b =>
                 {
                     b.Property<int>("CartItemID")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("CartID");
-
                     b.Property<int>("ProductID");
 
                     b.Property<int>("Quantity");
 
-                    b.HasKey("CartItemID");
+                    b.Property<string>("UserID");
 
-                    b.HasIndex("CartID");
+                    b.HasKey("CartItemID");
 
                     b.ToTable("CartItems");
                 });
@@ -169,6 +154,8 @@ namespace EdmanOnlineShop.Data.Migrations
 
                     b.HasKey("InventoryID");
 
+                    b.HasIndex("ProductID");
+
                     b.ToTable("Inventories");
                 });
 
@@ -183,6 +170,8 @@ namespace EdmanOnlineShop.Data.Migrations
 
                     b.Property<DateTime>("DateOrdered");
 
+                    b.Property<DateTime>("DateToDeliver");
+
                     b.Property<int>("PaymentMethod");
 
                     b.Property<int>("ProductID");
@@ -191,7 +180,7 @@ namespace EdmanOnlineShop.Data.Migrations
 
                     b.Property<int>("Status");
 
-                    b.Property<int>("UserID");
+                    b.Property<string>("UserID");
 
                     b.HasKey("OrderID");
 
@@ -341,11 +330,11 @@ namespace EdmanOnlineShop.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("EdmanOnlineShop.Models.CartItem", b =>
+            modelBuilder.Entity("EdmanOnlineShop.Models.Inventory", b =>
                 {
-                    b.HasOne("EdmanOnlineShop.Models.Cart")
-                        .WithMany("CartItems")
-                        .HasForeignKey("CartID")
+                    b.HasOne("EdmanOnlineShop.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

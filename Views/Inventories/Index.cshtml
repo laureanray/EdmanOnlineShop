@@ -28,8 +28,8 @@
                       <td > @Html.DisplayFor(modelItem => item.InventoryID)</td>
                       <td > @Html.DisplayFor(modelItem => item.ProductName)</td>
                       <td > @Html.DisplayFor(modelItem => item.Quantity)</td>
-                      <td > @Html.DisplayFor(modelItem => item.Crtitical)</td>
-                      <td> <a class="btn btn-primary text-light"> Restock</a>
+                      <td > @Html.DisplayFor(modelItem => item.Critical)</td>
+                      <td>  <a class="btn btn-dark btn-sm" asp-action="Restock" asp-route-inventoryID="@item.InventoryID"> Restock </a>
                           </td>
                   </tr>
               }

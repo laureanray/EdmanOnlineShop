@@ -1,0 +1,66 @@
+@model EdmanOnlineShop.ViewModels.IndexOrderViewModel
+
+@{
+    ViewData["Title"] = "My Orders";
+    Layout = "_Layout";
+}
+
+<div class="container-fluid" style="width: 90%!important; margin: auto">
+
+    <h2 class="h2"> My Orders </h2>
+    <div class="mt-4"></div>
+    @foreach (var order in Model.Orders)
+    {
+        <div class="card mt-2">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-1">
+                        @{
+                            var base64 = Convert.ToBase64String(@order.ProductImage);
+                            var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                        }
+                        <img src="@imgSrc" class="img-fluid" alt="">
+                    </div>
+                    <div class="col-11">
+                        <div class="row">
+                            <div class="col">
+                                <h5> <span class="text-primary"> (@order.Quantity) </span>@order.ProductName </h5>
+                                <p> Placed <span class="relative"> @order.DatePlaced</span></p>
+                            </div>
+                            <div class="col text-right">
+                                <h5>Order Status: 
+                                    @if (@order.Status == Status.REJECTED)
+                                    {
+                                        <span class="text-danger">@order.Status</span>
+                                    }
+                                    else if(@order.Status == Status.APPROVED)
+                                    {
+                                        <span class="text-success">@order.Status</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="text-primary">@order.Status</span>
+                                    }
+                                </h5>
+                                
+                                <p> ₱<span class="price"> @order.Amount </span></p>
+                                
+                                @if(order.Status == Status.APPROVED)
+                                {
+                                    <p> Deliver date: <span class="date-only">@order.DeliverDate</span>     </p>
+                                }
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    
+</div>
+
+<script >
+    $(".date-only").html(moment($(".date-only").html()).format('LL'));
+    // $(".relative").html(moment($(".relative").html()).fromNow());
+</script>

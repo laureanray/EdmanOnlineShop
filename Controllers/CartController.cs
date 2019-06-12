@@ -105,37 +105,7 @@ namespace EdmanOnlineShop.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public async Task<IActionResult> Checkout()
-        {
-            CartViewModel vm = new CartViewModel();
-            var user = await _userManager.GetUserAsync(HttpContext.User);
-            var userId = user.Id;
-            vm.CartItems = new List<CartItemViewModel>();
-            var cartItems = await _context.CartItems.Where(ci => ci.UserID == userId).ToListAsync();
-            if (cartItems != null)
-            {
-                foreach (var ci in cartItems)
-                {
-                    var ProductID = ci.ProductID;
-
-                    var Product = await _context.Products.FirstOrDefaultAsync(pd => pd.ProductID == ProductID);
-
-                    vm.CartItems.Add(new CartItemViewModel
-                    {
-                        Price = Product.Price,
-                        Quantity = ci.Quantity,
-                        ProductDescription = Product.ProductDescription,
-                        ProductName = Product.ProductName,
-                        ProductID = Product.ProductID,
-                        ProductImage = Product.ProductImage
-                    });
-                }
-
-                return View(vm);
-            }
-
-            return View();
-        }
+       
 
         [Authorize(Roles = "Customer")]
         public async Task<IActionResult> AddToCart(int productId)
