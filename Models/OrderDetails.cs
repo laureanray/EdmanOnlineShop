@@ -18,6 +18,7 @@ namespace EdmanOnlineShop.Models
         
         public byte[] ProductImage { get; set; }
 
+        public decimal Price { get; set; }
         public DateTime DeliverDate { get; set; }
     }
 }

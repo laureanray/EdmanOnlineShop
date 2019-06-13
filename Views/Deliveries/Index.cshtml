@@ -2,13 +2,13 @@
 
 @{
     ViewData["Title"] = "Deliveries";
-    Layout = "_Layout";
+    Layout = "_DashboardLayout";
 }
 
 
 <h2 class="h2">Deliveries</h2>
 
-<table id="orders_table"  class="table table-bordered table-sm">    
+<table id="orders_table" class="table table-bordered table-sm">
     <thead>
     <tr>
         <th scope="col">Product Name</th>
@@ -23,14 +23,17 @@
     @foreach (var item in Model.Orders)
     {
         <tr>
-            <td > <a href="/Products/ViewProduct?productId=@item.ProductID">@Html.DisplayFor(modelItem => item.ProductName)</a></td>
+            <td >
+                <a href="/Products/ViewProduct?productId=@item.ProductID">@Html.DisplayFor(modelItem => item.ProductName)</a>
+            </td>
             <td > @item.FirstName @item.LastName </td>
-            <td> @item.Quantity </td>    
+            <td> @item.Quantity </td>
             <td> @item.Amount</td>
             <td> @item.PaymentMethod</td>
-            <td> @item.Status
-                <a asp-action="Approve" asp-route-orderId="@item.OrderID" class="btn btn-primary"> Approve </a>
-                <a asp-action="Reject" asp-route-orderId="@item.OrderID" class="btn btn-danger"> Reject </a>
+            <td>
+                @item.Status | 
+                <a asp-action="Delivered" class="btn btn-success" asp-route-orderId="@item.OrderID"> Delivered </a>
+                <a asp-action="Cancelled" class="btn btn-danger" asp-route-orderId="@item.OrderID"> Cancelled </a>
             </td>
         </tr>
     }

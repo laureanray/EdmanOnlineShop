@@ -33,7 +33,7 @@
                                     {
                                         <span class="text-danger">@order.Status</span>
                                     }
-                                    else if(@order.Status == Status.APPROVED)
+                                    else if(@order.Status == Status.TO_RECEIVE)
                                     {
                                         <span class="text-success">@order.Status</span>
                                     }
@@ -45,7 +45,7 @@
                                 
                                 <p> ₱<span class="price"> @order.Amount </span></p>
                                 
-                                @if(order.Status == Status.APPROVED)
+                                @if(order.Status == Status.TO_RECEIVE)
                                 {
                                     <p> Deliver date: <span class="date-only">@order.DeliverDate</span>     </p>
                                 }
@@ -61,6 +61,5 @@
 </div>
 
 <script >
-    $(".date-only").html(moment($(".date-only").html()).format('LL'));
     // $(".relative").html(moment($(".relative").html()).fromNow());
 </script>

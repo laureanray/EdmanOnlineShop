@@ -23,8 +23,20 @@ namespace EdmanOnlineShop.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string productName)
         {
+            if (productName != "")
+            {
+                var products = _context.Products.Where(pd => pd.IsArchived == false);
+
+                if (!String.IsNullOrEmpty(productName))
+                {
+                    products = products.Where(p => p.ProductName.Contains(productName));
+                    ViewData["SearchResult"] = "Showing " + await products.CountAsync() + " results for \"" + productName + "\".";
+                    return View(await products.ToListAsync());
+                }
+
+            }
             return View(await _context.Products.Where(pd => pd.IsArchived == false).ToListAsync());
         }
         [Authorize(Roles = "Admin, SalesClerk")]

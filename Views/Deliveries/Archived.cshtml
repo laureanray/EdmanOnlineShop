@@ -1,0 +1,47 @@
+@model EdmanOnlineShop.ViewModels.IndexOrderViewModel
+
+@{
+    ViewData["Title"] = "Deliveries";
+    Layout = "_DashboardLayout";
+}
+
+
+<h2 class="h2">Archived</h2>
+
+<table id="archived_table" class="table table-bordered table-sm">
+    <thead>
+    <tr>
+        <th> Deliver Date </th>
+        <th> Customer Name</th>
+        <th> Product </th>
+        <th> Quantity </th>
+        <th> Price </th>
+        <th> Total </th>
+        <th> Status </th>
+
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.Orders)
+    {
+        <tr>
+            <td class="date-only">  @item.DeliverDate</td>
+            <td > @item.FirstName @item.LastName </td>
+            <td >
+                <a href="/Products/ViewProduct?productId=@item.ProductID">@Html.DisplayFor(modelItem => item.ProductName)</a>
+            </td>
+            <td> @item.Quantity </td>
+            <td> @item.Price </td>
+            <td> @item.Amount</td>
+            <td class="text-success">
+                @item.Status
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+<script >
+
+console.log(moment());
+</script>

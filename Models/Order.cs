@@ -13,9 +13,9 @@ namespace EdmanOnlineShop.Models
     public enum Status
     {
         PENDING,
-        APPROVED,
+        TO_RECEIVE,
         REJECTED,
-        SHIPPED,
+        CANCELLED,
         DELIVERED
     }
     public class Order
@@ -30,5 +30,7 @@ namespace EdmanOnlineShop.Models
             public DateTime DateOrdered { get; set; }
             public PaymentMethod PaymentMethod { get; set; }
             public DateTime DateToDeliver { get; set; }
+
+            public DateTime DateDelivered { get; set; }
     }
 }

@@ -11,6 +11,7 @@ namespace EdmanOnlineShop.ViewModels
         public int StocksLeft { get; set; }
         public decimal Price { get; set; }
         public int Critical { get; set; }
-        
+
+
     }
 }

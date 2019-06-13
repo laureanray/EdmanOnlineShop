@@ -68,7 +68,7 @@ namespace EdmanOnlineShop.Controllers
 
             if (order != null)
             {
-                order.Status = Status.APPROVED;
+                order.Status = Status.TO_RECEIVE;
                 order.DateToDeliver = model.DeliverDate;
                 _context.Entry(order).State = EntityState.Modified;
                 // update inventory

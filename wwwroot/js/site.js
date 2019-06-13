@@ -61,6 +61,16 @@ $(document).ready( function() {
                 }
             } ]
         });
+        $("#archived_table").DataTable({
+            columnDefs: [ {
+                targets: 2,
+                render: function ( data, type, row ) {
+                    return type === 'display' && data.length > 70 ?
+                        data.substr( 0, 70 ) +'…' :
+                        data;
+                }
+            } ]
+        });
         $("#orders_table").show();
         $("#categories_table").show();
         $("#products_table").show();
@@ -115,6 +125,7 @@ $(document).ready( function() {
             $("#credit_debit_form").show();
         }
     });
+    $(".date-only").html(moment($(".date-only").html()).format('LL'));
 
     // $(".product-price").html(formatMoney($(".product-price").html()));
 });

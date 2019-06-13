@@ -134,6 +134,8 @@
           <e p="20190612114926_asdkaskda.Designer.cs" t="Include" />
           <e p="20190612143529_asdl.cs" t="Include" />
           <e p="20190612143529_asdl.Designer.cs" t="Include" />
+          <e p="20190613161742_newfield.cs" t="Include" />
+          <e p="20190613161742_newfield.Designer.cs" t="Include" />
           <e p="ApplicationDbContextModelSnapshot.cs" t="Include" />
         </e>
       </e>
@@ -193,6 +195,7 @@
           <e p="Index.cshtml" t="Include" />
         </e>
         <e p="Deliveries" t="Include">
+          <e p="Archived.cshtml" t="Include" />
           <e p="Index.cshtml" t="Include" />
         </e>
         <e p="Home" t="Include">
