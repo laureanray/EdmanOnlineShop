@@ -113,7 +113,8 @@ namespace EdmanOnlineShop.Data
                     FirstName = "Administrator",
                     LastName = "Admin",
                     Mobile = "912312344",
-                    Phone = "023123155"
+                    Phone = "023123155",
+                    DateRegistered = DateTime.Now
                 };
 
                 var result = await userManager.CreateAsync(user);
@@ -136,7 +137,9 @@ namespace EdmanOnlineShop.Data
                     FirstName = "Juan",
                     LastName = "Dela Cruz",
                     Mobile = "912312344",
-                    Phone = "023123155"
+                    Phone = "023123155",
+                    DateRegistered = DateTime.Now
+
                 };
 
                 var result = await userManager.CreateAsync(user);
@@ -160,7 +163,9 @@ namespace EdmanOnlineShop.Data
                     FirstName = "Logistics",
                     LastName = "Clerk",
                     Mobile = "912312344",
-                    Phone = "023123155"
+                    Phone = "023123155",
+                    DateRegistered = DateTime.Now
+
                 };
 
                 var result = await userManager.CreateAsync(user);
@@ -184,7 +189,9 @@ namespace EdmanOnlineShop.Data
                     FirstName = "Operations",
                     LastName = "Manager",
                     Mobile = "912312344",
-                    Phone = "023123155"
+                    Phone = "023123155",
+                    DateRegistered = DateTime.Now
+
                 };
 
                 var result = await userManager.CreateAsync(user);
@@ -207,7 +214,9 @@ namespace EdmanOnlineShop.Data
                     FirstName = "Accounting",
                     LastName = "User",
                     Mobile = "912312344",
-                    Phone = "023123155"
+                    Phone = "023123155",
+                    DateRegistered = DateTime.Now
+                    
                 };
 
                 var result = await userManager.CreateAsync(user);
@@ -230,7 +239,9 @@ namespace EdmanOnlineShop.Data
                     FirstName = "Sales",
                     LastName = "User",
                     Mobile = "912312344",
-                    Phone = "023123155"
+                    Phone = "023123155",
+                    DateRegistered = DateTime.Now
+
                 };
 
                 var result = await userManager.CreateAsync(user);
@@ -253,7 +264,9 @@ namespace EdmanOnlineShop.Data
                     FirstName = "International",
                     LastName = "User",
                     Mobile = "912312344",
-                    Phone = "023123155"
+                    Phone = "023123155",
+                    DateRegistered = DateTime.Now
+
                 };
 
                 var result = await userManager.CreateAsync(user);

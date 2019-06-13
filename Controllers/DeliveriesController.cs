@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -96,6 +97,7 @@ namespace EdmanOnlineShop.Controllers
             if (order != null)
             {
                 order.Status = Status.DELIVERED;
+                order.DateDelivered = DateTime.Today;
                 _context.Entry(order).State = EntityState.Modified;
 
                 await _context.SaveChangesAsync();

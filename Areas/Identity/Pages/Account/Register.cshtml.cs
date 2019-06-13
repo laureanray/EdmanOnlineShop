@@ -98,7 +98,7 @@ namespace EdmanOnlineShop.Areas.Identity.Pages.Account
                     ModelState.AddModelError(Input.Email, "Email is already taken");
                     return Page();
                 }
-                var user = new ApplicationUser { UserName = Input.UserName, Email = Input.Email, FirstName = Input.FirstName, LastName = Input.LastName, Address = Input.Address};
+                var user = new ApplicationUser { UserName = Input.UserName, Email = Input.Email, FirstName = Input.FirstName, LastName = Input.LastName, Address = Input.Address, DateRegistered = DateTime.Now};
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {

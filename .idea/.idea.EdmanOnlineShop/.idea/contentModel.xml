@@ -136,6 +136,8 @@
           <e p="20190612143529_asdl.Designer.cs" t="Include" />
           <e p="20190613161742_newfield.cs" t="Include" />
           <e p="20190613161742_newfield.Designer.cs" t="Include" />
+          <e p="20190613174011_newmiasdiasdisak.cs" t="Include" />
+          <e p="20190613174011_newmiasdiasdisak.Designer.cs" t="Include" />
           <e p="ApplicationDbContextModelSnapshot.cs" t="Include" />
         </e>
       </e>
@@ -174,6 +176,7 @@
         <e p="CartViewModel.cs" t="Include" />
         <e p="CategoryViewModel.cs" t="Include" />
         <e p="CheckoutViewModel.cs" t="Include" />
+        <e p="DashboardViewModel.cs" t="Include" />
         <e p="EditProductViewModel.cs" t="Include" />
         <e p="IndexInventoryViewModel.cs" t="Include" />
         <e p="IndexOrderViewModel.cs" t="Include" />
@@ -272,6 +275,8 @@
           <e p="datatables.css" t="Include" />
           <e p="datatables.min.css" t="Include" />
           <e p="edman.css" t="Include" />
+          <e p="sb-admin-2.css" t="Include" />
+          <e p="sb-admin-2.min.css" t="Include" />
           <e p="sb-admin.css" t="Include" />
           <e p="sb-admin.min.css" t="Include" />
           <e p="site.css" t="Include" />
@@ -300,6 +305,9 @@
           <e p="sample6.png" t="Include" />
           <e p="work_cover.jpg" t="Include" />
         </e>
+        <e p="img" t="Include">
+          <e p="undraw_posting_photo.svg" t="Include" />
+        </e>
         <e p="js" t="Include">
           <e p="datatables.js" t="Include" />
           <e p="datatables.min.js" t="Include" />
@@ -310,6 +318,8 @@
             <e p="datatables-demo.js" t="Include" />
           </e>
           <e p="moment.js" t="Include" />
+          <e p="sb-admin-2.js" t="Include" />
+          <e p="sb-admin-2.min.js" t="Include" />
           <e p="sb-admin.js" t="Include" />
           <e p="sb-admin.min.js" t="Include" />
           <e p="site.js" t="Include" />

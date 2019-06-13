@@ -78,7 +78,7 @@ namespace EdmanOnlineShop.Controllers
                 if (inventory != null)
                 {
                     // deduct the order
-                    if (inventory.Quantity > 0)
+                    if (inventory.Quantity > 0 && (order.Quantity < inventory.Quantity))
                     {
                         inventory.Quantity -= order.Quantity;
                         _context.Entry(inventory).State = EntityState.Modified;
