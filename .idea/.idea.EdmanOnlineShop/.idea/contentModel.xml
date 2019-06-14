@@ -85,6 +85,7 @@
         <e p="CategoriesController.cs" t="Include" />
         <e p="DashboardController.cs" t="Include" />
         <e p="DeliveriesController.cs" t="Include" />
+        <e p="FeedbacksController.cs" t="Include" />
         <e p="HomeController.cs" t="Include" />
         <e p="InventoriesController.cs" t="Include" />
         <e p="OrdersController.cs" t="Include" />
@@ -93,56 +94,18 @@
       <e p="Data" t="Include">
         <e p="ApplicationDbContext.cs" t="Include" />
         <e p="DummyData.cs" t="Include" />
-        <e p="Migrations" t="Include">
-          <e p="00000000000000_CreateIdentitySchema.cs" t="Include" />
-          <e p="00000000000000_CreateIdentitySchema.Designer.cs" t="Include" />
-          <e p="20190602172708_ExtendedUsersAndRoles.cs" t="Include" />
-          <e p="20190602172708_ExtendedUsersAndRoles.Designer.cs" t="Include" />
-          <e p="20190602173533_ExtendedUsersAndRoles2.cs" t="Include" />
-          <e p="20190602173533_ExtendedUsersAndRoles2.Designer.cs" t="Include" />
-          <e p="20190603012524_ProductsMigration.cs" t="Include" />
-          <e p="20190603012524_ProductsMigration.Designer.cs" t="Include" />
-          <e p="20190603012830_ProductsMigration2.cs" t="Include" />
-          <e p="20190603012830_ProductsMigration2.Designer.cs" t="Include" />
-          <e p="20190603015019_NewMigration.cs" t="Include" />
-          <e p="20190603015019_NewMigration.Designer.cs" t="Include" />
-          <e p="20190603115525_newmigrationsz.cs" t="Include" />
-          <e p="20190603115525_newmigrationsz.Designer.cs" t="Include" />
-          <e p="20190603121417_newmigratonsz.cs" t="Include" />
-          <e p="20190603121417_newmigratonsz.Designer.cs" t="Include" />
-          <e p="20190603165524_asdasdas.cs" t="Include" />
-          <e p="20190603165524_asdasdas.Designer.cs" t="Include" />
-          <e p="20190603165644_asdasdas32.cs" t="Include" />
-          <e p="20190603165644_asdasdas32.Designer.cs" t="Include" />
-          <e p="20190603165858_NEW.cs" t="Include" />
-          <e p="20190603165858_NEW.Designer.cs" t="Include" />
-          <e p="20190604134346_NewMigration24.cs" t="Include" />
-          <e p="20190604134346_NewMigration24.Designer.cs" t="Include" />
-          <e p="20190604140013_AAsdasd.cs" t="Include" />
-          <e p="20190604140013_AAsdasd.Designer.cs" t="Include" />
-          <e p="20190604143637_newmigrationddeleteotherfields.cs" t="Include" />
-          <e p="20190604143637_newmigrationddeleteotherfields.Designer.cs" t="Include" />
-          <e p="20190605072419_Inventory.cs" t="Include" />
-          <e p="20190605072419_Inventory.Designer.cs" t="Include" />
-          <e p="20190605083608_ModifiedPorducts.cs" t="Include" />
-          <e p="20190605083608_ModifiedPorducts.Designer.cs" t="Include" />
-          <e p="20190605122534_NewMgiariosdiao.cs" t="Include" />
-          <e p="20190605122534_NewMgiariosdiao.Designer.cs" t="Include" />
-          <e p="20190612053455_fuckawinawufnwd.cs" t="Include" />
-          <e p="20190612053455_fuckawinawufnwd.Designer.cs" t="Include" />
-          <e p="20190612114926_asdkaskda.cs" t="Include" />
-          <e p="20190612114926_asdkaskda.Designer.cs" t="Include" />
-          <e p="20190612143529_asdl.cs" t="Include" />
-          <e p="20190612143529_asdl.Designer.cs" t="Include" />
-          <e p="20190613161742_newfield.cs" t="Include" />
-          <e p="20190613161742_newfield.Designer.cs" t="Include" />
-          <e p="20190613174011_newmiasdiasdisak.cs" t="Include" />
-          <e p="20190613174011_newmiasdiasdisak.Designer.cs" t="Include" />
-          <e p="ApplicationDbContextModelSnapshot.cs" t="Include" />
-        </e>
       </e>
       <e p="EdmanOnlineShop.csproj" t="IncludeRecursive" />
       <e p="EdmanOnlineShop.sln" t="IncludeFlat" />
+      <e p="Migrations" t="Include">
+        <e p="20190614023158_migrationsasda.cs" t="Include" />
+        <e p="20190614023158_migrationsasda.Designer.cs" t="Include" />
+        <e p="20190614045246_ew.cs" t="Include" />
+        <e p="20190614045246_ew.Designer.cs" t="Include" />
+        <e p="20190614055127_oaksdoaskdo.cs" t="Include" />
+        <e p="20190614055127_oaksdoaskdo.Designer.cs" t="Include" />
+        <e p="ApplicationDbContextModelSnapshot.cs" t="Include" />
+      </e>
       <e p="Models" t="Include">
         <e p="ApplicationRole.cs" t="Include" />
         <e p="ApplicationUser.cs" t="Include" />
@@ -150,12 +113,17 @@
         <e p="CartItemViewModel.cs" t="Include" />
         <e p="Category.cs" t="Include" />
         <e p="ErrorViewModel.cs" t="Include" />
+        <e p="Feedback.cs" t="Include" />
+        <e p="FeedbackDetails.cs" t="Include" />
         <e p="Inventory.cs" t="Include" />
+        <e p="Message.cs" t="Include" />
+        <e p="MessageDetails.cs" t="Include" />
         <e p="Order.cs" t="Include" />
         <e p="OrderDetails.cs" t="Include" />
         <e p="Product.cs" t="Include" />
         <e p="Request.cs" t="Include" />
       </e>
+      <e p="NewDirectory1" t="Include" />
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">
           <e p="netcoreapp2.2" t="Include">
@@ -178,6 +146,8 @@
         <e p="CheckoutViewModel.cs" t="Include" />
         <e p="DashboardViewModel.cs" t="Include" />
         <e p="EditProductViewModel.cs" t="Include" />
+        <e p="FeedbackTableViewModel.cs" t="Include" />
+        <e p="FeedBackViewModel.cs" t="Include" />
         <e p="IndexInventoryViewModel.cs" t="Include" />
         <e p="IndexOrderViewModel.cs" t="Include" />
         <e p="IndexViewModel.cs" t="Include" />
@@ -200,6 +170,15 @@
         <e p="Deliveries" t="Include">
           <e p="Archived.cshtml" t="Include" />
           <e p="Index.cshtml" t="Include" />
+        </e>
+        <e p="Feedbacks" t="Include">
+          <e p="ArchiveTable.cshtml" t="Include" />
+          <e p="FeedbacksTable.cshtml" t="Include" />
+          <e p="Index.cshtml" t="Include" />
+          <e p="Reply.cshtml" t="Include" />
+          <e p="ReplySuccess.cshtml" t="Include" />
+          <e p="Success.cshtml" t="Include" />
+          <e p="ViewFeedback.cshtml" t="Include" />
         </e>
         <e p="Home" t="Include">
           <e p="Index.cshtml" t="Include" />

@@ -1,0 +1,28 @@
+@using Microsoft.VisualStudio.Web.CodeGeneration
+@model MessageDetails
+@{
+    ViewBag.Title = "Feedbacks";
+    Layout = "_DashboardLayout";
+}
+
+
+<h2 class="h2">Reply </h2>
+
+   
+    <div class="card mt-4 w-50">
+        <form asp-action="ReplyFinal" method="post">
+            <div class="card-body">
+                <input type="hidden" asp-for="ToUserID" value="@Model.ToUserID">
+                <h4> Replying to <span class="text-primary">@Model.ToUser.FirstName @Model.ToUser.LastName </span> </h4>
+                <div class="my-2 border-bottom"></div>
+                <textarea asp-for="MessageContent" class="form-control"></textarea>
+                <span asp-validation-for="MessageContent" class="text-danger"></span>
+            </div>
+        <div class="card-footer">
+            <input type="submit" value="Send" class="btn btn-primary">
+        </div>
+        </form>
+    </div>
+
+
+

@@ -1,0 +1,27 @@
+@using Microsoft.VisualStudio.Web.CodeGeneration
+@model FeedbackDetails
+@{
+    ViewBag.Title = "Feedbacks";
+    Layout = "_DashboardLayout";
+}
+
+
+<h2 class="h2">View Feedback</h2>
+
+   
+    <div class="card mt-4 w-50">
+        <div class="card-body">
+            <h4> @Model.User.FirstName @Model.User.LastName </h4>
+            <div class="my-2 border-bottom"></div>
+            <p>
+                @Model.FeedbackMessage
+            </p>
+        </div>
+        <div class="card-footer">
+            <a asp-action="Reply" asp-route-id="@Model.FeedbackID" class="btn btn-primary"> Reply </a>
+            <a asp-action="Archive" asp-route-id="@Model.FeedbackID" class="btn btn-dark"> Archive </a>
+        </div>
+    </div>
+
+
+

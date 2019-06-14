@@ -58,12 +58,12 @@
                   
                     @if (Model.StocksLeft == 0)
                     {
-                        <form asp-controller="Cart" asp-route-productId="@Model.ProductID" asp-action="AddToCart">
+@*                         <form asp-controller="Cart" asp-route-productId="@Model.ProductID" asp-action="AddToCart"> *@
                             <button class="btn btn-primary btn-block btn-lg">
                                 <i class="fas fa-fw fa-plus"></i>
                                 Request     
                             </button>
-                        </form>
+//                        </form>
                     }
                     else
                     {

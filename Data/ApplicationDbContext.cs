@@ -22,5 +22,8 @@ namespace EdmanOnlineShop.Data
         public DbSet<Inventory> Inventories { get; set; }
 
         public DbSet<CartItem> CartItems { get; set; }
+
+        public DbSet<Message> Messages { get; set; }
+        public DbSet<Feedback> Feedbacks { get; set; }
     }
 }

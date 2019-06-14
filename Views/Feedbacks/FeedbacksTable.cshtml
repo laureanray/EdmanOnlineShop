@@ -1,0 +1,32 @@
+@model EdmanOnlineShop.ViewModels.FeedbackTableViewModel
+@{
+    ViewBag.Title = "Feedbacks";
+    Layout = "_DashboardLayout";
+}
+
+
+<h2 class="h2">Deliveries</h2>
+
+<table id="feedbacks_table" class="table table-borderless table-hover table-sm">
+    <thead>
+    <tr>
+        <th scope="col">Date</th>
+        <th scope="col">ID</th>
+        <th> Message </th>
+        <th> Customer Name </th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.Feedbacks)
+    {
+        <tr href="#">
+            <td >
+                @item.DateCreated
+            </td>
+            <td >@item.FeedbackID </td>
+            <td> <a href="/Feedbacks/ViewFeedback?id=@item.FeedbackID">@item.FeedbackMessage </a></td>
+            <td> @item.User.FirstName @item.User.LastName </td>
+        </tr>
+    }
+    </tbody>
+</table>

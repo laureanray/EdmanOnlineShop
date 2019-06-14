@@ -50,6 +50,8 @@ $(document).ready( function() {
                 }
             } ]
         });
+        $("#feedbacks_table").DataTable();
+
         $("#categories_table").DataTable();
         $("#orders_table").DataTable({
             columnDefs: [ {

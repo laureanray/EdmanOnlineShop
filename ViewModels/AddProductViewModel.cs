@@ -22,5 +22,4 @@ namespace EdmanOnlineShop.ViewModels
         [Range(0, 110, ErrorMessage = "Category type is required.")]
         [Required(ErrorMessage = "Category type is required. ")]
         public int CategoryID { get; set; }
-    }
-}
+    } }

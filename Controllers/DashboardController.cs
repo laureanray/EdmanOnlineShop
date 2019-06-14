@@ -49,10 +49,20 @@ namespace EdmanOnlineShop.Controllers
             var totalOrders = await _context.Orders.CountAsync();
             var processedOrders = await _context.Orders.Where(o => o.Status != Status.PENDING).CountAsync();
 
-            float progress = (processedOrders / (float) totalOrders) * 100;
+            if (totalOrders > 0)
+            {
+                
+                float progress = (processedOrders / (float) totalOrders) * 100;
+            
 
-            vm.OrderProgress = Convert.ToInt32(Math.Round(progress));
+                vm.OrderProgress = Convert.ToInt32(Math.Round(progress));
 
+            }
+            else
+            {
+                vm.OrderProgress = 0;
+            }
+            
             var numOfNewUsers =
                 await _context.Users.Where(u => u.DateRegistered >= startDateTime && u.DateRegistered <= endDateTime)
                     .CountAsync();
