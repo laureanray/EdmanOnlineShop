@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ContentModelStore">
     <e p="C:\Users\laure\.Rider2019.1\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\laure\.Rider2019.1\system\resharper-host\local\Transient\ReSharperHost\v191\SolutionCaches\_EdmanOnlineShop.-1380588704.00" t="ExcludeRecursive" />
-    <e p="C:\Users\laure\Desktop\Projects\EdmanOnlineShop" t="IncludeRecursive">
+    <e p="C:\Users\laure\.Rider2019.1\system\resharper-host\local\Transient\ReSharperHost\v191\SolutionCaches\_EdmanOnlineShop.164747852.00" t="ExcludeRecursive" />
+    <e p="C:\Users\laure\OneDrive - Polytechnic University of the Philippines\Desktop\Projects\EdmanOnlineShop" t="IncludeRecursive">
       <e p=".gitignore" t="Include" />
       <e p="appsettings.Development.json" t="Include" />
       <e p="appsettings.json" t="Include" />
@@ -104,6 +104,8 @@
         <e p="20190614045246_ew.Designer.cs" t="Include" />
         <e p="20190614055127_oaksdoaskdo.cs" t="Include" />
         <e p="20190614055127_oaksdoaskdo.Designer.cs" t="Include" />
+        <e p="20190615103552_newamsiadm.cs" t="Include" />
+        <e p="20190615103552_newamsiadm.Designer.cs" t="Include" />
         <e p="ApplicationDbContextModelSnapshot.cs" t="Include" />
       </e>
       <e p="Models" t="Include">
@@ -121,9 +123,9 @@
         <e p="Order.cs" t="Include" />
         <e p="OrderDetails.cs" t="Include" />
         <e p="Product.cs" t="Include" />
+        <e p="ProductDetails.cs" t="Include" />
         <e p="Request.cs" t="Include" />
       </e>
-      <e p="NewDirectory1" t="Include" />
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">
           <e p="netcoreapp2.2" t="Include">
@@ -151,6 +153,8 @@
         <e p="IndexInventoryViewModel.cs" t="Include" />
         <e p="IndexOrderViewModel.cs" t="Include" />
         <e p="IndexViewModel.cs" t="Include" />
+        <e p="ProductsViewModel.cs" t="Include" />
+        <e p="RequestTableViewModel.cs" t="Include" />
         <e p="RestockInventoryViewModel.cs" t="Include" />
         <e p="ViewProductViewModel.cs" t="Include" />
       </e>
@@ -179,6 +183,7 @@
           <e p="ReplySuccess.cshtml" t="Include" />
           <e p="Success.cshtml" t="Include" />
           <e p="ViewFeedback.cshtml" t="Include" />
+          <e p="ViewMessage.cshtml" t="Include" />
         </e>
         <e p="Home" t="Include">
           <e p="Index.cshtml" t="Include" />
@@ -202,6 +207,9 @@
           <e p="ProductsTable.cshtml" t="Include" />
           <e p="Restore.cshtml" t="Include" />
           <e p="ViewProduct.cshtml" t="Include" />
+        </e>
+        <e p="Request" t="Include">
+          <e p="RequestTable.cshtml" t="Include" />
         </e>
         <e p="Shared" t="Include">
           <e p="_CookieConsentPartial.cshtml" t="Include" />

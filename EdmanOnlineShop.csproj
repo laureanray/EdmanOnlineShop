@@ -18,6 +18,7 @@
   <ItemGroup>
     <_ContentIncludedByDefault Remove="Views\Dashboard\Products\Add.cshtml" />
     <_ContentIncludedByDefault Remove="Views\Dashboard\Products\Table.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\OnePiece\Index.cshtml" />
   </ItemGroup>
 
 
@@ -69,11 +70,6 @@
 
   <ItemGroup>
     <UpToDateCheckBuilt Remove="obj\Debug\netcoreapp2.2\EdmanOnlineShop.Razor.dll" />
-  </ItemGroup>
-
-
-  <ItemGroup>
-    <Folder Include="NewDirectory1" />
   </ItemGroup>
 
 </Project>

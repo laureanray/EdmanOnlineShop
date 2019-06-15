@@ -10,5 +10,6 @@ namespace EdmanOnlineShop.Models
         public string MessageContent { get; set; }
         
         public DateTime DateCreated { get; set; }
+        public bool IsArchived { get; set; }
     }
 }

@@ -9,6 +9,10 @@
 
     <h2 class="h2"> My Orders </h2>
     <div class="mt-4"></div>
+    @if (Model.Orders.Count == 0)
+    {
+        <h4 class="display-4" style="font-size: 32px;"> No items to display. </h4>
+    }
     @foreach (var order in Model.Orders)
     {
         <div class="card mt-2">

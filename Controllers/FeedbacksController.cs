@@ -155,7 +155,26 @@ namespace EdmanOnlineShop.Controllers
         {
             return View();
         }
-        
+
+        public async Task<IActionResult> ViewMessage(int id)
+        {
+            var message = await _context.Messages.FirstOrDefaultAsync(m => m.MessageID == id);
+
+            if (message != null)
+            {
+                var fromUser = await _context.Users.FirstOrDefaultAsync(u => u.Id == message.FromUserID);
+                var messageDetails = new MessageDetails
+                {
+                    DateCreated = message.DateCreated,
+                    FromUser = fromUser,
+                    MessageContent = message.MessageContent,
+                    MessageID = message.MessageID,
+                };
+                return View(messageDetails);
+            }
+
+            return NotFound();
+        }
         public async Task<IActionResult> ViewFeedback(int id)
         {
             var feedback = await _context.Feedbacks.FirstOrDefaultAsync(f => f.FeedbackID == id);
@@ -187,6 +206,22 @@ namespace EdmanOnlineShop.Controllers
                 _context.Entry(feedback).State = EntityState.Modified;
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(FeedbacksTable));
+            }
+
+            return NotFound();
+
+        }
+        
+        public async Task<IActionResult> ArchiveMessage(int id)
+        {
+            var message = await _context.Messages.FirstOrDefaultAsync(f => f.MessageID == id);
+
+            if (message != null)
+            {
+                message.IsArchived = true;
+                _context.Entry(message).State = EntityState.Modified;
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
             }
 
             return NotFound();

@@ -25,8 +25,7 @@ namespace EdmanOnlineShop.Controllers
             _userManager = userManager;
             _signInManager = signInManager;
         }
-
-
+        
         public async Task<IActionResult> Index()
         {
             CartViewModel vm = new CartViewModel();
@@ -41,7 +40,8 @@ namespace EdmanOnlineShop.Controllers
                     var ProductID = ci.ProductID;
 
                     var Product = await _context.Products.FirstOrDefaultAsync(pd => pd.ProductID == ProductID);
-
+                    var inventory =
+                        await _context.Inventories.FirstOrDefaultAsync(i => i.ProductID == Product.ProductID);
                     vm.CartItems.Add(new CartItemViewModel
                     {
                         Price = Product.Price,
@@ -49,7 +49,8 @@ namespace EdmanOnlineShop.Controllers
                         ProductDescription = Product.ProductDescription,
                         ProductName = Product.ProductName,
                         ProductID = Product.ProductID,
-                        ProductImage = Product.ProductImage
+                        ProductImage = Product.ProductImage,
+                        Inventory = inventory
                     });
                 }
 

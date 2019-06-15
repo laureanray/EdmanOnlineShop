@@ -1,0 +1,26 @@
+@using Microsoft.VisualStudio.Web.CodeGeneration
+@model MessageDetails
+@{
+    ViewBag.Title = "Message";
+    Layout = "_Layout";
+}
+
+
+<h2 class="h2">View Message</h2>
+
+   
+    <div class="card mt-4 w-50">
+        <div class="card-body">
+            <h4> @Model.FromUser.FirstName @Model.FromUser.LastName </h4>
+            <div class="my-2 border-bottom"></div>
+            <p>
+                @Model.MessageContent
+            </p>
+        </div>
+        <div class="card-footer">
+            <a asp-action="ArchiveMessage" asp-route-id="@Model.MessageID" class="btn btn-dark"> Archive </a>
+        </div>
+    </div>
+
+
+

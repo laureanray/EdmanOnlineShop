@@ -36,12 +36,18 @@ namespace EdmanOnlineShop
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            
+            
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddIdentity<ApplicationUser, ApplicationRole>(
-                   options => options.Stores.MaxLengthForKeys = 128)
+                    options =>
+                    {
+                        options.Stores.MaxLengthForKeys = 128;
+//                        options.SignIn.RequireConfirmedEmail = true;
+                    })
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultUI()
                 .AddDefaultTokenProviders();

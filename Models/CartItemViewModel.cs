@@ -1,3 +1,5 @@
+using EdmanOnlineShop.Models;
+
 namespace EdmanOnlineShop.ViewModels
 {
     public class CartItemViewModel
@@ -9,5 +11,7 @@ namespace EdmanOnlineShop.ViewModels
         public int Quantity { get; set; }
         public decimal Price { get; set; }
         public byte[] ProductImage { get; set; }
+        
+        public Inventory Inventory { get; set; }
     }
 }

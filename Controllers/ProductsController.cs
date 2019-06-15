@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -23,33 +24,92 @@ namespace EdmanOnlineShop.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index(string productName)
+        public async Task<IActionResult> Index(string productName, string categoryFilter)
         {
-            if (productName != "")
-            {
-                var products = _context.Products.Where(pd => pd.IsArchived == false);
+            ProductsViewModel vm = new ProductsViewModel();
+            vm.Products = new List<ProductDetails>();
+            var products = _context.Products.Where(pd => pd.IsArchived == false);
+            var categories = await _context.Categories.ToListAsync();
+            vm.Categories = new List<Category>();
+            vm.Categories = categories;
 
-                if (!String.IsNullOrEmpty(productName))
+            if (!String.IsNullOrEmpty(productName))
+            {
+                products = products.Where(p => p.ProductName.Contains(productName));
+                ViewData["SearchResult"] = "Showing " + await products.CountAsync() + " results for \"" +
+                                           productName + "\"";
+
+                foreach (var pd in products)
                 {
-                    products = products.Where(p => p.ProductName.Contains(productName));
-                    ViewData["SearchResult"] = "Showing " + await products.CountAsync() + " results for \"" + productName + "\".";
-                    return View(await products.ToListAsync());
+                    var category = await _context.Categories.FirstOrDefaultAsync(c => c.CategoryID == pd.CategoryID);
+                    var details = new ProductDetails
+                    {
+                        Category = category,
+                        Product = pd
+                    };
+                    vm.Products.Add(details);
                 }
 
+
+                return View(vm);
             }
-            return View(await _context.Products.Where(pd => pd.IsArchived == false).ToListAsync());
+
+
+            if (!String.IsNullOrEmpty(categoryFilter))
+            {
+                var selectedCategory = await _context.Categories.FirstOrDefaultAsync(c => c.CategoryName == categoryFilter);
+
+                products = products.Where(p => p.CategoryID == selectedCategory.CategoryID);
+
+                foreach (var p in products)
+                {
+                    var category = await _context.Categories.FirstOrDefaultAsync(c => c.CategoryID == p.CategoryID);
+                    var details = new ProductDetails
+                    {
+                        Category = category,
+                        Product = p
+                    };
+                    vm.Products.Add(details);
+                    
+                }
+
+                vm.SelectedCategory = selectedCategory.CategoryName;
+
+                return View(vm);
+
+            }
+
+            var productList = await _context.Products.Where(pd => pd.IsArchived == false).ToListAsync();
+            if (productList != null)
+            {
+                foreach (var p in productList)
+                {
+                    var category = await _context.Categories.FirstOrDefaultAsync(c => c.CategoryID == p.CategoryID);
+                    var details = new ProductDetails
+                    {
+                        Category = category,
+                        Product = p
+                    };
+                    vm.Products.Add(details);
+                }
+
+                return View(vm);
+            }
+
+            return NotFound();
         }
+
         [Authorize(Roles = "Admin, SalesClerk")]
         public async Task<IActionResult> ProductsTable()
         {
             return View(await _context.Products.Where(pd => pd.IsArchived == false).ToListAsync());
         }
-        
+
         public async Task<IActionResult> Archived()
         {
             return View(await _context.Products.Where(pd => pd.IsArchived == true).ToListAsync());
         }
-    
+
         public async Task<IActionResult> ViewProduct(int productId)
         {
             ViewProductViewModel vm = new ViewProductViewModel();
@@ -58,7 +118,7 @@ namespace EdmanOnlineShop.Controllers
             if (product != null)
             {
                 var inventory = await _context.Inventories.SingleOrDefaultAsync(iv => iv.ProductID == productId);
-                
+
                 vm.ProductDescription = product.ProductDescription;
                 vm.ProductName = product.ProductName;
                 vm.ProductID = product.ProductID;
@@ -68,22 +128,20 @@ namespace EdmanOnlineShop.Controllers
                 vm.Critical = inventory.CriticalLevel;
 
                 return View(vm);
-
             }
 
             return NotFound();
         }
-        
+
         [Authorize(Roles = "Admin, SalesClerk")]
-        
         [HttpGet]
-        public async  Task<IActionResult> Add()    
+        public async Task<IActionResult> Add()
         {
             AddProductViewModel vm = new AddProductViewModel();
             vm.Categories = await _context.Categories.ToListAsync();
             return View(vm);
         }
-        
+
         [HttpGet]
         public async Task<IActionResult> Archive(int? productId)
         {
@@ -98,7 +156,7 @@ namespace EdmanOnlineShop.Controllers
             {
                 return NotFound();
             }
-            
+
             ArchiveProductViewModel vm = new ArchiveProductViewModel();
             vm.ProductName = product.ProductName;
             vm.ProductID = product.ProductID;
@@ -124,6 +182,7 @@ namespace EdmanOnlineShop.Controllers
                         await _context.SaveChangesAsync();
                         return RedirectToAction(nameof(ProductsTable));
                     }
+
                     return NotFound();
                 }
                 catch (DbUpdateException)
@@ -132,13 +191,12 @@ namespace EdmanOnlineShop.Controllers
                                                  "Try again, and if the problem persists, " +
                                                  "see your system administrator.");
                     return RedirectToAction(nameof(ProductsTable));
-
                 }
             }
 
             return NotFound();
         }
-        
+
         [HttpGet]
         public async Task<IActionResult> Restore(int? productId)
         {
@@ -153,7 +211,7 @@ namespace EdmanOnlineShop.Controllers
             {
                 return NotFound();
             }
-            
+
             ArchiveProductViewModel vm = new ArchiveProductViewModel();
             vm.ProductName = product.ProductName;
             vm.ProductID = product.ProductID;
@@ -162,8 +220,8 @@ namespace EdmanOnlineShop.Controllers
 
             return View(vm);
         }
-        
-        
+
+
         [HttpPost, ActionName("Restore")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> RestoreConfirm(int id)
@@ -181,6 +239,7 @@ namespace EdmanOnlineShop.Controllers
                         await _context.SaveChangesAsync();
                         return RedirectToAction(nameof(Archived));
                     }
+
                     return NotFound();
                 }
                 catch (DbUpdateException)
@@ -189,7 +248,6 @@ namespace EdmanOnlineShop.Controllers
                                                  "Try again, and if the problem persists, " +
                                                  "see your system administrator.");
                     return RedirectToAction(nameof(Archived));
-
                 }
             }
 
@@ -198,31 +256,28 @@ namespace EdmanOnlineShop.Controllers
 
 
         [HttpGet]
-        public async Task<IActionResult> Edit(int? productId)    
+        public async Task<IActionResult> Edit(int? productId)
         {
             if (productId == null)
             {
                 return NotFound();
             }
+
             EditProductViewModel vm = new EditProductViewModel();
-            
+
             if (ModelState.IsValid)
             {
-              
-                    var res = await _context.Products.FirstOrDefaultAsync(p => p.ProductID == productId);
-                    var categories = await _context.Categories.ToListAsync();
-                    vm.ProductName = res.ProductName;
-                    vm.ProductDescription = res.ProductDescription;
-                    vm.Price = res.Price;
-                    vm.CategoryID = res.CategoryID;
-                    vm.Categories = categories;
-                    vm.ProductID = res.ProductID;
-                    
-                    
-                    
-                    return View(vm);
+                var res = await _context.Products.FirstOrDefaultAsync(p => p.ProductID == productId);
+                var categories = await _context.Categories.ToListAsync();
+                vm.ProductName = res.ProductName;
+                vm.ProductDescription = res.ProductDescription;
+                vm.Price = res.Price;
+                vm.CategoryID = res.CategoryID;
+                vm.Categories = categories;
+                vm.ProductID = res.ProductID;
 
-              
+
+                return View(vm);
             }
 
             return View();
@@ -238,7 +293,7 @@ namespace EdmanOnlineShop.Controllers
                 try
                 {
                     Console.WriteLine(id);
-                    var product =  await _context.Products.FirstOrDefaultAsync(pd => pd.ProductID == id);
+                    var product = await _context.Products.FirstOrDefaultAsync(pd => pd.ProductID == id);
                     if (product != null)
                     {
                         product.Price = model.Price;
@@ -255,19 +310,15 @@ namespace EdmanOnlineShop.Controllers
                                 product.ProductImage = memoryStream.ToArray();
                             }
                         }
-                    
 
-                     
-                        
+
                         _context.Entry(product).State = EntityState.Modified;
-                    
+
                         await _context.SaveChangesAsync();
                         return RedirectToAction(nameof(ProductsTable));
-
                     }
 
                     return NotFound();
-
                 }
                 catch (DbUpdateException)
                 {
@@ -275,14 +326,11 @@ namespace EdmanOnlineShop.Controllers
                                                  "Try again, and if the problem persists, " +
                                                  "see your system administrator.");
                     return View("Edit", model);
-
                 }
             }
 
             return RedirectToAction(nameof(Edit));
-
         }
-
 
 
         [HttpPost]
@@ -307,18 +355,17 @@ namespace EdmanOnlineShop.Controllers
                         await model.ProductImage.CopyToAsync(memoryStream);
                         product.ProductImage = memoryStream.ToArray();
                     }
-
                 }
                 else
                 {
                     product.ProductImage = DummyData.defaultImage;
                 }
 
-               
+
                 _context.Products.Add(product);
 
                 var inventory = new Inventory
-                {       
+                {
                     Quantity = 100,
                     CriticalLevel = 10,
                     InventoryDate = DateTime.Now,
@@ -328,18 +375,15 @@ namespace EdmanOnlineShop.Controllers
                 _context.Inventories.Add(inventory);
 
                 await _context.SaveChangesAsync();
-               
-        
+
 
                 return RedirectToAction("ProductsTable");
-
-
             }
-            
+
             Console.WriteLine(ModelState.Values.SelectMany(v => v.Errors));
 
             model.Categories = await _context.Categories.ToListAsync();
             return View(model);
-        } 
+        }
     }
 }

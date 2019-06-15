@@ -7,11 +7,13 @@
 
 
 <div class="wrapper container-fluid" style="width: 90%!important;margin: auto;">
-    <div class="row pt-3 mt-3">
+    <div class="row mt-3">
         <div class="col-8">
+            <h2 class="h2 pt-0"> My Cart </h2>
+            <div class="mt-4"></div>
             @if (Model.CartItems.Count == 0)
             {
-                <h1 class="display-4"> Empty Cart :(</h1>
+                <h4 class="display-4" style="font-size: 32px;"> No items to display. </h4>
             }
             else
             {

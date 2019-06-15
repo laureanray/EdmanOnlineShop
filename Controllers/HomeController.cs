@@ -21,19 +21,25 @@ namespace EdmanOnlineShop.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            IndexViewModel vm = new IndexViewModel();
-            vm.Products = new List<Product>();
-
+            ProductsViewModel vm = new ProductsViewModel();
+            vm.Products = new List<ProductDetails>();
+            
             var products = await _context.Products.Distinct().OrderByDescending(d => d.DateAdded).Take(4).ToListAsync();
 
             if (products != null)
             {
                 foreach(var product in products)
                 {
-                    vm.Products.Add(product);
+                    var category =
+                        await _context.Categories.FirstOrDefaultAsync(c => c.CategoryID == product.CategoryID);
+                    var details = new ProductDetails
+                    {
+                        Product = product,
+                        Category = category
+                    };
+                    vm.Products.Add(details);
                 }
-
-
+                
                 return View(vm);
             }
             

@@ -9,11 +9,24 @@
 }
 
 .card-product:hover {
-    border-color: rgba(244, 128, 36, 0.8);
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(244, 128, 36, 0.2);
+    /*border-color: rgba(244, 128, 36, 0.8);*/
+    /*box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(244, 128, 36, 0.2);*/
     outline: 0 none;
+    border-color: #e7e7e7;
     transition: all 0.2s ease;
 }
+
+.card-product .card-body-product .img-holder img{
+    transition: all 0.2s ease;
+}
+
+
+.card-product:hover .card-body-product .img-holder img 
+{
+    transform: scale(1.1);
+    transition: all 0.4s ease;
+}
+
 .text-primary, a {
     color: #F48024;
 }

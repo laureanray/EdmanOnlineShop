@@ -161,6 +161,13 @@ namespace EdmanOnlineShop.Controllers
                     foreach (var cartItem in cartItems)
                     {
                         var product = await _context.Products.FirstOrDefaultAsync(pd => pd.ProductID == cartItem.ProductID);
+                        var inventory = await _context.Inventories.FirstOrDefaultAsync(i => i.ProductID == cartItem.ProductID);
+
+                        if (cartItem.Quantity > inventory.Quantity)
+                        {
+                            // redirect to reuqest
+                        }
+
 
                         var order = new Order
                         {
