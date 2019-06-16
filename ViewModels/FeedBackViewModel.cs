@@ -7,6 +7,7 @@ namespace EdmanOnlineShop.ViewModels
     public class FeedBackViewModel
     {
         public List<MessageDetails> Messages { get; set; }
+        public List<MessageDetails> ArchivedMessages { get; set; }
 
         public string UserID { get; set; }
         [Required]

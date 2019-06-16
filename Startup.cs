@@ -11,9 +11,11 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using EdmanOnlineShop.Data;
+using EdmanOnlineShop.Mail;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using EdmanOnlineShop.Models;
+using Microsoft.AspNetCore.Identity.UI.Services;
 
 namespace EdmanOnlineShop
 {
@@ -46,11 +48,17 @@ namespace EdmanOnlineShop
                     options =>
                     {
                         options.Stores.MaxLengthForKeys = 128;
-//                        options.SignIn.RequireConfirmedEmail = true;
+                        options.SignIn.RequireConfirmedEmail = true;
                     })
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultUI()
                 .AddDefaultTokenProviders();
+            
+            // requires
+            // using Microsoft.AspNetCore.Identity.UI.Services;
+            // using WebPWrecover.Services;
+            services.AddTransient<IEmailSender, EmailSender>();
+            services.Configure<AuthMessageSenderOptions>(Configuration);
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }

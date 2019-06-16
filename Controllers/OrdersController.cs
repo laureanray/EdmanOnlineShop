@@ -148,40 +148,42 @@ namespace EdmanOnlineShop.Controllers
         }
         
 
-        
+        [HttpPost]
         public async Task<IActionResult> AddOrder(CheckoutViewModel viewModel)
         {
             if (ModelState.IsValid)
             {
                 var user = await _userManager.GetUserAsync(HttpContext.User);
                 var userId = user.Id;
-                var cartItems = await _context.CartItems.Where(ci => ci.UserID == userId).ToListAsync();
+                var cartItems = await _context.CartItems.Where(ci => ci.UserID == userId && !ci.IsRequested).ToListAsync();
                 if (cartItems.Count > 0)
                 {
                     foreach (var cartItem in cartItems)
                     {
                         var product = await _context.Products.FirstOrDefaultAsync(pd => pd.ProductID == cartItem.ProductID);
                         var inventory = await _context.Inventories.FirstOrDefaultAsync(i => i.ProductID == cartItem.ProductID);
-
-                        if (cartItem.Quantity > inventory.Quantity)
+                        
+                        if (cartItem.Quantity <= inventory.Quantity)
                         {
-                            // redirect to reuqest
+                            var order = new Order
+                            {
+                                Amount = product.Price * cartItem.Quantity,
+                                Quantity = cartItem.Quantity,
+                                Status = Status.PENDING,
+                                DateOrdered = DateTime.Now,
+                                PaymentMethod = viewModel.PaymentMethod,
+                                ProductID = cartItem.ProductID,
+                                UserID = userId
+                            };
+                            
+                            
+                            _context.CartItems.Remove(cartItem);
+                            _context.Orders.Add(order);
                         }
 
 
-                        var order = new Order
-                        {
-                            Amount = product.Price * cartItem.Quantity,
-                            Quantity = cartItem.Quantity,
-                            Status = Status.PENDING,
-                            DateOrdered = DateTime.Now,
-                            PaymentMethod = viewModel.PaymentMethod,
-                            ProductID = cartItem.ProductID,
-                             UserID = userId
-                        };
                       
-                        _context.CartItems.Remove(cartItem);
-                        _context.Orders.Add(order);
+                      
                     }
 
                     await _context.SaveChangesAsync();
@@ -194,13 +196,81 @@ namespace EdmanOnlineShop.Controllers
             return View("Checkout");
         }
         
+        public async Task<IActionResult> AddOrderRequest(CartItemViewModel viewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await _userManager.GetUserAsync(HttpContext.User);
+                var userId = user.Id;
+                var cartItem = await _context.CartItems.FirstOrDefaultAsync(c => c.CartItemID == viewModel.CartItemID);
+
+                if (cartItem != null)
+                {
+                    var product = await _context.Products.FirstOrDefaultAsync(p => p.ProductID == cartItem.ProductID);
+                    var request = await _context.Requests.FirstOrDefaultAsync(r => r.CartItemID == cartItem.CartItemID);
+                    var order = new Order
+                    {
+                        Amount = product.Price * cartItem.Quantity,
+                        Quantity = cartItem.Quantity,
+                        Status = Status.PENDING,
+                        DateOrdered = DateTime.Now,
+                        IsRequested = true,
+                        PaymentMethod = viewModel.PaymentMethod,
+                        ProductID = product.ProductID,
+                        UserID = userId
+                    };
+
+                    _context.Orders.Add(order);
+                    _context.CartItems.Remove(cartItem);
+                    _context.Requests.Remove(request);
+
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(MyOrders));
+                }
+
+                return View("CheckoutRequestedProduct", viewModel);
+
+            }
+
+            return View("Checkout");
+        }
+
+        public async Task<IActionResult> CheckoutRequestedProduct(int cartItemId)
+        {
+            var user = await _userManager.GetUserAsync(HttpContext.User);
+            var userId = user.Id;
+            var cartItem = await _context.CartItems.FirstOrDefaultAsync(c => c.CartItemID == cartItemId);
+            if (cartItem != null)
+            {
+                    
+
+                    var Product = await _context.Products.FirstOrDefaultAsync(pd => pd.ProductID == cartItem.ProductID);
+
+                    var vm = new CartItemViewModel
+                    {
+                        Price = Product.Price,
+                        Quantity = cartItem.Quantity,
+                        ProductDescription = Product.ProductDescription,
+                        ProductName = Product.ProductName,
+                        ProductID = Product.ProductID,
+                        ProductImage = Product.ProductImage,
+                        CartItemID = cartItemId
+                    };
+                
+
+                return View(vm);
+            }
+            
+            return View();   
+        }
+
         public async Task<IActionResult> Checkout()
         {
             CheckoutViewModel vm = new CheckoutViewModel();
             var user = await _userManager.GetUserAsync(HttpContext.User);
             var userId = user.Id;
             vm.CartItems = new List<CartItemViewModel>();
-            var cartItems = await _context.CartItems.Where(ci => ci.UserID == userId).ToListAsync();
+            var cartItems = await _context.CartItems.Where(ci => ci.UserID == userId && ci.IsRequested == false).ToListAsync();
             if (cartItems != null)
             {
                 foreach (var ci in cartItems)
@@ -208,16 +278,21 @@ namespace EdmanOnlineShop.Controllers
                     var ProductID = ci.ProductID;
 
                     var Product = await _context.Products.FirstOrDefaultAsync(pd => pd.ProductID == ProductID);
+                    var inventory = await _context.Inventories.FirstOrDefaultAsync(i => i.ProductID == ci.ProductID);
 
-                    vm.CartItems.Add(new CartItemViewModel
+                    if (ci.Quantity <= inventory.Quantity)
                     {
-                        Price = Product.Price,
-                        Quantity = ci.Quantity,
-                        ProductDescription = Product.ProductDescription,
-                        ProductName = Product.ProductName,
-                        ProductID = Product.ProductID,
-                        ProductImage = Product.ProductImage
-                    });
+                        vm.CartItems.Add(new CartItemViewModel
+                        {
+                            Price = Product.Price,
+                            Quantity = ci.Quantity,
+                            ProductDescription = Product.ProductDescription,
+                            ProductName = Product.ProductName,
+                            ProductID = Product.ProductID,
+                            ProductImage = Product.ProductImage
+                        });                    }
+
+                   
                 }
 
                 return View(vm);

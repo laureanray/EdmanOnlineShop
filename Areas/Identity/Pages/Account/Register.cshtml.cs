@@ -91,7 +91,6 @@ namespace EdmanOnlineShop.Areas.Identity.Pages.Account
             returnUrl = returnUrl ?? Url.Content("~/");
             if (ModelState.IsValid)
             {
-                Console.WriteLine(Input.Email);
                 var check = await _userManager.Users.SingleOrDefaultAsync(u => u.Email == Input.Email);
                 if (check != null)
                 {
@@ -118,7 +117,7 @@ namespace EdmanOnlineShop.Areas.Identity.Pages.Account
                     await _userManager.AddToRoleAsync(user, Customer);
 
 
-                    await _signInManager.SignInAsync(user, isPersistent: false);
+                    // await _signInManager.SignInAsync(user, isPersistent: false);
                     return LocalRedirect(returnUrl);
                 }
                 foreach (var error in result.Errors)

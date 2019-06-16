@@ -123,6 +123,8 @@ namespace EdmanOnlineShop.Data
                 {
                     await userManager.AddPasswordAsync(user, DefaultPassword);
                     await userManager.AddToRoleAsync(user, Admin);
+                    string confirmationToken = await userManager.GenerateEmailConfirmationTokenAsync(user);
+                    await userManager.ConfirmEmailAsync(user, confirmationToken);
                 }
 
             }
@@ -148,6 +150,8 @@ namespace EdmanOnlineShop.Data
                 {
                     await userManager.AddPasswordAsync(user, DefaultPassword);
                     await userManager.AddToRoleAsync(user, Customer);
+                    string confirmationToken = await userManager.GenerateEmailConfirmationTokenAsync(user);
+                    await userManager.ConfirmEmailAsync(user, confirmationToken);
                 }
 
             }
@@ -174,6 +178,8 @@ namespace EdmanOnlineShop.Data
                 {
                     await userManager.AddPasswordAsync(user, DefaultPassword);
                     await userManager.AddToRoleAsync(user, LogisticsClerk);
+                    string confirmationToken = await userManager.GenerateEmailConfirmationTokenAsync(user);
+                    await userManager.ConfirmEmailAsync(user, confirmationToken);
                 }
 
             }
@@ -200,6 +206,8 @@ namespace EdmanOnlineShop.Data
                 {
                     await userManager.AddPasswordAsync(user, DefaultPassword);
                     await userManager.AddToRoleAsync(user, OperationsManager);
+                    string confirmationToken = await userManager.GenerateEmailConfirmationTokenAsync(user);
+                    await userManager.ConfirmEmailAsync(user, confirmationToken);
                 }
             }
 
@@ -225,6 +233,8 @@ namespace EdmanOnlineShop.Data
                 {
                     await userManager.AddPasswordAsync(user, DefaultPassword);
                     await userManager.AddToRoleAsync(user, Accounting);
+                    string confirmationToken = await userManager.GenerateEmailConfirmationTokenAsync(user);
+                    await userManager.ConfirmEmailAsync(user, confirmationToken);
                 }
             }
 
@@ -250,6 +260,8 @@ namespace EdmanOnlineShop.Data
                 {
                     await userManager.AddPasswordAsync(user, DefaultPassword);
                     await userManager.AddToRoleAsync(user, SalesClerk);
+                    string confirmationToken = await userManager.GenerateEmailConfirmationTokenAsync(user);
+                    await userManager.ConfirmEmailAsync(user, confirmationToken);
                 }
             }
 
@@ -275,6 +287,8 @@ namespace EdmanOnlineShop.Data
                 {
                     await userManager.AddPasswordAsync(user, DefaultPassword);
                     await userManager.AddToRoleAsync(user, InternationalCorrespondenceAndSecretary);
+                    string confirmationToken = await userManager.GenerateEmailConfirmationTokenAsync(user);
+                    await userManager.ConfirmEmailAsync(user, confirmationToken);
                 }
             }
 
@@ -404,23 +418,6 @@ namespace EdmanOnlineShop.Data
             }
 
             context.SaveChanges();
-
-            var requests = new Request[]
-            {
-                new Request
-                {
-                    ProductID = 1,
-                    UserID = 1,
-                    RequestDate = DateTime.Now,
-                    RequestDetails = "Please providee this",
-                    RequestHeader = "Request for something",
-                }
-            };
-
-            foreach (Request rq in requests)
-            {
-                context.Requests.Add(rq);
-            }
 
             var categories = new Category[]
             {

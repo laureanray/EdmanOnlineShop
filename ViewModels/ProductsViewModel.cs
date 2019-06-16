@@ -8,5 +8,6 @@ namespace EdmanOnlineShop.ViewModels
         public List<ProductDetails> Products { get; set; }
         public List<Category> Categories { get; set; }
         public string SelectedCategory { get; set; }
+        public string SearchQuery { get; set; }
     }
 }

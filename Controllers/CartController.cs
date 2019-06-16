@@ -32,7 +32,7 @@ namespace EdmanOnlineShop.Controllers
             var user = await _userManager.GetUserAsync(HttpContext.User);
             var userId = user.Id;
             vm.CartItems = new List<CartItemViewModel>();
-            var cartItems = await _context.CartItems.Where(ci => ci.UserID == userId).ToListAsync();
+            var cartItems = await _context.CartItems.Where(ci => ci.UserID == userId && ci.IsRequested == false).ToListAsync();
             if (cartItems != null)
             {
                 foreach (var ci in cartItems)
@@ -50,7 +50,8 @@ namespace EdmanOnlineShop.Controllers
                         ProductName = Product.ProductName,
                         ProductID = Product.ProductID,
                         ProductImage = Product.ProductImage,
-                        Inventory = inventory
+                        Inventory = inventory,
+                        CartItemID = ci.CartItemID
                     });
                 }
 

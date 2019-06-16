@@ -16,10 +16,21 @@
                 </div>
             </div>
             <h5 class="text-center text-success"> Feedback sent! </h5>
+            <p class="text-muted"> Redirecting you back in <span id="count"> </span> second/s. </p>
         </div>
     </div>
 </div>
 
-<style>
-    
-</style>
+<script >
+    var count = 5;
+    $("#count").html(count);
+    var x = setInterval(function()
+    {
+        count--;
+        $("#count").html(count);
+    }, 1000);
+    setTimeout(function(){
+        clearInterval(x);
+        window.location = "./";
+    }, 5000);
+</script>

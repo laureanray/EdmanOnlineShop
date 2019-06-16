@@ -31,7 +31,14 @@
                                 </div>
                                 <div class="col-10 pl-4 m-0">
                                     <h4 class="product-name-h4"> @Html.DisplayFor(modelItem => cartItem.ProductName)</h4>
-
+                                    @if (cartItem.Inventory.Quantity < cartItem.Quantity)
+                                    {
+                                        <p class="text-danger text-small"> <i class="fas fa-info-circle"></i> This product will not be proccessed when you checkout as it exceeds the current available stocks for this item which is <span class="font-weight-bold">@cartItem.Inventory.Quantity</span>. 
+                                        </p>
+                                        <p class="text-black-100 text-small">
+                                            If you want to request for this item <a asp-controller="Request" asp-action="RequestConfirm" asp-route-cartItemID="@cartItem.CartItemID" class="text-danger font-weight-bold"> Click here</a>
+                                        </p>
+                                    }
                                     <div class="row mr-4">
                                         <div class="col-4">
                                             <p class="product-price-cart">
@@ -76,7 +83,7 @@
             }
         </div>
         <div class="col-4">
-            @if (Model.CartItems.Count != 0)
+            @if (Model.CartItems.Count != 0 && Model.Total != 0)
             {
                 <form class="pt-2">
                     <h6> Order Summary </h6>

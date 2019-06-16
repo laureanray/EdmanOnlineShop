@@ -12,11 +12,16 @@ namespace EdmanOnlineShop.ViewModels
             get
             {
                 decimal total = 0;
-                foreach (var ci in CartItems)
+
+
+                if (CartItems != null)
                 {
-                    for (int i = 0; i < ci.Quantity; i++)
+                    foreach (var ci in CartItems)
                     {
-                        total += ci.Price;
+                        for (int i = 0; i < ci.Quantity; i++)
+                        {
+                            total += ci.Price;
+                        }
                     }
                 }
 

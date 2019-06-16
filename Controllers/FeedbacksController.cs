@@ -27,13 +27,14 @@ namespace EdmanOnlineShop.Controllers
         {
             FeedBackViewModel vm = new FeedBackViewModel();
             vm.Messages = new List<MessageDetails>();
+            vm.ArchivedMessages = new List<MessageDetails>();
             var user = await _userManager.GetUserAsync(HttpContext.User);
 
             if (user != null)
             {
                 var userId = user.Id;
-                var messages = await _context.Messages.Where(m => m.ToUserID == userId).ToListAsync();
-
+                var messages = await _context.Messages.Where(m => m.ToUserID == userId && !m.IsArchived).ToListAsync();
+                var archivedMessages = await _context.Messages.Where(m => m.ToUserID == userId && m.IsArchived).ToListAsync();
                 if (messages != null)
                 {
                     foreach (var message in messages)
@@ -57,9 +58,33 @@ namespace EdmanOnlineShop.Controllers
 
                     vm.UserID = userId;
 
-                    return View(vm);
                 }
-                return View();
+                if (archivedMessages != null)
+                {
+                    foreach (var message in archivedMessages)
+                    {
+                        var fromUser = await _context.Users.FirstOrDefaultAsync(u => u.Id == message.FromUserID);
+                        var toUser = await _context.Users.FirstOrDefaultAsync(u => u.Id == message.ToUserID);
+
+                        var messageDetails = new MessageDetails
+                        {
+                            FromUserID = message.FromUserID,
+                            FromUser = fromUser,
+                            ToUserID = message.ToUserID,
+                            ToUser = toUser,
+                            MessageContent = message.MessageContent,
+                            MessageID = message.MessageID,
+                            DateCreated = message.DateCreated
+                        };
+                        
+                        vm.ArchivedMessages.Add(messageDetails);
+                    }
+
+                    vm.UserID = userId;
+
+                }
+                
+                return View(vm);
             }
 
             return View();
@@ -156,9 +181,9 @@ namespace EdmanOnlineShop.Controllers
             return View();
         }
 
-        public async Task<IActionResult> ViewMessage(int id)
+        public async Task<IActionResult> ViewMessage(int messageId)
         {
-            var message = await _context.Messages.FirstOrDefaultAsync(m => m.MessageID == id);
+            var message = await _context.Messages.FirstOrDefaultAsync(m => m.MessageID == messageId);
 
             if (message != null)
             {
@@ -275,7 +300,7 @@ namespace EdmanOnlineShop.Controllers
                 _context.Messages.Add(message);
 
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(ReplySuccess));
+                return RedirectToAction(nameof(FeedbacksTable));
             }
 
 

@@ -8,12 +8,14 @@
         
         @if (User.IsInRole("Customer"))
          {
-            
+             <li class="nav-item">
+                 <a href="/Request" id="request_link" class="nav-link texxt-dark nav-link-edman"> Requests </a>
+             </li>  
              <li class="nav-item">
                  <a href="/Feedbacks" id="feedbacks_link" class="nav-link texxt-dark nav-link-edman"> Feedback </a>
              </li>
              <li class="nav-item">
-                 <a href="/Orders/MyOrders" id="my_order_link" class="nav-link texxt-dark nav-link-edman"> My Orders</a>
+                 <a href="/Orders/MyOrders" id="my_order_link" class="nav-link texxt-dark nav-link-edman"> Orders</a>
              </li>
              <li class="nav-item">
                  <a class="nav-link text-dark nav-link-edman" id="cart_link" href="/Cart">                         <i class="fas fa-fw fa-shopping-cart"></i>

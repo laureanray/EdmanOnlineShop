@@ -8,5 +8,7 @@ namespace EdmanOnlineShop.Models
         public string UserID { get; set; }
         public int ProductID { get; set; }
         public int Quantity { get; set; }
+
+        public bool IsRequested { get; set; }
     }
 }

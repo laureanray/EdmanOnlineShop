@@ -89,7 +89,9 @@
         <e p="HomeController.cs" t="Include" />
         <e p="InventoriesController.cs" t="Include" />
         <e p="OrdersController.cs" t="Include" />
+        <e p="PagesController.cs" t="Include" />
         <e p="ProductsController.cs" t="Include" />
+        <e p="RequestController.cs" t="Include" />
       </e>
       <e p="Data" t="Include">
         <e p="ApplicationDbContext.cs" t="Include" />
@@ -106,6 +108,10 @@
         <e p="20190614055127_oaksdoaskdo.Designer.cs" t="Include" />
         <e p="20190615103552_newamsiadm.cs" t="Include" />
         <e p="20190615103552_newamsiadm.Designer.cs" t="Include" />
+        <e p="20190616072115_asll.cs" t="Include" />
+        <e p="20190616072115_asll.Designer.cs" t="Include" />
+        <e p="20190616094504_newmigrations.cs" t="Include" />
+        <e p="20190616094504_newmigrations.Designer.cs" t="Include" />
         <e p="ApplicationDbContextModelSnapshot.cs" t="Include" />
       </e>
       <e p="Models" t="Include">
@@ -125,6 +131,7 @@
         <e p="Product.cs" t="Include" />
         <e p="ProductDetails.cs" t="Include" />
         <e p="Request.cs" t="Include" />
+        <e p="RequestDetails.cs" t="Include" />
       </e>
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">
@@ -139,6 +146,10 @@
         <e p="launchSettings.json" t="Include" />
       </e>
       <e p="ScaffoldingReadme.txt" t="Include" />
+      <e p="Services" t="Include">
+        <e p="AuthMessageSenderOptions.cs" t="Include" />
+        <e p="EmailSender.cs" t="Include" />
+      </e>
       <e p="Startup.cs" t="Include" />
       <e p="ViewModels" t="Include">
         <e p="AddProductViewModel.cs" t="Include" />
@@ -154,7 +165,9 @@
         <e p="IndexOrderViewModel.cs" t="Include" />
         <e p="IndexViewModel.cs" t="Include" />
         <e p="ProductsViewModel.cs" t="Include" />
+        <e p="RequestConfirmViewModel.cs" t="Include" />
         <e p="RequestTableViewModel.cs" t="Include" />
+        <e p="RequestViewModel.cs" t="Include" />
         <e p="RestockInventoryViewModel.cs" t="Include" />
         <e p="ViewProductViewModel.cs" t="Include" />
       </e>
@@ -195,8 +208,12 @@
         </e>
         <e p="Orders" t="Include">
           <e p="Checkout.cshtml" t="Include" />
+          <e p="CheckoutRequestedProduct.cshtml" t="Include" />
           <e p="Index.cshtml" t="Include" />
           <e p="MyOrders.cshtml" t="Include" />
+        </e>
+        <e p="Pages" t="Include">
+          <e p="Confirm.cshtml" t="Include" />
         </e>
         <e p="Products" t="Include">
           <e p="Add.cshtml" t="Include" />
@@ -209,6 +226,8 @@
           <e p="ViewProduct.cshtml" t="Include" />
         </e>
         <e p="Request" t="Include">
+          <e p="Index.cshtml" t="Include" />
+          <e p="RequestConfirm.cshtml" t="Include" />
           <e p="RequestTable.cshtml" t="Include" />
         </e>
         <e p="Shared" t="Include">

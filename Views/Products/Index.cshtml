@@ -24,13 +24,21 @@
 
     <div class="row" >
         <div class="col-2">
-            <form class="mt-2 mr-2" asp-action="Index" method="get" id="form">
-                <input type="text" class="form-control" name="productName" placeholder="Search"/>
-                <select name="categoryFilter" class="form-control" id="select_category">
-                    <option value="default"> Select Category </option>
+            <form class="mt-2 mr-2" asp-action="Index" method="post" id="form">
+                <input type="text" class="form-control" value="@Model.SearchQuery" asp-for="SearchQuery" placeholder="Search"/>
+                <select  asp-for="SelectedCategory"class="form-control" id="select_category">
+                    <option value=""> Select Category </option>
                     @foreach (var cat in Model.Categories)
                     {
-                        <option value="@cat.CategoryName">@cat.CategoryName</option>
+                        if (Model.SelectedCategory == cat.CategoryName)
+                        {
+                            <option value="@cat.CategoryName" selected>@cat.CategoryName</option>
+                        }
+                        else
+                        {
+                            <option value="@cat.CategoryName">@cat.CategoryName</option>
+
+                        }
                     }
                 </select>
             </form>

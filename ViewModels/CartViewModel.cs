@@ -16,7 +16,7 @@ namespace EdmanOnlineShop.ViewModels
                 {
                     for (int i = 0; i < ci.Quantity; i++)
                     {
-                        if (ci.Quantity < ci.Inventory.Quantity)
+                        if (ci.Quantity <= ci.Inventory.Quantity)
                         {
                             total += ci.Price;
                         }

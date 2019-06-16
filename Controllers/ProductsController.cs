@@ -23,8 +23,9 @@ namespace EdmanOnlineShop.Controllers
         {
             _context = context;
         }
-
-        public async Task<IActionResult> Index(string productName, string categoryFilter)
+            
+        [HttpPost]
+        public async Task<IActionResult> Index(ProductsViewModel model)
         {
             ProductsViewModel vm = new ProductsViewModel();
             vm.Products = new List<ProductDetails>();
@@ -32,12 +33,36 @@ namespace EdmanOnlineShop.Controllers
             var categories = await _context.Categories.ToListAsync();
             vm.Categories = new List<Category>();
             vm.Categories = categories;
-
-            if (!String.IsNullOrEmpty(productName))
+            vm.SearchQuery = model.SearchQuery;
+            vm.SelectedCategory = model.SelectedCategory;
+            if (!String.IsNullOrEmpty(model.SearchQuery) && !String.IsNullOrEmpty(model.SelectedCategory))
             {
-                products = products.Where(p => p.ProductName.Contains(productName));
+                var selectedCategory = await _context.Categories.FirstOrDefaultAsync(c => c.CategoryName == model.SelectedCategory);
+
+                products = products.Where(p =>
+                    p.ProductName.Contains(model.SearchQuery) && p.CategoryID == selectedCategory.CategoryID);
                 ViewData["SearchResult"] = "Showing " + await products.CountAsync() + " results for \"" +
-                                           productName + "\"";
+                                           model.SearchQuery + "\" under " + selectedCategory.CategoryName;
+
+                foreach (var pd in products)
+                {
+                    var category = await _context.Categories.FirstOrDefaultAsync(c => c.CategoryID == pd.CategoryID);
+                    var details = new ProductDetails
+                    {
+                        Category = category,
+                        Product = pd
+                    };
+                    vm.Products.Add(details);
+                }
+
+
+                return View(vm);
+            }
+            if (!String.IsNullOrEmpty(model.SearchQuery))
+            {
+                products = products.Where(p => p.ProductName.Contains(model.SearchQuery));
+                ViewData["SearchResult"] = "Showing " + await products.CountAsync() + " results for \"" +
+                                           model.SearchQuery + "\"";
 
                 foreach (var pd in products)
                 {
@@ -55,9 +80,9 @@ namespace EdmanOnlineShop.Controllers
             }
 
 
-            if (!String.IsNullOrEmpty(categoryFilter))
+            if (!String.IsNullOrEmpty(model.SelectedCategory))
             {
-                var selectedCategory = await _context.Categories.FirstOrDefaultAsync(c => c.CategoryName == categoryFilter);
+                var selectedCategory = await _context.Categories.FirstOrDefaultAsync(c => c.CategoryName == model.SelectedCategory);
 
                 products = products.Where(p => p.CategoryID == selectedCategory.CategoryID);
 
@@ -79,6 +104,19 @@ namespace EdmanOnlineShop.Controllers
 
             }
 
+            return RedirectToAction(nameof(Index));
+
+        }
+
+        public async Task<IActionResult> Index(string productName, string categoryFilter)
+        {
+            ProductsViewModel vm = new ProductsViewModel();
+            vm.Products = new List<ProductDetails>();
+            var products = _context.Products.Where(pd => pd.IsArchived == false);
+            var categories = await _context.Categories.ToListAsync();
+            vm.Categories = new List<Category>();
+            vm.Categories = categories;
+            
             var productList = await _context.Products.Where(pd => pd.IsArchived == false).ToListAsync();
             if (productList != null)
             {

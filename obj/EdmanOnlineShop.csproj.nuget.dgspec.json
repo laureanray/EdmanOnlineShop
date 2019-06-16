@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\laure\\Desktop\\EdmanOnlineShop\\EdmanOnlineShop.csproj": {}
+    "C:\\Users\\laure\\OneDrive - Polytechnic University of the Philippines\\Desktop\\Projects\\EdmanOnlineShop\\EdmanOnlineShop.csproj": {}
   },
   "projects": {
-    "C:\\Users\\laure\\Desktop\\EdmanOnlineShop\\EdmanOnlineShop.csproj": {
+    "C:\\Users\\laure\\OneDrive - Polytechnic University of the Philippines\\Desktop\\Projects\\EdmanOnlineShop\\EdmanOnlineShop.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\laure\\Desktop\\EdmanOnlineShop\\EdmanOnlineShop.csproj",
+        "projectUniqueName": "C:\\Users\\laure\\OneDrive - Polytechnic University of the Philippines\\Desktop\\Projects\\EdmanOnlineShop\\EdmanOnlineShop.csproj",
         "projectName": "EdmanOnlineShop",
-        "projectPath": "C:\\Users\\laure\\Desktop\\EdmanOnlineShop\\EdmanOnlineShop.csproj",
+        "projectPath": "C:\\Users\\laure\\OneDrive - Polytechnic University of the Philippines\\Desktop\\Projects\\EdmanOnlineShop\\EdmanOnlineShop.csproj",
         "packagesPath": "C:\\Users\\laure\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\laure\\Desktop\\EdmanOnlineShop\\obj\\",
+        "outputPath": "C:\\Users\\laure\\OneDrive - Polytechnic University of the Philippines\\Desktop\\Projects\\EdmanOnlineShop\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -65,6 +65,10 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[2.2.3, )"
+            },
+            "SendGrid": {
+              "target": "Package",
+              "version": "(, )"
             }
           },
           "imports": [

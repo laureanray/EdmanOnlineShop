@@ -13,5 +13,7 @@ namespace EdmanOnlineShop.ViewModels
         public byte[] ProductImage { get; set; }
         
         public Inventory Inventory { get; set; }
+        public PaymentMethod PaymentMethod { get; set; }
+
     }
 }

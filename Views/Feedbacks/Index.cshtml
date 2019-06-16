@@ -56,7 +56,28 @@
         </table>
         </div>
         <div class="tab-pane fade" id="list-Archive" role="tabpanel" aria-labelledby="list-Archive-list">
-          <h2 class="h2"> Archive </h2>
+             <h2 class="h2 pt-0"> Archive </h2>
+                  <table  class="table table-bordered table-hover table-sm mt-2">
+                      <thead>
+                      <tr>
+                          <th scope="col">Date</th>
+                          <th scope="col">From</th>
+                          <th> Message </th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      @foreach (var item in Model.ArchivedMessages)
+                      {
+                          <tr href="#">
+                              <td >
+                                  @item.DateCreated
+                              </td>
+                              <td>@item.FromUser.FirstName @item.FromUser.LastName </td>
+                              <td> @item.MessageContent  </td>
+                          </tr>
+                      }
+                      </tbody>
+                  </table>
         </div>
       </div>
     </div>

@@ -1,0 +1,79 @@
+@using Microsoft.AspNetCore.Identity
+@model EdmanOnlineShop.ViewModels.CartItemViewModel
+@{
+    ViewBag.Title = "Category";
+    Layout = "_Layout";
+}
+
+
+<div class="wrapper container-fluid" style="width: 90%!important;margin: auto;">
+    <div class="row pt-3 mt-3">
+        <div class="col-6 m-auto">
+            <div class="card">
+                <div class="card-body p-4">
+                    <h5> Checkout</h5>
+                    <div class="border-top"></div>
+                    <h5 class="pt-2 pb-2 mb-0"> Please select payment method </h5>
+                    <form asp-action="AddOrderRequest" method="post">
+
+                        <div class="row mt-2 mb-2 ">
+                            <div class="col">
+                                <input type="hidden" asp-for="@Model.CartItemID" value="@Model.CartItemID">
+                                <select asp-for="PaymentMethod" class="form-control" id="payment_method">
+                                    <option value="CASH_ON_DELIVERY"> Cash On Delivery </option>
+                                    <option value="CREDIT_CARD"> Credit Card </option>
+                                    <option value="DEBIT_CARD"> Debit Card</option>
+                                </select>
+                            </div>
+                            <div class="col text-right">
+                                <h5 class="pt-1"> Total: <span class="price ">@(Model.Price * Model.Quantity)</span></h5>
+                            </div>
+                        </div>
+                        @* <div id="credit_debit_form" style="display: none"> *@
+                        @*     <div class="form-group"> *@
+                        @*         <label for="username">Full name (on the card)</label> *@
+                        @*         <input type="text" class="form-control" name="username" placeholder="" required=""/> *@
+                        @*     </div> <!-- form-group.// --> *@
+                        @* *@
+                        @*     <div class="form-group"> *@
+                        @*         <label for="cardNumber">Card number</label> *@
+                        @*         <div class="input-group"> *@
+                        @*             <input type="text" class="form-control" name="cardNumber" placeholder=""/> *@
+                        @*             <div class="input-group-append"> *@
+                        @*                 <span class="input-group-text text-muted"> *@
+                        @*                     <i class="fab fa-cc-visa"></i> <i class="fab fa-cc-amex"></i> *@
+                        @*                     <i class="fab fa-cc-mastercard"></i> *@
+                        @*                 </span> *@
+                        @*             </div> *@
+                        @*         </div> *@
+                        @*     </div> <!-- form-group.// --> *@
+                        @* *@
+                        @*     <div class="row"> *@
+                        @*         <div class="col-sm-8"> *@
+                        @*             <div class="form-group"> *@
+                        @*                 <label> *@
+                        @*                     <span class="hidden-xs">Expiration</span> *@
+                        @*                 </label> *@
+                        @*                 <div class="input-group"> *@
+                        @*                     <input type="number" class="form-control" placeholder="MM" name=""/> *@
+                        @*                     <input type="number" class="form-control" placeholder="YY" name=""/> *@
+                        @*                 </div> *@
+                        @*             </div> *@
+                        @*         </div> *@
+                        @*         <div class="col-sm-4"> *@
+                        @*             <div class="form-group"> *@
+                        @*                 <label data-toggle="tooltip" title="" data-original-title="3 digits code on back side of the card">CVV <i class="fa fa-question-circle"></i></label> *@
+                        @*                 <input type="number" class="form-control" required=""/> *@
+                        @*             </div> <!-- form-group.// --> *@
+                        @*         </div> *@
+                        @*     </div> <!-- row.// --> *@
+                        @* </div> *@
+                        <input type="submit" class="btn btn-primary btn-block mt-2" value="Confirm Payment"/>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
