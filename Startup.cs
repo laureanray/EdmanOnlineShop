@@ -16,6 +16,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using EdmanOnlineShop.Models;
 using Microsoft.AspNetCore.Identity.UI.Services;
+using Rotativa.AspNetCore;
 
 namespace EdmanOnlineShop
 {
@@ -91,7 +92,9 @@ namespace EdmanOnlineShop
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
-
+            
+            
+            RotativaConfiguration.Setup(env, "..\\Rotativa\\");
             DummyData.Initialize(context, userManager, roleManager, env).Wait();
         }
     }

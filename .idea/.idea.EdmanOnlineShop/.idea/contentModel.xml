@@ -91,6 +91,7 @@
         <e p="OrdersController.cs" t="Include" />
         <e p="PagesController.cs" t="Include" />
         <e p="ProductsController.cs" t="Include" />
+        <e p="ReportsController.cs" t="Include" />
         <e p="RequestController.cs" t="Include" />
       </e>
       <e p="Data" t="Include">
@@ -126,6 +127,7 @@
         <e p="Inventory.cs" t="Include" />
         <e p="Message.cs" t="Include" />
         <e p="MessageDetails.cs" t="Include" />
+        <e p="Notification.cs" t="Include" />
         <e p="Order.cs" t="Include" />
         <e p="OrderDetails.cs" t="Include" />
         <e p="Product.cs" t="Include" />
@@ -144,6 +146,10 @@
       <e p="Program.cs" t="Include" />
       <e p="Properties" t="Include">
         <e p="launchSettings.json" t="Include" />
+      </e>
+      <e p="Rotativa" t="Include">
+        <e p="wkhtmltoimage.exe" t="Include" />
+        <e p="wkhtmltopdf.exe" t="Include" />
       </e>
       <e p="ScaffoldingReadme.txt" t="Include" />
       <e p="Services" t="Include">
@@ -164,6 +170,7 @@
         <e p="IndexInventoryViewModel.cs" t="Include" />
         <e p="IndexOrderViewModel.cs" t="Include" />
         <e p="IndexViewModel.cs" t="Include" />
+        <e p="ProductsReprotViewModel.cs" t="Include" />
         <e p="ProductsViewModel.cs" t="Include" />
         <e p="RequestConfirmViewModel.cs" t="Include" />
         <e p="RequestTableViewModel.cs" t="Include" />
@@ -224,6 +231,9 @@
           <e p="ProductsTable.cshtml" t="Include" />
           <e p="Restore.cshtml" t="Include" />
           <e p="ViewProduct.cshtml" t="Include" />
+        </e>
+        <e p="Reports" t="Include">
+          <e p="ProductsReport.cshtml" t="Include" />
         </e>
         <e p="Request" t="Include">
           <e p="Index.cshtml" t="Include" />

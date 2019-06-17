@@ -27,7 +27,7 @@
             <form class="mt-2 mr-2" asp-action="Index" method="post" id="form">
                 <input type="text" class="form-control" value="@Model.SearchQuery" asp-for="SearchQuery" placeholder="Search"/>
                 <select  asp-for="SelectedCategory"class="form-control" id="select_category">
-                    <option value=""> Select Category </option>
+                    <option value="img"> Select Category </option>
                     @foreach (var cat in Model.Categories)
                     {
                         if (Model.SelectedCategory == cat.CategoryName)

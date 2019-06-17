@@ -5,82 +5,119 @@
 }
 
 <h2 class="h2 mb-2">Dashboard</h2>
-     <div class="row mt-2">
+<div class="row mt-2">
 
-            <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
+    <!-- Earnings (Monthly) Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Sold Quantity</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">@Model.QuantitySoldToday</div>
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Sold Quantity</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">@Model.QuantitySoldToday</div>
                     </div>
                     <div class="col-auto">
-                      <i class="fas fa-box fa-2x text-gray-300"></i>
+                        <i class="fas fa-box fa-2x text-gray-300"></i>
                     </div>
-                  </div>
                 </div>
-              </div>
             </div>
+        </div>
+    </div>
 
-            <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-success shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
+    <!-- Earnings (Monthly) Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-success shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Sales</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">₱<span class="price">@Model.TotalSalesToday</span></div>
+                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Sales</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">₱<span class="price">@Model.TotalSalesToday</span></div>
                     </div>
                     <div class="col-auto">
-                      <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                        <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
                     </div>
-                  </div>
                 </div>
-              </div>
             </div>
+        </div>
+    </div>
 
-            <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-info shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
+    <!-- Earnings (Monthly) Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-info shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Processed Order</div>
-                      <div class="row no-gutters align-items-center">
-                        <div class="col-auto">
-                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">@Model.OrderProgress%</div>
+                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Processed Order</div>
+                        <div class="row no-gutters align-items-center">
+                            <div class="col-auto">
+                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">@Model.OrderProgress%</div>
+                            </div>
+                            <div class="col">
+                                <div class="progress progress-sm mr-2">
+                                    <div class="progress-bar bg-info" role="progressbar" style="width: @Model.OrderProgress%" aria-valuenow="@Model.OrderProgress" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col">
-                          <div class="progress progress-sm mr-2">
-                            <div class="progress-bar bg-info" role="progressbar" style="width: @Model.OrderProgress%" aria-valuenow="@Model.OrderProgress" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                        </div>
-                      </div>
                     </div>
                     <div class="col-auto">
-                      <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                        <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
                     </div>
-                  </div>
                 </div>
-              </div>
             </div>
+        </div>
+    </div>
 
-            <!-- Pending Requests Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-warning shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
+    <!-- Pending Requests Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-warning shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">New Users </div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">@Model.NumOfNewRegisterToday</div>
+                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">New Users </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">@Model.NumOfNewRegisterToday</div>
                     </div>
                     <div class="col-auto">
-                      <i class="fas fa-users fa-2x text-gray-300"></i>
+                        <i class="fas fa-users fa-2x text-gray-300"></i>
                     </div>
-                  </div>
                 </div>
-              </div>
             </div>
-          </div>
+        </div>
+    </div>
+</div>
+
+
+@if (Model.Notifications.Count > 0)
+{
+    <h2 class="h2 mb-2"> Notifications </h2>
+    foreach (var notification in Model.Notifications)
+    {
+        <div class="card mt-2 border-left-primary shadow h-100">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-1">
+                         @{
+                                                   var base64 = Convert.ToBase64String(@notification.ProductImage);
+                                                   var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                                               }
+                                               <img src="@imgSrc" class="img-fluid" alt="">
+                    </div>
+                    <div class="col-11">
+                        <h5 class="text-danger font-weight-normal">
+                            <i class="fas fa-info-circle"></i>
+                            @notification.NotificationHeader
+                        </h5>
+                        @if (notification.StocksLeft != 0)
+                        {
+                            <p class="text-dark pb-0 mb-0"><span class="font-weight-bold">@notification.ProductName</span> is currently below critical level. </p>
+                            <p class="text-dark font-weight-bold pb-0 mb-0" style="font-size:12px">@notification.StocksLeft item(s) left.</p>
+                        }
+                        else
+                        {
+                            <p class="text-dark pb-0 mb-0"><span class="font-weight-bold">@notification.ProductName</span> is currently out of stock. </p>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}

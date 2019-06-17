@@ -78,15 +78,16 @@ namespace EdmanOnlineShop.Controllers
                 if (inventory != null)
                 {
                     // deduct the order
-                    if (inventory.Quantity > 0 && (order.Quantity < inventory.Quantity))
+                    if (inventory.Quantity > 0 && (order.Quantity <= inventory.Quantity) && order.IsRequested == false)
                     {
                         inventory.Quantity -= order.Quantity;
                         _context.Entry(inventory).State = EntityState.Modified;
                     }
-                    else
-                    {
+                    else if(!order.IsRequested){
                         return Unauthorized();
+
                     }
+                    
                 }
                 
                 await _context.SaveChangesAsync();

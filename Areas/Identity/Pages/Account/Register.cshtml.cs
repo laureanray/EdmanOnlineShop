@@ -72,11 +72,15 @@ namespace EdmanOnlineShop.Areas.Identity.Pages.Account
             
             [Required]
             [Display(Name = "Mobile")]
+            [RegularExpression(@"^[0][1-9]\d{9}$|^[1-9]\d{9}$", ErrorMessage = "Please enter a valid number")]
             public string Mobile { get; set; }
             
             [Required]
+            [Phone(ErrorMessage = "Must be a valid phone format")]
+            [Range(0, Int32.MaxValue, ErrorMessage = "Must be a valid format")]
             [Display(Name = "Phone")]
-            public string Phone { get; set; }
+
+            public int Phone { get; set; }
 
             [Required] [Display(Name = "Address")] public string Address { get; set; }
         }

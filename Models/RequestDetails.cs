@@ -14,5 +14,7 @@ namespace EdmanOnlineShop.Models
         public decimal Price { get; set; }
         public byte[] ProductImage { get; set; }
         public ApplicationUser User { get; set; }
+        
+        public int Quantity { get; set; }
     }
 }

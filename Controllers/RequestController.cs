@@ -49,7 +49,8 @@ namespace EdmanOnlineShop.Controllers
                         RequestStatus = r.RequestStatus,
                         CartItemID = cartItem.CartItemID,
                         ProductID = product.ProductID,
-                        RequestID = r.RequestID
+                        RequestID = r.RequestID,
+                        Quantity = cartItem.Quantity
                     };
                     
                     vm.Requests.Add(requestDetails);
@@ -141,7 +142,8 @@ namespace EdmanOnlineShop.Controllers
                         RequestStatus = req.RequestStatus,
                         RequestID = req.RequestID,
                         CartItemID = cartItem.CartItemID,
-                        User = user
+                        User = user,
+                        Quantity = cartItem.Quantity
                     };
                     
                     vm.Requests.Add(requestDetails);

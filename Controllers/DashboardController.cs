@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using EdmanOnlineShop.Data;
@@ -68,7 +69,44 @@ namespace EdmanOnlineShop.Controllers
                     .CountAsync();
 
             vm.NumOfNewRegisterToday = numOfNewUsers;
+    
+            // for notifications 
+            var inventories = await _context.Inventories.ToListAsync();
+            vm.Notifications = new List<Notification>();
+            if (inventories != null)
+            {
+                foreach (var i in inventories)
+                {
+                    if (i.Quantity == 0)
+                    {
+                        var product = await _context.Products.FirstOrDefaultAsync(p => p.ProductID == i.ProductID);
+                        var notif = new Notification
+                        {
+                            NotificationHeader = "Item is out of stock",
+                            ProductName = product.ProductName,
+                            StocksLeft = i.Quantity,
+                            ProductImage = product.ProductImage
 
+                        };
+                        
+                        vm.Notifications.Add(notif);
+                    }
+                    else if (i.Quantity < i.CriticalLevel)
+                    {
+                        var product = await _context.Products.FirstOrDefaultAsync(p => p.ProductID == i.ProductID);
+                        var notif = new Notification
+                        {
+                            NotificationHeader = "Item is in critical level",
+                            ProductName = product.ProductName,
+                            StocksLeft = i.Quantity,
+                            ProductImage = product.ProductImage
+                        };
+                        
+                        vm.Notifications.Add(notif);
+
+                    }
+                }
+            }
 
 
             return View(vm);
