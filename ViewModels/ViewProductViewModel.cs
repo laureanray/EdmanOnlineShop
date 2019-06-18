@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using EdmanOnlineShop.Models;
+
 namespace EdmanOnlineShop.ViewModels
 {
     public class ViewProductViewModel
@@ -12,6 +15,6 @@ namespace EdmanOnlineShop.ViewModels
         public decimal Price { get; set; }
         public int Critical { get; set; }
 
-
+        public List<FeedbackDetails> Feedbacks { get; set; }
     }
 }

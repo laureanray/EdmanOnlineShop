@@ -113,7 +113,6 @@ namespace EdmanOnlineShop.Data
                     FirstName = "Administrator",
                     LastName = "Admin",
                     Mobile = "912312344",
-                    Phone = "023123155",
                     DateRegistered = DateTime.Now
                 };
 
@@ -139,7 +138,6 @@ namespace EdmanOnlineShop.Data
                     FirstName = "Juan",
                     LastName = "Dela Cruz",
                     Mobile = "912312344",
-                    Phone = "023123155",
                     DateRegistered = DateTime.Now
 
                 };
@@ -155,6 +153,58 @@ namespace EdmanOnlineShop.Data
                 }
 
             }
+            
+            if (await userManager.FindByNameAsync("joedavis@gmail.com") == null)
+            {
+                var user = new ApplicationUser
+                {
+                    UserName = "joe",
+                    Address = "Manila",
+                    Email = "joedavis@gmail.com",
+                    FirstName = "Joe",
+                    LastName = "Davis",
+                    Mobile = "912312344",
+                    DateRegistered = DateTime.Now
+                };
+
+                var result = await userManager.CreateAsync(user);
+
+                if (result.Succeeded)
+                {
+                    await userManager.AddPasswordAsync(user, DefaultPassword);
+                    await userManager.AddToRoleAsync(user, Customer);
+                    string confirmationToken = await userManager.GenerateEmailConfirmationTokenAsync(user);
+                    await userManager.ConfirmEmailAsync(user, confirmationToken);
+                }
+
+            }
+            
+            if (await userManager.FindByNameAsync("mariagarcia@gmail.com") == null)
+            {
+                var user = new ApplicationUser
+                {
+                    UserName = "maria",
+                    Address = "Manila",
+                    Email = "mariagarcia@gmail.com",
+                    FirstName = "Maria",
+                    LastName = "Garcia",
+                    Mobile = "912312344",
+                    DateRegistered = DateTime.Now
+                };
+
+                var result = await userManager.CreateAsync(user);
+
+                if (result.Succeeded)
+                {
+                    await userManager.AddPasswordAsync(user, DefaultPassword);
+                    await userManager.AddToRoleAsync(user, Customer);
+                    string confirmationToken = await userManager.GenerateEmailConfirmationTokenAsync(user);
+                    await userManager.ConfirmEmailAsync(user, confirmationToken);
+                }
+
+            }
+
+
 
 
             if (await userManager.FindByNameAsync("logistics@edman.com") == null)
@@ -167,7 +217,6 @@ namespace EdmanOnlineShop.Data
                     FirstName = "Logistics",
                     LastName = "Clerk",
                     Mobile = "912312344",
-                    Phone = "023123155",
                     DateRegistered = DateTime.Now
 
                 };
@@ -195,7 +244,6 @@ namespace EdmanOnlineShop.Data
                     FirstName = "Operations",
                     LastName = "Manager",
                     Mobile = "912312344",
-                    Phone = "023123155",
                     DateRegistered = DateTime.Now
 
                 };
@@ -222,7 +270,6 @@ namespace EdmanOnlineShop.Data
                     FirstName = "Accounting",
                     LastName = "User",
                     Mobile = "912312344",
-                    Phone = "023123155",
                     DateRegistered = DateTime.Now
                     
                 };
@@ -249,7 +296,6 @@ namespace EdmanOnlineShop.Data
                     FirstName = "Sales",
                     LastName = "User",
                     Mobile = "912312344",
-                    Phone = "023123155",
                     DateRegistered = DateTime.Now
 
                 };
@@ -276,7 +322,6 @@ namespace EdmanOnlineShop.Data
                     FirstName = "International",
                     LastName = "User",
                     Mobile = "912312344",
-                    Phone = "023123155",
                     DateRegistered = DateTime.Now
 
                 };

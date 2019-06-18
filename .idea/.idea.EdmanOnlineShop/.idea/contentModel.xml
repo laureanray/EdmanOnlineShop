@@ -113,6 +113,10 @@
         <e p="20190616072115_asll.Designer.cs" t="Include" />
         <e p="20190616094504_newmigrations.cs" t="Include" />
         <e p="20190616094504_newmigrations.Designer.cs" t="Include" />
+        <e p="20190618051219_kemerut.cs" t="Include" />
+        <e p="20190618051219_kemerut.Designer.cs" t="Include" />
+        <e p="20190618061151_newmigraosi.cs" t="Include" />
+        <e p="20190618061151_newmigraosi.Designer.cs" t="Include" />
         <e p="ApplicationDbContextModelSnapshot.cs" t="Include" />
       </e>
       <e p="Models" t="Include">
@@ -170,13 +174,14 @@
         <e p="IndexInventoryViewModel.cs" t="Include" />
         <e p="IndexOrderViewModel.cs" t="Include" />
         <e p="IndexViewModel.cs" t="Include" />
-        <e p="ProductsReprotViewModel.cs" t="Include" />
+        <e p="ProductsReportViewModel.cs" t="Include" />
         <e p="ProductsViewModel.cs" t="Include" />
         <e p="RequestConfirmViewModel.cs" t="Include" />
         <e p="RequestTableViewModel.cs" t="Include" />
         <e p="RequestViewModel.cs" t="Include" />
         <e p="RestockInventoryViewModel.cs" t="Include" />
         <e p="ViewProductViewModel.cs" t="Include" />
+        <e p="WriteFeedbackViewModel.cs" t="Include" />
       </e>
       <e p="Views" t="Include">
         <e p="_ViewImports.cshtml" t="Include" />
@@ -204,6 +209,7 @@
           <e p="Success.cshtml" t="Include" />
           <e p="ViewFeedback.cshtml" t="Include" />
           <e p="ViewMessage.cshtml" t="Include" />
+          <e p="WriteFeedback.cshtml" t="Include" />
         </e>
         <e p="Home" t="Include">
           <e p="Index.cshtml" t="Include" />
@@ -233,6 +239,7 @@
           <e p="ViewProduct.cshtml" t="Include" />
         </e>
         <e p="Reports" t="Include">
+          <e p="Index.cshtml" t="Include" />
           <e p="ProductsReport.cshtml" t="Include" />
         </e>
         <e p="Request" t="Include">
@@ -291,6 +298,7 @@
           <e p="datatables.css" t="Include" />
           <e p="datatables.min.css" t="Include" />
           <e p="edman.css" t="Include" />
+          <e p="report.css" t="Include" />
           <e p="sb-admin-2.css" t="Include" />
           <e p="sb-admin-2.min.css" t="Include" />
           <e p="sb-admin.css" t="Include" />

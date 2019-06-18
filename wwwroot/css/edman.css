@@ -404,6 +404,15 @@ select[name='products_table_length'], select[name='categories_table_length']{
     font-size: 13px!important;
 }
 
+.fa-star {
+    color: #e7e7e7;
+}
+
+.checked {
+    color: orange!important;
+}
+
+
 
 
 /**

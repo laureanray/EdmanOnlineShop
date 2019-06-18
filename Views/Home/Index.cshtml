@@ -1,101 +1,138 @@
-﻿  @model EdmanOnlineShop.ViewModels.ProductsViewModel
+﻿@model EdmanOnlineShop.ViewModels.ProductsViewModel
 
 @{
     ViewData["Title"] = "Home Page";
 }
+<!-- Modal -->
+<div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="contactModalLabel">Contact Us</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h5>Address</h5>
+                <ul class="list-group list-group-flush my-2">
+                    <li class="list-group-item"><span class="font-weight-bold text-dark">Last Pinas Branch </span><br/> 3 Marigold Street Pilar Village, Las Pinas, Metro Manila</li>
+                    <li class="list-group-item"><span class="font-weight-bold text-dark">Pampanga Branch </span><br/> Malabanias Road, Angeles City, Pampanga</li>
+                    <li class="list-group-item"><span class="font-weight-bold text-dark">Cebu Branch </span><br/> A.S. Fortuna Street, Barangay Bakilid, Mandaue City, Cebu</li>
+                </ul>
+                <h5 class="mt-2"> Contact Number </h5>
+                <ul class="list-group list-group-flush my-2">
+                    <li class="list-group-item"> (02) 800-9004</li>
+
+                </ul>
+                <h5 class="mt-2">
+                    Email
+                </h5>
+                 <ul class="list-group list-group-flush my-2">
+                                        <li class="list-group-item"> edmanonlineshopthesis@gmail.com </li>
+                
+                                    </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <header>
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-      </ol>
-      <div class="carousel-inner" role="listbox">
-        <!-- Slide One - Set the background image for this slide in the line below -->
-        <div class="carousel-item active" style="background-image: url('../images/carousel-1.jpg')">
-          <div class="carousel-caption d-none d-md-block">
-            <h3>First Slide</h3>
-            <p>This is a description for the first slide.</p>
-          </div>
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            <!-- Slide One - Set the background image for this slide in the line below -->
+            <div class="carousel-item active" style="background-image: url('../images/carousel-1.jpg')">
+                <div class="carousel-caption d-none d-md-block">
+                    <h3>First Slide</h3>
+                    <p>This is a description for the first slide.</p>
+                </div>
+            </div>
+            <!-- Slide Two - Set the background image for this slide in the line below -->
+            <div class="carousel-item" style="background-image: url('../images/carousel-2.jpg')">
+                <div class="carousel-caption d-none d-md-block">
+                    <h3>Second Slide</h3>
+                    <p>This is a description for the second slide.</p>
+                </div>
+            </div>
+            <!-- Slide Three - Set the background image for this slide in the line below -->
+            <div class="carousel-item" style="background-image: url('../images/carousel-3.jpg')">
+                <div class="carousel-caption d-none d-md-block">
+                    <h3>Third Slide</h3>
+                    <p>This is a description for the third slide.</p>
+                </div>
+            </div>
         </div>
-        <!-- Slide Two - Set the background image for this slide in the line below -->
-        <div class="carousel-item" style="background-image: url('../images/carousel-2.jpg')">
-          <div class="carousel-caption d-none d-md-block">
-            <h3>Second Slide</h3>
-            <p>This is a description for the second slide.</p>
-          </div>
-        </div>
-        <!-- Slide Three - Set the background image for this slide in the line below -->
-        <div class="carousel-item" style="background-image: url('../images/carousel-3.jpg')">
-          <div class="carousel-caption d-none d-md-block">
-            <h3>Third Slide</h3>
-            <p>This is a description for the third slide.</p>
-          </div>
-        </div>
-      </div>
-      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
     </div>
-  </header>
+</header>
 
-  <!-- Page Content -->
-  <div class="container">
+<!-- Page Content -->
+<div class="container">
 
     <h6 class="display-4 mt-3 mb-2 pb-2 pt-1" style="font-size: 30px!important;"> New Products </h6>
     <div class="row">
-                @foreach (var item in Model.Products)
-                            {
-                                <div class="col-lg-3 col-md-8 mb-3 padding-0">
-                                    <a href="/Products/ViewProduct?productId=@Html.DisplayFor(modelItem => item.Product.ProductID)">
-                                        <div class="card h-100 card-product">
-                                            <div class="card-body card-body-product">
-                                                @{
-                                                    var base64 = Convert.ToBase64String(item.Product.ProductImage);
-                                                    var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
-                                                }
-                                                <div class="img-holder" style="height: 225px!important;">
-                                                    <span class="helper"></span>
-                                                    <img class="card-img-top my-auto" src="@imgSrc" style="width: 220px; height:  220px;" alt=""/>
-                                                </div>
-                                                <h4 class="card-title product-name-card">
-                                                    @Html.DisplayFor(modelItem => item.Product.ProductName)
-                                                </h4>
-                                                <h5 class="product-price">
-                                                    ₱<span class="price">@Html.DisplayFor(modelItem => item.Product.Price)</span>
-                                                </h5>
-                                            </div>
-                                            <div class="card-footer pt-1 pb-1">
-                                                <p class="mb-0" style="font-size: 11px; color:  #888;">
-                                                    @Html.DisplayFor(modelItem => item.Category.CategoryName)
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </a>
-                
-                                </div>
-                
+        @foreach (var item in Model.Products)
+        {
+            <div class="col-lg-3 col-md-8 mb-3 padding-0">
+                <a href="/Products/ViewProduct?productId=@Html.DisplayFor(modelItem => item.Product.ProductID)">
+                    <div class="card h-100 card-product">
+                        <div class="card-body card-body-product">
+                            @{
+                                var base64 = Convert.ToBase64String(item.Product.ProductImage);
+                                var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
                             }
+                            <div class="img-holder" style="height: 225px!important;">
+                                <span class="helper"></span>
+                                <img class="card-img-top my-auto" src="@imgSrc" style="width: 220px; height:  220px;" alt=""/>
+                            </div>
+                            <h4 class="card-title product-name-card">
+                                @Html.DisplayFor(modelItem => item.Product.ProductName)
+                            </h4>
+                            <h5 class="product-price">
+                                ₱<span class="price">@Html.DisplayFor(modelItem => item.Product.Price)</span>
+                            </h5>
+                        </div>
+                        <div class="card-footer pt-1 pb-1">
+                            <p class="mb-0" style="font-size: 11px; color:  #888;">
+                                @Html.DisplayFor(modelItem => item.Category.CategoryName)
+                            </p>
+                        </div>
+                    </div>
+                </a>
+
             </div>
+        }
+    </div>
 
 
     <hr>
 
     <!-- Call to Action Section -->
     <div class="row mb-4">
-      <div class="col-md-8">
-        <p>A leading supplier engaged in marketing and servicing of various leading brands of metal cutting and metal fabrication. We offer 
-          our customers the best quality products in the industry to help the become successful in their own field. </p>
-      </div>
-      <div class="col-md-4">
-        <a class="btn btn-lg btn-primary btn-block" href="#">Contact Us</a>
-      </div>
+        <div class="col-md-8">
+            <p>
+                A leading supplier engaged in marketing and servicing of various leading brands of metal cutting and metal fabrication. We offer
+                our customers the best quality products in the industry to help the become successful in their own field.
+            </p>
+        </div>
+        <div class="col-md-4">
+            <button class="btn btn-lg btn-primary btn-block" data-toggle="modal" data-target="#contactModal">Contact Us</button>
+        </div>
     </div>
 
-  </div>
+</div>

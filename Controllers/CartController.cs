@@ -123,7 +123,7 @@ namespace EdmanOnlineShop.Controllers
             }
 
             var userId = user.Id;
-            var cartItemCheck = await _context.CartItems.FirstOrDefaultAsync(ci => ci.ProductID == productId);
+            var cartItemCheck = await _context.CartItems.FirstOrDefaultAsync(ci => ci.ProductID == productId && ci.UserID == userId);
 
             if (cartItemCheck != null)
             {

@@ -89,18 +89,29 @@ namespace EdmanOnlineShop.Controllers
 
             return View();
         }
-        
-        
-        [HttpPost]
-        public async Task<IActionResult> SendFeedback(FeedBackViewModel model)
+
+        public IActionResult WriteFeedback(int productId)
         {
+            var model = new WriteFeedbackViewModel();
+
+            model.ProductID = productId;
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> WriteFeedback(WriteFeedbackViewModel model)
+        {
+            var user = await _userManager.GetUserAsync(HttpContext.User);
             
                 var feedback = new Feedback
                 {
                     FeedbackMessage = model.FeedbackMessage,
-                    UserID = model.UserID,
+                    UserID = user.Id,
                     DateCreated = DateTime.Now,
-                    IsArchived = false
+                    IsArchived = false,
+                    Rating = model.Rating,
+                    ProductID = model.ProductID
                 };
 
                 _context.Feedbacks.Add(feedback);

@@ -10,7 +10,6 @@
   <div class="row mt-2">
     <div class="col-3">
       <div class="list-group" id="list-tab" role="tablist">
-        <a class="list-group-item list-group-item-action active" id="list-compose-list" data-toggle="list" href="#list-compose" role="tab" aria-controls="compose">Compose</a>
         <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Messages</a>
         <a class="list-group-item list-group-item-action" id="list-archive-list" data-toggle="list" href="#list-archive" role="tab" aria-controls="archive">Archive</a>
       </div>
@@ -18,18 +17,18 @@
     <div class="col-9">
       <div class="tab-content" id="nav-tabContent">
         <div class="tab-pane fade show active" id="list-compose" role="tabpanel" aria-labelledby="list-compose-list">
-          <h2 class="h2" style="padding-top: 0!important;"> Compose </h2>
-          <div class="card mt-2">
-            <div class="card-body">
-              <h6 class="mb-2"> Write a feedback </h6>
-              <form   asp-action="SendFeedback" method="post">
-                <input type="hidden" asp-for="UserID" value="@Model.UserID">
-                <textarea asp-for="FeedbackMessage" class="form-control"></textarea>
-                <span asp-validation-for="FeedbackMessage" class="text-danger"></span>
-                <input type="submit" value="Send Feedback" class="btn btn-primary form-control mt-3">
-              </form>
-            </div>
-          </div>
+          @* <h2 class="h2" style="padding-top: 0!important;"> Compose </h2> *@
+          @* <div class="card mt-2"> *@
+          @*   <div class="card-body"> *@
+          @*     <h6 class="mb-2"> Write a feedback </h6> *@
+          @*     <form   asp-action="SendFeedback" method="post"> *@
+          @*       <input type="hidden" asp-for="UserID" value="@Model.UserID"> *@
+          @*       <textarea asp-for="FeedbackMessage" class="form-control"></textarea> *@
+          @*       <span asp-validation-for="FeedbackMessage" class="text-danger"></span> *@
+          @*       <input type="submit" value="Send Feedback" class="btn btn-primary form-control mt-3"> *@
+          @*     </form> *@
+          @*   </div> *@
+          @* </div> *@
         </div>
         <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
           <h2 class="h2 pt-0"> Messages </h2>

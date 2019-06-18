@@ -151,12 +151,11 @@ namespace EdmanOnlineShop.Controllers
         public async Task<IActionResult> ViewProduct(int productId)
         {
             ViewProductViewModel vm = new ViewProductViewModel();
-
+            vm.Feedbacks = new List<FeedbackDetails>();
             var product = await _context.Products.SingleOrDefaultAsync(pd => pd.ProductID == productId);
             if (product != null)
             {
                 var inventory = await _context.Inventories.SingleOrDefaultAsync(iv => iv.ProductID == productId);
-
                 vm.ProductDescription = product.ProductDescription;
                 vm.ProductName = product.ProductName;
                 vm.ProductID = product.ProductID;
@@ -165,6 +164,28 @@ namespace EdmanOnlineShop.Controllers
                 vm.Price = product.Price;
                 vm.Critical = inventory.CriticalLevel;
 
+                var feedbacks = await _context.Feedbacks.Where(f => f.ProductID == productId).ToListAsync();
+
+                if (feedbacks != null)
+                {
+                    foreach (var fb in feedbacks)
+                    {
+                        var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == fb.UserID);
+                        if (user != null)
+                        {
+                            vm.Feedbacks.Add(new FeedbackDetails
+                            {
+                                Rating = fb.Rating,
+                                FeedbackMessage = fb.FeedbackMessage,
+                                FeedbackID = fb.FeedbackID,
+                                User = user,
+                                DateCreated = fb.DateCreated,
+                                IsArchived = fb.IsArchived
+                            });
+                        }
+                    }
+                }
+                
                 return View(vm);
             }
 

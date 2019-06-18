@@ -136,7 +136,8 @@ namespace EdmanOnlineShop.Controllers
                         OrderID = order.OrderID,
                         DatePlaced = order.DateOrdered,
                         ProductImage = Product.ProductImage,
-                        DeliverDate = order.DateToDeliver
+                        DeliverDate = order.DateToDeliver,
+                        ProductID =  Product.ProductID
                     };
                     
                     vm.Orders.Add(od);

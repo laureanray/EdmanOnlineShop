@@ -3,5 +3,33 @@
     ViewBag.Title = "title";
     Layout = "_Layout";
 }
+<div class="container-fluid" style="width: 90%!important; margin: auto">
+    <div class="row mt-5 pt-4">
+        <div class="col text-center auto">
+            <div class="success-checkmark">
+                <div class="check-icon">
+                    <span class="icon-line line-tip"></span>
+                    <span class="icon-line line-long"></span>
+                    <div class="icon-circle"></div>
+                    <div class="icon-fix"></div>
+                </div>
+            </div>
+            <h5 class="text-center text-success"> Email sent! </h5>
+            <p class="text-muted"> Redirecting you back in <span id="count"> </span> second/s. </p>
+        </div>
+    </div>
+</div>
 
-<h2>Email sent</h2>
+<script >
+    var count = 5;
+    $("#count").html(count);
+    var x = setInterval(function()
+    {
+        count--;
+        $("#count").html(count);
+    }, 1000);
+    setTimeout(function(){
+        clearInterval(x);
+        window.location = "/";
+    }, 5000);
+</script>

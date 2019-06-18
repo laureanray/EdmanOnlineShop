@@ -41,9 +41,19 @@
                                     {
                                         <span class="text-success">@order.Status</span>
                                     }
+                                    else if (@order.Status == Status.DELIVERED)
+                                    {
+                                        <span class="text-primary">@order.Status</span>
+
+                                        <br/>
+                                        <a asp-controller="Feedbacks" asp-action="WriteFeedback" asp-route-productId="@order.ProductID" class="btn btn-primary mt-2">
+                                            Send Feedback
+                                        </a>
+                                    }
                                     else
                                     {
                                         <span class="text-primary">@order.Status</span>
+                                                                            
                                     }
                                 </h5>
                                 
@@ -52,6 +62,7 @@
                                 @if(order.Status == Status.TO_RECEIVE)
                                 {
                                     <p> Deliver date: <span class="date-only">@order.DeliverDate</span>     </p>
+                                   
                                 }
                                 
                             </div>

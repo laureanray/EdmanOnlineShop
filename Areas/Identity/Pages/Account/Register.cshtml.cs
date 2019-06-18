@@ -75,8 +75,6 @@ namespace EdmanOnlineShop.Areas.Identity.Pages.Account
             [RegularExpression(@"^[0][1-9]\d{9}$|^[1-9]\d{9}$", ErrorMessage = "Please enter a valid number")]
             public string Mobile { get; set; }
             
-            [Required]
-            [Phone(ErrorMessage = "Must be a valid phone format")]
             [Range(0, Int32.MaxValue, ErrorMessage = "Must be a valid format")]
             [Display(Name = "Phone")]
 
@@ -101,7 +99,7 @@ namespace EdmanOnlineShop.Areas.Identity.Pages.Account
                     ModelState.AddModelError(Input.Email, "Email is already taken");
                     return Page();
                 }
-                var user = new ApplicationUser { UserName = Input.UserName, Email = Input.Email, FirstName = Input.FirstName, LastName = Input.LastName, Address = Input.Address, DateRegistered = DateTime.Now};
+                var user = new ApplicationUser { UserName = Input.UserName, Email = Input.Email, FirstName = Input.FirstName, LastName = Input.LastName, Address = Input.Address, DateRegistered = DateTime.Now, Phone = Input.Phone, Mobile = Input.Mobile};
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {

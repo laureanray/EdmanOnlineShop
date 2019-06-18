@@ -1,0 +1,17 @@
+body {
+    border: 0!important;
+    margin: 0;
+}
+
+.report-header {
+    background: #000;
+}
+
+* {
+    font-family: "Segoe UI", sans-serif;
+}
+
+.report-header h1 {
+    color: #e7e7e7;
+    
+}

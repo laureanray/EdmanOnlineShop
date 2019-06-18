@@ -5,27 +5,28 @@
 <ul class="navbar-nav">
     @if (SignInManager.IsSignedIn(User))
     {
-        
         @if (User.IsInRole("Customer"))
          {
              <li class="nav-item">
                  <a href="/Request" id="request_link" class="nav-link texxt-dark nav-link-edman"> Requests </a>
-             </li>  
+             </li>
              <li class="nav-item">
-                 <a href="/Feedbacks" id="feedbacks_link" class="nav-link texxt-dark nav-link-edman"> Feedback </a>
+                 <a href="/Feedbacks" id="feedbacks_link" class="nav-link texxt-dark nav-link-edman"> Messages </a>
              </li>
              <li class="nav-item">
                  <a href="/Orders/MyOrders" id="my_order_link" class="nav-link texxt-dark nav-link-edman"> Orders</a>
              </li>
              <li class="nav-item">
-                 <a class="nav-link text-dark nav-link-edman" id="cart_link" href="/Cart">                         <i class="fas fa-fw fa-shopping-cart"></i>
- My Cart</a>
+                 <a class="nav-link text-dark nav-link-edman" id="cart_link" href="/Cart">
+                     <i class="fas fa-fw fa-shopping-cart"></i>
+                     My Cart
+                 </a>
              </li>
          }
         <li class="nav-item">
             <div class="dropdown">
                 <a href="javascript:void(0);" class="nav-link nav-link-edman dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    @UserManager.FindByNameAsync(User.Identity.Name).Result.FirstName 
+                    @UserManager.FindByNameAsync(User.Identity.Name).Result.FirstName
                     @UserManager.FindByNameAsync(User.Identity.Name).Result.LastName
                 </a>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -36,8 +37,7 @@
                     {
                         <a class="dropdown-item" href="/Dashboard">Dashboard</a>
                     }
-
-
+                    
                     <form class="dropdown-item" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new {area = ""})">
                         <button type="submit" class="btn btn-link text-dark text-right" id="logout">Logout</button>
                     </form>
