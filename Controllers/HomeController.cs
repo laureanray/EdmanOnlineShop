@@ -22,7 +22,7 @@ namespace EdmanOnlineShop.Controllers
         public async Task<IActionResult> Index()
         {
             ProductsViewModel vm = new ProductsViewModel();
-            vm.Products = new List<ProductDetails>();
+            vm.Products = new List<InventoryDetails>();
             
             var products = await _context.Products.Distinct().OrderByDescending(d => d.DateAdded).Take(4).ToListAsync();
 
@@ -32,7 +32,7 @@ namespace EdmanOnlineShop.Controllers
                 {
                     var category =
                         await _context.Categories.FirstOrDefaultAsync(c => c.CategoryID == product.CategoryID);
-                    var details = new ProductDetails
+                    var details = new InventoryDetails
                     {
                         Product = product,
                         Category = category

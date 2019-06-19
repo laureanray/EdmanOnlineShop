@@ -33,8 +33,8 @@ namespace EdmanOnlineShop.Controllers
             if (user != null)
             {
                 var userId = user.Id;
-                var messages = await _context.Messages.Where(m => m.ToUserID == userId && !m.IsArchived).ToListAsync();
-                var archivedMessages = await _context.Messages.Where(m => m.ToUserID == userId && m.IsArchived).ToListAsync();
+                var messages = await _context.Messages.Where(m => m.ToUserID == userId && m.IsArchived == false).ToListAsync();
+                var archivedMessages = await _context.Messages.Where(m => m.ToUserID == userId && m.IsArchived == true).ToListAsync();
                 if (messages != null)
                 {
                     foreach (var message in messages)
@@ -61,20 +61,20 @@ namespace EdmanOnlineShop.Controllers
                 }
                 if (archivedMessages != null)
                 {
-                    foreach (var message in archivedMessages)
+                    foreach (var aMessage in archivedMessages)
                     {
-                        var fromUser = await _context.Users.FirstOrDefaultAsync(u => u.Id == message.FromUserID);
-                        var toUser = await _context.Users.FirstOrDefaultAsync(u => u.Id == message.ToUserID);
+                        var fromUser = await _context.Users.FirstOrDefaultAsync(u => u.Id == aMessage.FromUserID);
+                        var toUser = await _context.Users.FirstOrDefaultAsync(u => u.Id == aMessage.ToUserID);
 
                         var messageDetails = new MessageDetails
                         {
-                            FromUserID = message.FromUserID,
+                            FromUserID = aMessage.FromUserID,
                             FromUser = fromUser,
-                            ToUserID = message.ToUserID,
+                            ToUserID = aMessage.ToUserID,
                             ToUser = toUser,
-                            MessageContent = message.MessageContent,
-                            MessageID = message.MessageID,
-                            DateCreated = message.DateCreated
+                            MessageContent = aMessage.MessageContent,
+                            MessageID = aMessage.MessageID,
+                            DateCreated = aMessage.DateCreated
                         };
                         
                         vm.ArchivedMessages.Add(messageDetails);
@@ -83,6 +83,9 @@ namespace EdmanOnlineShop.Controllers
                     vm.UserID = userId;
 
                 }
+
+                var x = vm.ArchivedMessages.Count;
+                var y = vm.Messages.Count;
                 
                 return View(vm);
             }
@@ -309,7 +312,10 @@ namespace EdmanOnlineShop.Controllers
                 };
 
                 _context.Messages.Add(message);
-
+//                message.IsArchived = true;
+//
+//                _context.Entry(message).State = EntityState.Modified;
+                
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(FeedbacksTable));
             }

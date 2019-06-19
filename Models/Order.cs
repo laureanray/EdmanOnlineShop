@@ -6,8 +6,7 @@ namespace EdmanOnlineShop.Models
     public enum PaymentMethod
     {
         CASH_ON_DELIVERY,
-        CREDIT_CARD,
-        DEBIT_CARD
+        PAYPAL
     }
 
     public enum Status

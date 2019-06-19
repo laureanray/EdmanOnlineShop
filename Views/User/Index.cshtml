@@ -1,0 +1,74 @@
+@model EdmanOnlineShop.ViewModels.IndexUserViewModel
+
+@{
+    ViewData["Title"] = "Users";
+    Layout = "_DashboardLayout";
+}
+
+
+<h2 class="h2">Users</h2>
+
+<table id="users_table" class="table table-bordered table-sm">
+    <thead>
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Gender</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th> </th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.Users)
+    {
+        <div class="modal fade" id="modal_user_@item.Id" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <h1> @item.FirstName </h1>
+                    <form  asp-action="UpdateUserRole" method="post">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Approve Order</h5>
+                           
+                        </div>
+                        <div class="modal-body">
+                            <h6> Set new role </h6>
+                            <p> This update the role for @item.FirstName. </p>
+                            <input type="hidden" asp-for="OldRole" value="@item.Role">
+                            <input type="hidden" asp-for="UserID" value="@item.Id" >
+                            <select asp-for="Role">
+                                <option value="Customer">Customer</option>
+                                <option value="Admin">Admin</option>
+                                <option value="LogisticsClerk">Logistics Clerk</option>
+                                <option value="OperationsManager">Operations Manager</option>
+                                <option value="Accounting">Accounting</option>
+                                <option value="SalesClerk">Sales Clerk</option>
+                                <option value="InternationalCorrespondenceAndSecretary">I&C Secretary</option>
+                            </select>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <input type="submit" class="btn btn-primary" value="Submit"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <tr>
+            <td> @item.FirstName </td>
+            <td> @item.LastName </td>
+            <td> @item.UserGender</td>
+            <td> @item.Email </td>
+            <td> @item.Role </td>
+            <td>
+                @* @item.Role *@
+                @* <a asp-action="Delivered" class="btn btn-success" asp-route-orderId="@item.Id"> Change Role </a> *@
+                @* <a asp-action="Cancelled" class="btn btn-danger" asp-route-orderId="@item.Id"> Deactivate Account </a> *@
+                <button class="btn btn-primary" data-toggle="modal" data-target="#modal_user_@item.Id"> Update Role </button>
+                <a href="" class="btn btn-danger"> Deactive Account </a>
+            </td>
+
+        </tr>
+    }
+    </tbody>
+</table>

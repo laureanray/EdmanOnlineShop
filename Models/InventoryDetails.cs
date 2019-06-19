@@ -5,9 +5,10 @@ using Microsoft.VisualStudio.Web.CodeGeneration.Contracts.Messaging;
 
 namespace EdmanOnlineShop.Models
 {
-    public class ProductDetails
+    public class InventoryDetails
     {
         public Product Product { get; set; }
         public Category Category { get; set; }
+        public Inventory Inventory { get; set; }
     }
 }

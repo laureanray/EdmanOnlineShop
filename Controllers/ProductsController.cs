@@ -28,7 +28,7 @@ namespace EdmanOnlineShop.Controllers
         public async Task<IActionResult> Index(ProductsViewModel model)
         {
             ProductsViewModel vm = new ProductsViewModel();
-            vm.Products = new List<ProductDetails>();
+            vm.Products = new List<InventoryDetails>();
             var products = _context.Products.Where(pd => pd.IsArchived == false);
             var categories = await _context.Categories.ToListAsync();
             vm.Categories = new List<Category>();
@@ -47,7 +47,7 @@ namespace EdmanOnlineShop.Controllers
                 foreach (var pd in products)
                 {
                     var category = await _context.Categories.FirstOrDefaultAsync(c => c.CategoryID == pd.CategoryID);
-                    var details = new ProductDetails
+                    var details = new InventoryDetails
                     {
                         Category = category,
                         Product = pd
@@ -67,7 +67,7 @@ namespace EdmanOnlineShop.Controllers
                 foreach (var pd in products)
                 {
                     var category = await _context.Categories.FirstOrDefaultAsync(c => c.CategoryID == pd.CategoryID);
-                    var details = new ProductDetails
+                    var details = new InventoryDetails
                     {
                         Category = category,
                         Product = pd
@@ -89,7 +89,7 @@ namespace EdmanOnlineShop.Controllers
                 foreach (var p in products)
                 {
                     var category = await _context.Categories.FirstOrDefaultAsync(c => c.CategoryID == p.CategoryID);
-                    var details = new ProductDetails
+                    var details = new InventoryDetails
                     {
                         Category = category,
                         Product = p
@@ -111,7 +111,7 @@ namespace EdmanOnlineShop.Controllers
         public async Task<IActionResult> Index(string productName, string categoryFilter)
         {
             ProductsViewModel vm = new ProductsViewModel();
-            vm.Products = new List<ProductDetails>();
+            vm.Products = new List<InventoryDetails>();
             var products = _context.Products.Where(pd => pd.IsArchived == false);
             var categories = await _context.Categories.ToListAsync();
             vm.Categories = new List<Category>();
@@ -123,7 +123,7 @@ namespace EdmanOnlineShop.Controllers
                 foreach (var p in productList)
                 {
                     var category = await _context.Categories.FirstOrDefaultAsync(c => c.CategoryID == p.CategoryID);
-                    var details = new ProductDetails
+                    var details = new InventoryDetails
                     {
                         Category = category,
                         Product = p

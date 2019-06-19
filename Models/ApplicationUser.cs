@@ -12,12 +12,19 @@ namespace EdmanOnlineShop.Models
         {
 
         }
+
+        public enum Gender
+        {
+            MALE,
+            FEMALE
+        };
+        
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int Phone { get; set; }
         public string Mobile { get; set; }
         public string Address { get; set; }
-
+        public Gender UserGender { get; set; }
         public DateTime DateRegistered { get; set; }
     }
 }

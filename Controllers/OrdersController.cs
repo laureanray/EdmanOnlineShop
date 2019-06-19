@@ -125,7 +125,7 @@ namespace EdmanOnlineShop.Controllers
                 foreach (var order in orders)
                 {
                     var Product = await _context.Products.FirstOrDefaultAsync(pd => pd.ProductID == order.ProductID);
-
+                    var x = order.DateToDeliver;
                     var od = new OrderDetails
                     {
                         Amount = order.Amount,
@@ -153,8 +153,8 @@ namespace EdmanOnlineShop.Controllers
         [HttpPost]
         public async Task<IActionResult> AddOrder(CheckoutViewModel viewModel)
         {
-            if (ModelState.IsValid)
-            {
+//            if (ModelState.IsValid)
+//            {
                 var user = await _userManager.GetUserAsync(HttpContext.User);
                 var userId = user.Id;
                 var cartItems = await _context.CartItems.Where(ci => ci.UserID == userId && !ci.IsRequested).ToListAsync();
@@ -193,9 +193,7 @@ namespace EdmanOnlineShop.Controllers
 
 
                 return RedirectToAction(nameof(MyOrders));
-            }
-
-            return View("Checkout");
+            
         }
         
         public async Task<IActionResult> AddOrderRequest(CartItemViewModel viewModel)

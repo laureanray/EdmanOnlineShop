@@ -97,7 +97,7 @@ namespace EdmanOnlineShop.Controllers
             if (order != null)
             {
                 order.Status = Status.DELIVERED;
-                order.DateDelivered = DateTime.Today;
+                order.DateDelivered = DateTime.Now;
                 _context.Entry(order).State = EntityState.Modified;
 
                 await _context.SaveChangesAsync();

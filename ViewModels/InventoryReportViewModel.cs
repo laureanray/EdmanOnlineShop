@@ -3,8 +3,8 @@ using EdmanOnlineShop.Models;
 
 namespace EdmanOnlineShop.ViewModels
 {
-    public class ProductsReportViewModel
+    public class InventoryReportViewModel
     {
-        public List<ProductDetails> Products { get; set; }
+        public List<InventoryDetails> Inventories { get; set; }
     }
 }

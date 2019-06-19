@@ -84,14 +84,14 @@ namespace EdmanOnlineShop.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public async Task<IActionResult> UpdateQuantity(int productId, int quantity)
+        public async Task<IActionResult> UpdateQuantity(int cartItemId, int quantity)
         {
             var user = await _userManager.GetUserAsync(HttpContext.User);
             if (user == null)
             {
                 return NotFound();
             }
-            var cartItem = await _context.CartItems.FirstOrDefaultAsync(ci => ci.ProductID == productId);
+            var cartItem = await _context.CartItems.FirstOrDefaultAsync(ci => ci.CartItemID == cartItemId);
 
             if (cartItem == null)
             {
@@ -123,7 +123,7 @@ namespace EdmanOnlineShop.Controllers
             }
 
             var userId = user.Id;
-            var cartItemCheck = await _context.CartItems.FirstOrDefaultAsync(ci => ci.ProductID == productId && ci.UserID == userId);
+            var cartItemCheck = await _context.CartItems.FirstOrDefaultAsync(ci => (ci.ProductID == productId && ci.UserID == userId) && ci.IsRequested == false );
 
             if (cartItemCheck != null)
             {

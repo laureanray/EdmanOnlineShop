@@ -42,24 +42,24 @@
 
                 <div class="col-4">
 
-                    @if (Model.StocksLeft == 0)
-                    {
-@*                         <form asp-controller="Cart" asp-route-productId="@Model.ProductID" asp-action="AddToCart"> *@
-                        <button class="btn btn-primary btn-block btn-lg">
-                            <i class="fas fa-fw fa-plus"></i>
-                            Request
-                        </button>
-//                        </form>
-                    }
-                    else
-                    {
+                    @* @if (Model.StocksLeft == 0) *@
+                    @* { *@
+                         @* <form asp-controller="Cart" asp-route-productId="@Model.ProductID" asp-action="AddToCart"> *@
+                        @* <button class="btn btn-primary btn-block btn-lg"> *@
+                            @* <i class="fas fa-fw fa-plus"></i> *@
+                            @* Request *@
+                        @* </button> *@
+                        @* </form> *@
+                    @* } *@
+                    @* else *@
+                    @* { *@
                         <form asp-controller="Cart" asp-route-productId="@Model.ProductID" asp-action="AddToCart">
                             <button class="btn btn-primary btn-block btn-lg">
                                 <i class="fas fa-fw fa-cart-plus"></i>
                                 Add to Cart
                             </button>
                         </form>
-                    }
+                    @* } *@
                 </div>
             </div>
             @if (Model.Feedbacks.Count > 0)

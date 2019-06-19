@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using EdmanOnlineShop.Data;
@@ -50,7 +51,7 @@ namespace EdmanOnlineShop.Controllers
                     {
                         inventory.Quantity = model.Quantity;
                         inventory.CriticalLevel = model.Critical;
-
+                        inventory.InventoryDate = DateTime.Now;
                         
                         _context.Entry(inventory).State = EntityState.Modified;
                         await _context.SaveChangesAsync();

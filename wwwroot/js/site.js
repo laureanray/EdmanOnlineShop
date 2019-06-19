@@ -52,6 +52,7 @@ $(document).ready( function() {
         });
         $("#feedbacks_table").DataTable();
         $("#request_table").DataTable();
+        $("#users_table").DataTable();
 
         $("#categories_table").DataTable();
         $("#orders_table").DataTable({
@@ -127,14 +128,16 @@ $(document).ready( function() {
 
     $("#payment_method").change(function(){
         var value = $(this).val();
-        if(value === "0")
+        if(value === "CASH_ON_DELIVERY")
         {
-            $("#credit_debit_form").hide();
+            $(".creditCardForm").hide();
+            $("#confirm_payment").removeAttr('disabled');
         }else{
-            $("#credit_debit_form").show();
+            $(".creditCardForm").show();
+            $("#confirm_payment").attr('disabled', 'disabled')
         }
     });
-    $(".date-only").html(moment($(".date-only").html()).format('LL'));
+    // $(".date-only").html(moment($(".date-only").html()).format('LL'));
 
     // $(".product-price").html(formatMoney($(".product-price").html()));
 });

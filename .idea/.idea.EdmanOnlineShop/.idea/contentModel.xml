@@ -93,6 +93,7 @@
         <e p="ProductsController.cs" t="Include" />
         <e p="ReportsController.cs" t="Include" />
         <e p="RequestController.cs" t="Include" />
+        <e p="UserController.cs" t="Include" />
       </e>
       <e p="Data" t="Include">
         <e p="ApplicationDbContext.cs" t="Include" />
@@ -117,11 +118,14 @@
         <e p="20190618051219_kemerut.Designer.cs" t="Include" />
         <e p="20190618061151_newmigraosi.cs" t="Include" />
         <e p="20190618061151_newmigraosi.Designer.cs" t="Include" />
+        <e p="20190619072453_newasda.cs" t="Include" />
+        <e p="20190619072453_newasda.Designer.cs" t="Include" />
         <e p="ApplicationDbContextModelSnapshot.cs" t="Include" />
       </e>
       <e p="Models" t="Include">
         <e p="ApplicationRole.cs" t="Include" />
         <e p="ApplicationUser.cs" t="Include" />
+        <e p="ApplicationUserDetails.cs" t="Include" />
         <e p="CartItem.cs" t="Include" />
         <e p="CartItemViewModel.cs" t="Include" />
         <e p="Category.cs" t="Include" />
@@ -129,15 +133,16 @@
         <e p="Feedback.cs" t="Include" />
         <e p="FeedbackDetails.cs" t="Include" />
         <e p="Inventory.cs" t="Include" />
+        <e p="InventoryDetails.cs" t="Include" />
         <e p="Message.cs" t="Include" />
         <e p="MessageDetails.cs" t="Include" />
         <e p="Notification.cs" t="Include" />
         <e p="Order.cs" t="Include" />
         <e p="OrderDetails.cs" t="Include" />
         <e p="Product.cs" t="Include" />
-        <e p="ProductDetails.cs" t="Include" />
         <e p="Request.cs" t="Include" />
         <e p="RequestDetails.cs" t="Include" />
+        <e p="SalesDetails.cs" t="Include" />
       </e>
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">
@@ -173,13 +178,17 @@
         <e p="FeedBackViewModel.cs" t="Include" />
         <e p="IndexInventoryViewModel.cs" t="Include" />
         <e p="IndexOrderViewModel.cs" t="Include" />
+        <e p="IndexUserViewModel.cs" t="Include" />
         <e p="IndexViewModel.cs" t="Include" />
-        <e p="ProductsReportViewModel.cs" t="Include" />
+        <e p="InventoryReportViewModel.cs" t="Include" />
         <e p="ProductsViewModel.cs" t="Include" />
+        <e p="ReportsViewModel.cs" t="Include" />
         <e p="RequestConfirmViewModel.cs" t="Include" />
+        <e p="RequestReportViewModel.cs" t="Include" />
         <e p="RequestTableViewModel.cs" t="Include" />
         <e p="RequestViewModel.cs" t="Include" />
         <e p="RestockInventoryViewModel.cs" t="Include" />
+        <e p="SalesReportViewModel.cs" t="Include" />
         <e p="ViewProductViewModel.cs" t="Include" />
         <e p="WriteFeedbackViewModel.cs" t="Include" />
       </e>
@@ -240,13 +249,16 @@
         </e>
         <e p="Reports" t="Include">
           <e p="Index.cshtml" t="Include" />
-          <e p="ProductsReport.cshtml" t="Include" />
+          <e p="InventoryReport.cshtml" t="Include" />
+          <e p="RequestReport.cshtml" t="Include" />
+          <e p="SalesReport.cshtml" t="Include" />
         </e>
         <e p="Request" t="Include">
           <e p="Index.cshtml" t="Include" />
           <e p="RequestConfirm.cshtml" t="Include" />
           <e p="RequestTable.cshtml" t="Include" />
         </e>
+        <e p="Returns" t="Include" />
         <e p="Shared" t="Include">
           <e p="_CookieConsentPartial.cshtml" t="Include" />
           <e p="_DashboardLayout.cshtml" t="Include" />
@@ -254,6 +266,9 @@
           <e p="_LoginPartial.cshtml" t="Include" />
           <e p="_ValidationScriptsPartial.cshtml" t="Include" />
           <e p="Error.cshtml" t="Include" />
+        </e>
+        <e p="User" t="Include">
+          <e p="Index.cshtml" t="Include" />
         </e>
       </e>
       <e p="wwwroot" t="Include">
@@ -297,6 +312,7 @@
           </e>
           <e p="datatables.css" t="Include" />
           <e p="datatables.min.css" t="Include" />
+          <e p="demo.css" t="Include" />
           <e p="edman.css" t="Include" />
           <e p="report.css" t="Include" />
           <e p="sb-admin-2.css" t="Include" />
@@ -304,6 +320,7 @@
           <e p="sb-admin.css" t="Include" />
           <e p="sb-admin.min.css" t="Include" />
           <e p="site.css" t="Include" />
+          <e p="styles.css" t="Include" />
         </e>
         <e p="favicon.png" t="Include" />
         <e p="images" t="Include">
@@ -315,11 +332,13 @@
           <e p="62595935_299275177683110_4130555230649581568_n.jpg" t="Include" />
           <e p="64289919_462455017823565_8264760827018477568_n.jpg" t="Include" />
           <e p="a.jpg" t="Include" />
+          <e p="amex.jpg" t="Include" />
           <e p="brand.png" t="Include" />
           <e p="carousel-1.jpg" t="Include" />
           <e p="carousel-2.jpg" t="Include" />
           <e p="carousel-3.jpg" t="Include" />
           <e p="default.jpg" t="Include" />
+          <e p="mastercard.jpg" t="Include" />
           <e p="registration-col.jpg" t="Include" />
           <e p="sample.png" t="Include" />
           <e p="sample2.png" t="Include" />
@@ -327,9 +346,11 @@
           <e p="sample4.png" t="Include" />
           <e p="sample5.png" t="Include" />
           <e p="sample6.png" t="Include" />
+          <e p="visa.jpg" t="Include" />
           <e p="work_cover.jpg" t="Include" />
         </e>
         <e p="img" t="Include">
+          <e p="paypal.png" t="Include" />
           <e p="undraw_posting_photo.svg" t="Include" />
         </e>
         <e p="js" t="Include">
@@ -341,11 +362,13 @@
             <e p="chart-pie-demo.js" t="Include" />
             <e p="datatables-demo.js" t="Include" />
           </e>
+          <e p="jquery.payform.min.js" t="Include" />
           <e p="moment.js" t="Include" />
           <e p="sb-admin-2.js" t="Include" />
           <e p="sb-admin-2.min.js" t="Include" />
           <e p="sb-admin.js" t="Include" />
           <e p="sb-admin.min.js" t="Include" />
+          <e p="script.js" t="Include" />
           <e p="site.js" t="Include" />
         </e>
         <e p="lib" t="Include">

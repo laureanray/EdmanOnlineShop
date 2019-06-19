@@ -94,6 +94,8 @@ namespace EdmanOnlineShop.Migrations
 
                     b.Property<bool>("TwoFactorEnabled");
 
+                    b.Property<int>("UserGender");
+
                     b.Property<string>("UserName")
                         .HasMaxLength(256);
 
