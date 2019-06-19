@@ -26,5 +26,6 @@ namespace EdmanOnlineShop.Models
         public string Address { get; set; }
         public Gender UserGender { get; set; }
         public DateTime DateRegistered { get; set; }
+        public bool IsActive { get; set; }
     }
 }

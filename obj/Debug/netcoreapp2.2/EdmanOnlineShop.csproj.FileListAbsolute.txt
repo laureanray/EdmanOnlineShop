@@ -275,3 +275,6 @@ C:\Users\laure\OneDrive - Polytechnic University of the Philippines\Desktop\Proj
 C:\Users\laure\OneDrive - Polytechnic University of the Philippines\Desktop\Projects\EdmanOnlineShop\obj\Debug\netcoreapp2.2\Razor\Views\Reports\SalesReport.g.cshtml.cs
 C:\Users\laure\OneDrive - Polytechnic University of the Philippines\Desktop\Projects\EdmanOnlineShop\obj\Debug\netcoreapp2.2\Razor\Views\Reports\RequestReport.g.cshtml.cs
 C:\Users\laure\OneDrive - Polytechnic University of the Philippines\Desktop\Projects\EdmanOnlineShop\obj\Debug\netcoreapp2.2\Razor\Views\User\Index.g.cshtml.cs
+C:\Users\laure\OneDrive - Polytechnic University of the Philippines\Desktop\Projects\EdmanOnlineShop\obj\Debug\netcoreapp2.2\Razor\Views\Reports\DeliveryReport.g.cshtml.cs
+C:\Users\laure\OneDrive - Polytechnic University of the Philippines\Desktop\Projects\EdmanOnlineShop\obj\Debug\netcoreapp2.2\Razor\Views\Reports\ReturnReport.g.cshtml.cs
+C:\Users\laure\OneDrive - Polytechnic University of the Philippines\Desktop\Projects\EdmanOnlineShop\obj\Debug\netcoreapp2.2\Razor\Views\Return\ReturnConfirm.g.cshtml.cs

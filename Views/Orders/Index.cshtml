@@ -59,10 +59,15 @@
                 @item.Status
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_@item.OrderID">
-                    APprove
+                                                    <i class="fas fa-fw fa-thumbs-up"></i>
+
+                    Approve
                 </button>
 
-                <a asp-action="Reject" asp-route-orderId="@item.OrderID" class="btn btn-danger"> Reject </a>
+                <a asp-action="Reject" asp-route-orderId="@item.OrderID" class="btn btn-danger">
+                                                    <i class="fas fa-fw fa-thumbs-down"></i>
+ Reject
+                </a>
 
             </td>
         </tr>

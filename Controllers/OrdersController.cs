@@ -196,10 +196,11 @@ namespace EdmanOnlineShop.Controllers
             
         }
         
+        [HttpPost]
         public async Task<IActionResult> AddOrderRequest(CartItemViewModel viewModel)
         {
-            if (ModelState.IsValid)
-            {
+//            if (ModelState.IsValid)
+//            {
                 var user = await _userManager.GetUserAsync(HttpContext.User);
                 var userId = user.Id;
                 var cartItem = await _context.CartItems.FirstOrDefaultAsync(c => c.CartItemID == viewModel.CartItemID);
@@ -230,9 +231,9 @@ namespace EdmanOnlineShop.Controllers
 
                 return View("CheckoutRequestedProduct", viewModel);
 
-            }
+//            }
 
-            return View("Checkout");
+//            return View("Checkout");
         }
 
         public async Task<IActionResult> CheckoutRequestedProduct(int cartItemId)

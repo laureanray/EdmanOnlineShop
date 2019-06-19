@@ -22,7 +22,7 @@
                         </div>
                         <div class="form-group">
                             <label asp-for="Rating">Rating </label>
-                            <input type="number" asp-for="Rating" min="0" max="5">
+                            <input type="number" asp-for="Rating" min="1" max="5" class="form-control" placeholder="Please rate from 1-5">
                             <span asp-validation-for="FeedbackMessage" class="text-danger"></span>
                         </div>
                         <input type="submit" value="Submit" class="btn btn-primary btn-block">

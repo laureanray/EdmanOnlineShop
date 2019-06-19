@@ -25,5 +25,7 @@ namespace EdmanOnlineShop.Data
 
         public DbSet<Message> Messages { get; set; }
         public DbSet<Feedback> Feedbacks { get; set; }
+
+        public DbSet<Return> Returns { get; set; }
     }
 }

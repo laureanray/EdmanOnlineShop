@@ -74,9 +74,4 @@
     <UpToDateCheckBuilt Remove="obj\Debug\netcoreapp2.2\EdmanOnlineShop.Razor.dll" />
   </ItemGroup>
 
-
-  <ItemGroup>
-    <Folder Include="Views\Returns" />
-  </ItemGroup>
-
 </Project>

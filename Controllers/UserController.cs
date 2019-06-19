@@ -35,6 +35,36 @@ namespace EdmanOnlineShop.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [HttpPost]
+        public async Task<IActionResult> DeactivateAccount(IndexUserViewModel model)
+        {
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == model.UserID);
+
+            if (user != null)
+            {
+                user.IsActive = false;
+                _context.Entry(user).State = EntityState.Modified;
+                await _context.SaveChangesAsync();
+            }
+
+            return RedirectToAction(nameof(Index));
+        }
+        
+        [HttpPost]
+        public async Task<IActionResult> ReactivateAccount(IndexUserViewModel model)
+        {
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == model.UserID);
+
+            if (user != null)
+            {
+                user.IsActive = true;
+                _context.Entry(user).State = EntityState.Modified;
+                await _context.SaveChangesAsync();
+            }
+
+            return RedirectToAction(nameof(Index));
+        }
+
         public async Task<IActionResult> Index()
         {
             var users = await _context.Users.ToListAsync();
@@ -63,7 +93,8 @@ namespace EdmanOnlineShop.Controllers
                         UserGender = u.UserGender,
                         Role = roles,
                         Email = u.Email,
-                        Id = u.Id
+                        Id = u.Id,
+                        IsActive = u.IsActive
                     };
                     vm.Users.Add(details);
                 }

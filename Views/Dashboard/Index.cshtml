@@ -4,87 +4,6 @@
     Layout = "_DashboardLayout";
 }
 
-<h2 class="h2 mb-2">Dashboard</h2>
-<div class="row mt-2">
-
-    <!-- Earnings (Monthly) Card Example -->
-    <div class="col-xl-3 col-md-6 mb-4">
-        <div class="card border-left-primary shadow h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Sold Quantity</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">@Model.QuantitySoldToday</div>
-                    </div>
-                    <div class="col-auto">
-                        <i class="fas fa-box fa-2x text-gray-300"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Earnings (Monthly) Card Example -->
-    <div class="col-xl-3 col-md-6 mb-4">
-        <div class="card border-left-success shadow h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Sales</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">₱<span class="price">@Model.TotalSalesToday</span></div>
-                    </div>
-                    <div class="col-auto">
-                        <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Earnings (Monthly) Card Example -->
-    <div class="col-xl-3 col-md-6 mb-4">
-        <div class="card border-left-info shadow h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Processed Order</div>
-                        <div class="row no-gutters align-items-center">
-                            <div class="col-auto">
-                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">@Model.OrderProgress%</div>
-                            </div>
-                            <div class="col">
-                                <div class="progress progress-sm mr-2">
-                                    <div class="progress-bar bg-info" role="progressbar" style="width: @Model.OrderProgress%" aria-valuenow="@Model.OrderProgress" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-auto">
-                        <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Pending Requests Card Example -->
-    <div class="col-xl-3 col-md-6 mb-4">
-        <div class="card border-left-warning shadow h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">New Users </div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">@Model.NumOfNewRegisterToday</div>
-                    </div>
-                    <div class="col-auto">
-                        <i class="fas fa-users fa-2x text-gray-300"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
 
 @if (Model.Notifications.Count > 0)
 {
@@ -121,3 +40,236 @@
         </div>
     }
 }
+
+
+<h2 class="h2 mb-2">Dashboard</h2>
+<div class="row mt-2">
+
+    <!-- Earnings (Monthly) Card Example -->
+    <div class="col-xl-4 col-md-6 mb-4">
+        <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Sold Quantity</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">@Model.QuantitySoldToday</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-box fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Earnings (Monthly) Card Example -->
+    <div class="col-xl-4 col-md-6 mb-4">
+        <div class="card border-left-success shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Sales</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">₱<span class="price">@Model.TotalSalesToday</span></div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @* <!-- Earnings (Monthly) Card Example --> *@
+    @* <div class="col-xl-3 col-md-6 mb-4"> *@
+    @*     <div class="card border-left-info shadow h-100 py-2"> *@
+    @*         <div class="card-body"> *@
+    @*             <div class="row no-gutters align-items-center"> *@
+    @*                 <div class="col mr-2"> *@
+    @*                     <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Processed Order</div> *@
+    @*                     <div class="row no-gutters align-items-center"> *@
+    @*                         <div class="col-auto"> *@
+    @*                             <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">@Model.OrderProgress%</div> *@
+    @*                         </div> *@
+    @*                         <div class="col"> *@
+    @*                             <div class="progress progress-sm mr-2"> *@
+    @*                                 <div class="progress-bar bg-info" role="progressbar" style="width: @Model.OrderProgress%" aria-valuenow="@Model.OrderProgress" aria-valuemin="0" aria-valuemax="100"></div> *@
+    @*                             </div> *@
+    @*                         </div> *@
+    @*                     </div> *@
+    @*                 </div> *@
+    @*                 <div class="col-auto"> *@
+    @*                     <i class="fas fa-clipboard-list fa-2x text-gray-300"></i> *@
+    @*                 </div> *@
+    @*             </div> *@
+    @*         </div> *@
+    @*     </div> *@
+    @* </div> *@
+
+    <!-- Pending Requests Card Example -->
+    <div class="col-xl-4 col-md-6 mb-4">
+        <div class="card border-left-warning shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">New Users </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">@Model.NumOfNewRegisterToday</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-users fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h2 class="h2 mb-2">Charts</h2>
+
+<div class="row mt-2">
+    <div class="col-12">
+        <canvas id="myChart" width="400" height="100"></canvas>
+    </div>
+    
+    
+    <div class="col-12 mt-3">
+            <canvas id="request" width="400" height="100"></canvas>
+        </div>
+    <script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var request = document.getElementById('request').getContext('2d');
+    
+    $.ajax({
+        url: "/Dashboard/Top5LeastNumberOfProductsLeft",
+        type: 'GET',
+        success: function(data)
+        {
+            remainingProductsChart(data);
+        },
+        error: function()
+        {
+            alert("Errror");
+        }
+    });
+    
+    function remainingProductsChart(data)
+    {
+        console.log(data);
+        var labels_ = [];
+        var data_  = [];
+        
+        for(var i = 0; i < data.length; i++)
+            {
+                labels_.push(data[i].productName);
+                data_.push(data[i].quantity)
+            }
+        var myChart = new Chart(ctx, {
+                type: 'horizontalBar',
+                data: {
+                    labels: labels_,
+                    datasets: [{
+                        label: 'Top 5 Least Number of Products Left',
+                        data: data_,
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }],
+                        xAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+    }
+    
+      $.ajax({
+            url: "/Dashboard/RequestProducts",
+            type: 'GET',
+            success: function(data)
+            {
+                requestProducts(data);
+            },
+            error: function()
+            {
+                alert("Errror");
+            }
+        });
+        
+        function requestProducts(data)
+        {
+            console.log(data);
+            var labels_ = [];
+            var data_  = [];
+            
+            for(var i = 0; i < data.length; i++)
+                {
+                    labels_.push(data[i].productName);
+                    data_.push(data[i].quantity)
+                }
+            var myChart = new Chart(request, {
+                    type: 'horizontalBar',
+                    data: {
+                        labels: labels_,
+                        datasets: [{
+                            label: 'Request Products',
+                            data: data_,
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(255, 159, 64, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }],
+                            xAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
+                    }
+                });
+        }
+    </script>
+</div>

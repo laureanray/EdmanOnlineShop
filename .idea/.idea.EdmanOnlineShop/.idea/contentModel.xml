@@ -93,6 +93,7 @@
         <e p="ProductsController.cs" t="Include" />
         <e p="ReportsController.cs" t="Include" />
         <e p="RequestController.cs" t="Include" />
+        <e p="ReturnController.cs" t="Include" />
         <e p="UserController.cs" t="Include" />
       </e>
       <e p="Data" t="Include">
@@ -120,6 +121,8 @@
         <e p="20190618061151_newmigraosi.Designer.cs" t="Include" />
         <e p="20190619072453_newasda.cs" t="Include" />
         <e p="20190619072453_newasda.Designer.cs" t="Include" />
+        <e p="20190619165305_newasd.cs" t="Include" />
+        <e p="20190619165305_newasd.Designer.cs" t="Include" />
         <e p="ApplicationDbContextModelSnapshot.cs" t="Include" />
       </e>
       <e p="Models" t="Include">
@@ -140,8 +143,10 @@
         <e p="Order.cs" t="Include" />
         <e p="OrderDetails.cs" t="Include" />
         <e p="Product.cs" t="Include" />
+        <e p="ProductsAndQuantity.cs" t="Include" />
         <e p="Request.cs" t="Include" />
         <e p="RequestDetails.cs" t="Include" />
+        <e p="Return.cs" t="Include" />
         <e p="SalesDetails.cs" t="Include" />
       </e>
       <e p="obj" t="ExcludeRecursive">
@@ -188,6 +193,7 @@
         <e p="RequestTableViewModel.cs" t="Include" />
         <e p="RequestViewModel.cs" t="Include" />
         <e p="RestockInventoryViewModel.cs" t="Include" />
+        <e p="ReturnConfirmViewModel.cs" t="Include" />
         <e p="SalesReportViewModel.cs" t="Include" />
         <e p="ViewProductViewModel.cs" t="Include" />
         <e p="WriteFeedbackViewModel.cs" t="Include" />
@@ -248,9 +254,11 @@
           <e p="ViewProduct.cshtml" t="Include" />
         </e>
         <e p="Reports" t="Include">
+          <e p="DeliveryReport.cshtml" t="Include" />
           <e p="Index.cshtml" t="Include" />
           <e p="InventoryReport.cshtml" t="Include" />
           <e p="RequestReport.cshtml" t="Include" />
+          <e p="ReturnReport.cshtml" t="Include" />
           <e p="SalesReport.cshtml" t="Include" />
         </e>
         <e p="Request" t="Include">
@@ -258,7 +266,9 @@
           <e p="RequestConfirm.cshtml" t="Include" />
           <e p="RequestTable.cshtml" t="Include" />
         </e>
-        <e p="Returns" t="Include" />
+        <e p="Return" t="Include">
+          <e p="ReturnConfirm.cshtml" t="Include" />
+        </e>
         <e p="Shared" t="Include">
           <e p="_CookieConsentPartial.cshtml" t="Include" />
           <e p="_DashboardLayout.cshtml" t="Include" />

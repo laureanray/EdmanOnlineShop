@@ -25,10 +25,9 @@
         <div class="modal fade" id="modal_user_@item.Id" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                    <h1> @item.FirstName </h1>
                     <form  asp-action="UpdateUserRole" method="post">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Approve Order</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Udate Role </h5>
                            
                         </div>
                         <div class="modal-body">
@@ -54,6 +53,52 @@
                 </div>
             </div>
         </div>
+        
+        <div class="modal fade" id="modal_deac_@item.Id" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <form  asp-action="DeactivateAccount" method="post">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Deactivate Account </h5>
+                           
+                        </div>
+                        <div class="modal-body">
+                            <h6> Deactivate Account </h6>
+                            <p> Are you sure you want to deactivate this account? </p>
+                            <p class="font-weight-bold"> @item.FirstName @item.LastName</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <input type="hidden" asp-for="UserID" value="@item.Id" >
+                            <input type="submit" class="btn btn-primary" value="Submit"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div class="modal fade" id="modal_reac_@item.Id" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <form  asp-action="ReactivateAccount" method="post">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Reactivate Account </h5>
+                           
+                        </div>
+                        <div class="modal-body">
+                            <h6> Reactivate Account </h6>
+                            <p> Are you sure you want to reactivate this account? </p>
+                            <p class="font-weight-bold"> @item.FirstName @item.LastName</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <input type="hidden" asp-for="UserID" value="@item.Id" >
+                            <input type="submit" class="btn btn-primary" value="Submit"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
         <tr>
             <td> @item.FirstName </td>
             <td> @item.LastName </td>
@@ -65,8 +110,17 @@
                 @* <a asp-action="Delivered" class="btn btn-success" asp-route-orderId="@item.Id"> Change Role </a> *@
                 @* <a asp-action="Cancelled" class="btn btn-danger" asp-route-orderId="@item.Id"> Deactivate Account </a> *@
                 <button class="btn btn-primary" data-toggle="modal" data-target="#modal_user_@item.Id"> Update Role </button>
-                <a href="" class="btn btn-danger"> Deactive Account </a>
-            </td>
+            @if (item.IsActive == true)
+            {
+                <button class="btn btn-danger" data-toggle="modal" data-target="#modal_deac_@item.Id"> Deactivate </button>
+
+            }
+            else
+            {
+                <button class="btn btn-success" data-toggle="modal" data-target="#modal_reac_@item.Id"> Reactivate </button>
+
+            }
+                </td>
 
         </tr>
     }

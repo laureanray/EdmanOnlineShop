@@ -31,9 +31,15 @@
             <td> @item.Amount</td>
             <td> @item.PaymentMethod</td>
             <td>
-                @item.Status | 
-                <a asp-action="Delivered" class="btn btn-success" asp-route-orderId="@item.OrderID"> Delivered </a>
-                <a asp-action="Cancelled" class="btn btn-danger" asp-route-orderId="@item.OrderID"> Cancelled </a>
+                @item.Status 
+                <a asp-action="Delivered" class="btn btn-success" asp-route-orderId="@item.OrderID">
+                                                    <i class="fas fa-fw fa-parachute-box"></i>
+ Delivered
+                </a>
+                <a asp-action="Cancelled" class="btn btn-danger" asp-route-orderId="@item.OrderID">
+                                                    <i class="fas fa-fw fa-times"></i>
+ Cancelled
+                </a>
             </td>
         </tr>
     }

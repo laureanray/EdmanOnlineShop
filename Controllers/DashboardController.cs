@@ -17,6 +17,71 @@ namespace EdmanOnlineShop.Controllers
         private readonly ApplicationDbContext _context;
         private readonly UserManager<ApplicationUser> _userManager;
 
+        [HttpGet]
+        public async Task<JsonResult> RequestProducts()
+        {
+            DateTime startDateTime = DateTime.Today;
+            DateTime endDateTime = DateTime.Today.AddDays(1).AddTicks(-1);
+
+            var request = await _context.Requests.Where(r => r.RequestDate >= startDateTime && r.RequestDate <= endDateTime).ToListAsync();
+            List<CartItem> cartItems = new List<CartItem>();
+            if (request != null)        
+            {
+                foreach (var r in request)
+                {
+                    var cartItem = await _context.CartItems.FirstOrDefaultAsync(ci => ci.CartItemID == r.CartItemID);
+                    cartItems.Add(cartItem);
+                }
+            }
+            
+            List<CartItem> ciFiltered = cartItems.OrderBy(ci => ci.Quantity).ToList();
+            
+            List<ProductsAndQuantity> res = new List<ProductsAndQuantity>();
+            if (ciFiltered != null)
+            {
+                foreach (var i in ciFiltered)
+                {
+                    var product = await _context.Products.FirstOrDefaultAsync(p => p.ProductID == i.ProductID);
+                    var remaining = new ProductsAndQuantity
+                    {
+                        Quantity = i.Quantity,
+                        ProductName = product.ProductName,
+                        ProductID = product.ProductID
+                    };
+                    
+                    
+                    res.Add(remaining);
+                }
+            }
+
+            return Json(res);
+        }
+        [HttpGet]
+        public async Task<JsonResult> Top5LeastNumberOfProductsLeft()
+        {
+            var inventory = await _context.Inventories.OrderBy(i => i.Quantity).Take(5).ToListAsync();
+            List<ProductsAndQuantity> res = new List<ProductsAndQuantity>();
+            if (inventory != null)
+            {
+                foreach (var i in inventory)
+                {
+                    var product = await _context.Products.FirstOrDefaultAsync(p => p.ProductID == i.ProductID);
+                    var remaining = new ProductsAndQuantity
+                    {
+                        Quantity = i.Quantity,
+                        ProductName = product.ProductName,
+                        ProductID = product.ProductID
+                    };
+                    
+                    
+                    res.Add(remaining);
+                }
+            }
+
+            return Json(res);
+
+        }
+        
         public DashboardController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
