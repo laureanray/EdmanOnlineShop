@@ -25,14 +25,14 @@
     @foreach (var item in Model.Orders)
     {
         <tr>
-            <td class="date-only">  @item.DeliverDate</td>
+            <td class="date-only">  @item.DeliverDate.ToShortDateString()</td>
             <td > @item.FirstName @item.LastName </td>
             <td >
                 <a href="/Products/ViewProduct?productId=@item.ProductID">@Html.DisplayFor(modelItem => item.ProductName)</a>
             </td>
             <td> @item.Quantity </td>
-            <td> @item.Price </td>
-            <td> @item.Amount</td>
+            <td class="price"> @item.Price </td>
+            <td class="price"> @item.Amount</td>
             <td class="text-success">
                 @item.Status
             </td>
