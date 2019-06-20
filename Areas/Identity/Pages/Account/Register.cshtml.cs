@@ -116,7 +116,7 @@ namespace EdmanOnlineShop.Areas.Identity.Pages.Account
                         protocol: Request.Scheme);
                     
                     await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
-                        $"<h4 style='font-size: 24px!important;'> Thank you for registering <i> {Input.FirstName } </i> <h4> <br> To continue shopping, please confirm your account by <a href='{{HtmlEncoder.Default.Encode(callbackUrl)}}'>clicking here</a>.");
+                        $"<h4 style='font-size: 24px!important;'> Thank you for registering <i> {Input.FirstName } </i> </h4> <br> To continue shopping, please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'> clicking here </a>.");
                     
                     string Customer = "Customer";
                     await _userManager.AddToRoleAsync(user, Customer);

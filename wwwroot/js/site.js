@@ -128,6 +128,12 @@ $(document).ready( function() {
             break;
     }
     
+    $("#select_category option").each(function()
+    {
+        $(this).html((truncate.apply($(this).html(), [25, true])));
+    });
+    
+    
 
     $("#payment_method").change(function(){
         var value = $(this).val();
@@ -155,3 +161,13 @@ function formatMoney(n, c, d, t) {
 
     return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
 };
+
+
+function truncate( n, useWordBoundary ){
+    if (this.length <= n) { return this; }
+    var subString = this.substr(0, n-1);
+    return (useWordBoundary
+        ? subString.substr(0, subString.lastIndexOf(' '))
+        : subString) + "&hellip;";
+};
+// usage
