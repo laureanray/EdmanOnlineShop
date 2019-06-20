@@ -63,7 +63,7 @@ namespace EdmanOnlineShop.Controllers
 
             }
 
-            requests = requests.OrderByDescending(r => r.Quantity).ToList();
+            requests = requests.OrderByDescending(r => r.Quantity).Take(5).ToList();
             
 
 
@@ -108,7 +108,7 @@ namespace EdmanOnlineShop.Controllers
 
             }
 
-            returns = returns.OrderByDescending(r => r.Quantity).ToList();
+            returns = returns.OrderByDescending(r => r.Quantity).Take(5).ToList();
             
 
 
