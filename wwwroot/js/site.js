@@ -51,9 +51,27 @@ $(document).ready( function() {
             } ]
         });
         $("#feedbacks_table").DataTable();
-        $("#request_table").DataTable();
+        $("#request_table").DataTable({
+            columnDefs: [ {
+                targets: [1,2,3],
+                render: function ( data, type, row ) {
+                    return type === 'display' && data.length > 32 ?
+                        data.substr( 0, 32 ) +'…' :
+                        data;
+                }
+            } ]
+        });
         $("#users_table").DataTable();
-        $("#returns_table").DataTable();
+        $("#returns_table").DataTable({
+            columnDefs: [ {
+                targets: [1,2,3],
+                render: function ( data, type, row ) {
+                    return type === 'display' && data.length > 38 ?
+                        data.substr( 0, 38 ) +'…' :
+                        data;
+                }
+            } ]
+        });
         $("#categories_table").DataTable();
         $("#orders_table").DataTable({
             columnDefs: [ {

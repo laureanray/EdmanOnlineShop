@@ -12,6 +12,7 @@ namespace EdmanOnlineShop.Models
         public ReturnStatus Status { get; set; }
         public byte[] ProductImage { get; set; }
         
+        public Decimal TotalPrice { get; set; }
         public ApplicationUser User { get; set; }
     }
 }

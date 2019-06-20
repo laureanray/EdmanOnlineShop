@@ -173,7 +173,8 @@ namespace EdmanOnlineShop.Controllers
                         ReturnQuantity =  r.Quantity,
                         User = user,
                         DateReturned = r.DateReturned,
-                        ProductName = product.ProductName
+                        ProductName = product.ProductName,
+                        TotalPrice = product.Price * r.Quantity
                     };
                     
                     returndetails.Add(details);

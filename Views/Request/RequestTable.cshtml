@@ -16,10 +16,11 @@
     <tr>
         <th>Request ID</th>
         <th>Date</th>
+        <th>Product Name</th>
         <th>Customer Name</th>
         <th>Total</th>
         <th>Quantity</th>
-        <th></th>
+        <th>Status</th>
     </tr>
     </thead>
     <tbody>
@@ -27,15 +28,18 @@
     {
         <tr>
             <td > @Html.DisplayFor(modelItem => item.RequestID)</td>
-            <td > @Html.DisplayFor(modelItem => item.DateRequested)</td>
+            <td > @item.DateRequested.ToShortDateString()</td>
+            <td> @item.ProductName </td>
             <td > @item.User.FirstName @item.User.LastName</td>
             <td class="price"> @(item.Quantity * item.Price)</td>
             <td>
-                @item.RequestStatus
+                @item.Quantity
                 @*  <a class="btn btn-dark btn-sm" asp-action="Edit" asp-route-productID="@item.ProductID"> Edit </a> *@
                 @* <a class="btn btn-danger btn-sm" asp-action="Archive" asp-route-productID="@item.ProductID"> Archive </a> *@
             </td>
             <td>
+                            @item.RequestStatus
+
                 <a asp-action="Approve" asp-route-id="@item.RequestID" class="btn btn-primary"> <i class="far fa-thumbs-up"></i> Approve </a>
                 <a asp-action="Reject"  asp-route-id="@item.RequestID" class="btn btn-danger"> <i class="far fa-thumbs-down"></i> Reject </a>
             </td>

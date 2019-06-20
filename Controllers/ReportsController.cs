@@ -188,8 +188,8 @@ namespace EdmanOnlineShop.Controllers
                         DateReturned = r.DateReturned,
                         ProductName = product.ProductName,
                         Status = r.Status,
-                        ReturnID = r.ReturnID
-                        
+                        ReturnID = r.ReturnID,
+                        TotalPrice = r.Quantity * product.Price
                     };
                     
                     vm.Returns.Add(details);
