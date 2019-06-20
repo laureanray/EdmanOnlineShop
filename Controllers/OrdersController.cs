@@ -216,7 +216,7 @@ namespace EdmanOnlineShop.Controllers
             
         }
         
-        [Authorize(Roles = "Cutomer")]
+        [Authorize(Roles = "Customer")]
 
         [HttpPost]
         public async Task<IActionResult> AddOrderRequest(CartItemViewModel viewModel)
