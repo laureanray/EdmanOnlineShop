@@ -35,8 +35,8 @@
                         </div>
                         <div class="modal-body">
                             <h6> Set deliver date </h6>
-                            <p> This will approve the order for order: @item.OrderID </p>
-                            <input type="date" asp-format="{0:yyyy-MM-dd}" asp-for="DeliverDate" class="form-control"/>
+                            <p> This will approve the order for order: @item.ProductName </p>
+                            <input  type="date" asp-format="{0:yyyy-MM-dd}"  asp-for="DeliverDate" class="form-control"/>
                             <input type="hidden" asp-for="OrderID" value="@item.OrderID">
                         </div>
                         <div class="modal-footer">
@@ -59,14 +59,14 @@
                 @item.Status
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_@item.OrderID">
-                                                    <i class="fas fa-fw fa-thumbs-up"></i>
+                    <i class="fas fa-fw fa-thumbs-up"></i>
 
                     Approve
                 </button>
 
                 <a asp-action="Reject" asp-route-orderId="@item.OrderID" class="btn btn-danger">
-                                                    <i class="fas fa-fw fa-thumbs-down"></i>
- Reject
+                    <i class="fas fa-fw fa-thumbs-down"></i>
+                    Reject
                 </a>
 
             </td>
@@ -74,3 +74,22 @@
     }
     </tbody>
 </table>
+
+<script >
+$(function(){
+    var dtToday = new Date();
+    
+    var month = dtToday.getMonth() + 1;
+    var day = dtToday.getDate();
+    var year = dtToday.getFullYear();
+    if(month < 10)
+        month = '0' + month.toString();
+    if(day < 10)
+        day = '0' + day.toString();
+    
+    var maxDate = year + '-' + month + '-' + day;
+    $("input[type='date']").attr( 'min', maxDate);
+    $("input[type='date']").attr('value', maxDate);
+
+});
+</script>

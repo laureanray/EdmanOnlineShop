@@ -25,7 +25,7 @@ namespace EdmanOnlineShop.Mail
             var client = new SendGridClient(apiKey);
             var msg = new SendGridMessage()
             {
-                From = new EmailAddress("noreply@edmanonlineshop.com", "Do Not Reply"),
+                From = new EmailAddress("noreply@edmanonlineshop.com", "Edman Machtool Inc."),
                 Subject = subject,
                 PlainTextContent = message,
                 HtmlContent = message
