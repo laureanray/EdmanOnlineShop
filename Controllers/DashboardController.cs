@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 using EdmanOnlineShop.Data;
@@ -9,9 +10,11 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
 
 namespace EdmanOnlineShop.Controllers
 {
+    [Authorize(Roles = "Admin, SalesClerk, InternationalCorrespondenceAndSecretary, Accounting, LogisticsClerk, OperationsManager")]
     public class DashboardController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -22,40 +25,98 @@ namespace EdmanOnlineShop.Controllers
         {
             DateTime startDateTime = DateTime.Today;
             DateTime endDateTime = DateTime.Today.AddDays(1).AddTicks(-1);
-
-            var request = await _context.Requests.Where(r => r.RequestDate >= startDateTime && r.RequestDate <= endDateTime).ToListAsync();
-            List<CartItem> cartItems = new List<CartItem>();
-            if (request != null)        
+            var products = await _context.Products.Where(p => p.IsArchived == false).ToListAsync();
+            List<ReturnProductsModel> requests = new List<ReturnProductsModel>();
+            if (products != null)
             {
-                foreach (var r in request)
+                foreach (var p in products)
                 {
-                    var cartItem = await _context.CartItems.FirstOrDefaultAsync(ci => ci.CartItemID == r.CartItemID);
-                    cartItems.Add(cartItem);
-                }
-            }
-            
-            List<CartItem> ciFiltered = cartItems.OrderBy(ci => ci.Quantity).ToList();
-            
-            List<ProductsAndQuantity> res = new List<ProductsAndQuantity>();
-            if (ciFiltered != null)
-            {
-                foreach (var i in ciFiltered)
-                {
-                    var product = await _context.Products.FirstOrDefaultAsync(p => p.ProductID == i.ProductID);
-                    var remaining = new ProductsAndQuantity
+                    var prod = new ReturnProductsModel
                     {
-                        Quantity = i.Quantity,
-                        ProductName = product.ProductName,
-                        ProductID = product.ProductID
+                        Quantity = 0,
+                        ProductName = p.ProductName,
+                        ProductID = p.ProductID
                     };
-                    
-                    
-                    res.Add(remaining);
+                    requests.Add(prod);
                 }
             }
 
-            return Json(res);
+
+            foreach (var r in requests)
+            {
+
+                var cartItems = await _context.CartItems.Where(req => req.ProductID == r.ProductID && req.IsRequested == true).ToListAsync();
+
+                if (cartItems != null)
+                {
+                    foreach (var ci in cartItems)
+                    {
+                        var request = await _context.Requests.FirstOrDefaultAsync(re => re.CartItemID == ci.CartItemID);
+
+                        if (request.RequestDate >= startDateTime && request.RequestDate <= endDateTime)
+                        {
+                            r.Quantity += ci.Quantity;
+                        }
+
+                    }
+                }
+
+            }
+
+            requests = requests.OrderByDescending(r => r.Quantity).ToList();
+            
+
+
+            return Json(requests);
         }
+        
+       
+        
+        [HttpGet]
+        public async Task<JsonResult> ReturnProducts()
+        {
+            DateTime startDateTime = DateTime.Today;
+            DateTime endDateTime = DateTime.Today.AddDays(1).AddTicks(-1);
+            var products = await _context.Products.Where(p => p.IsArchived == false).ToListAsync();
+            List<ReturnProductsModel> returns = new List<ReturnProductsModel>();
+            if (products != null)
+            {
+                foreach (var p in products)
+                {
+                    var prod = new ReturnProductsModel
+                    {
+                        Quantity = 0,
+                        ProductName = p.ProductName,
+                        ProductID = p.ProductID
+                    };
+                    returns.Add(prod);
+                }
+            }
+
+
+            foreach (var r in returns)
+            {
+                var returnsFromDb = await _context.Returns.Where(ret => ret.ProductID == r.ProductID && ret.DateReturned >= startDateTime && ret.DateReturned <= endDateTime).ToListAsync();
+
+                if (returnsFromDb != null)
+                {
+                    foreach (var rfdb in returnsFromDb)
+                    {
+                        r.Quantity += rfdb.Quantity;
+                    }
+                }
+
+            }
+
+            returns = returns.OrderByDescending(r => r.Quantity).ToList();
+            
+
+
+            return Json(returns);
+
+        }
+
+        
         [HttpGet]
         public async Task<JsonResult> Top5LeastNumberOfProductsLeft()
         {

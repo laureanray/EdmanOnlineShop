@@ -1,0 +1,37 @@
+@model IEnumerable<ReturnDetails>
+
+@{
+    ViewData["Title"] = "Returns Table";
+    Layout = "_DashboardLayout";
+}
+
+
+        <table id="returns_table" class="table table-bordered table-sm">    
+            <thead>
+            <tr>
+                <th scope="col">Return ID</th>
+                <th scope="col">Date</th>
+                <th scope="col">Product Name</th>
+                <th scope="col">Customer Name</th>
+                <th>Quantity </th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td > @Html.DisplayFor(modelItem => item.ReturnID)</td>
+                    <td > @Html.DisplayFor(modelItem => item.DateReturned)</td>
+                    <td > @Html.DisplayFor(modelItem => item.ProductName)</td>
+                    <td > @item.User.FirstName @item.User.LastName</td>
+                    <td > @item.ReturnQuantity </td>
+                    <td>
+                        <a class="btn btn-dark btn-sm" asp-action="Approve" asp-route-id="@item.ReturnID"> Approve </a>
+                        <a class="btn btn-danger btn-sm" asp-action="Reject" asp-route-id="@item.ReturnID"> Archive </a>s
+                    </td>
+                    
+                </tr>
+            }
+            </tbody>
+        </table>

@@ -18,6 +18,8 @@ namespace EdmanOnlineShop.Controllers
             _context = context;
         }
 
+        
+        [Authorize(Roles = "Admin, SalesClerk, InternationalCorrespondenceAndSecretary, LogisticsClerk")]
         public async Task<IActionResult> Restock(int inventoryID)
         {
             var inventory = await _context.Inventories.FirstOrDefaultAsync(iv => iv.InventoryID == inventoryID);
@@ -38,7 +40,7 @@ namespace EdmanOnlineShop.Controllers
             return NotFound();
         }
 
-
+        [Authorize(Roles = "Admin, SalesClerk, InternationalCorrespondenceAndSecretary, LogisticsClerk")]
         [HttpPost]
         public async Task<IActionResult> RestockFinal(RestockInventoryViewModel model, int id)
         {
@@ -66,7 +68,7 @@ namespace EdmanOnlineShop.Controllers
             return NotFound();
         }
 
-        [Authorize(Roles = "Admin, SalesClerk")]
+        [Authorize(Roles = "Admin, SalesClerk, InternationalCorrespondenceAndSecretary, LogisticsClerk")]
         public async Task<IActionResult> Index()
         {
             List<IndexInventoryViewModel> vm = new List<IndexInventoryViewModel>();

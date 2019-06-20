@@ -103,26 +103,10 @@
       <e p="EdmanOnlineShop.csproj" t="IncludeRecursive" />
       <e p="EdmanOnlineShop.sln" t="IncludeFlat" />
       <e p="Migrations" t="Include">
-        <e p="20190614023158_migrationsasda.cs" t="Include" />
-        <e p="20190614023158_migrationsasda.Designer.cs" t="Include" />
-        <e p="20190614045246_ew.cs" t="Include" />
-        <e p="20190614045246_ew.Designer.cs" t="Include" />
-        <e p="20190614055127_oaksdoaskdo.cs" t="Include" />
-        <e p="20190614055127_oaksdoaskdo.Designer.cs" t="Include" />
-        <e p="20190615103552_newamsiadm.cs" t="Include" />
-        <e p="20190615103552_newamsiadm.Designer.cs" t="Include" />
-        <e p="20190616072115_asll.cs" t="Include" />
-        <e p="20190616072115_asll.Designer.cs" t="Include" />
-        <e p="20190616094504_newmigrations.cs" t="Include" />
-        <e p="20190616094504_newmigrations.Designer.cs" t="Include" />
-        <e p="20190618051219_kemerut.cs" t="Include" />
-        <e p="20190618051219_kemerut.Designer.cs" t="Include" />
-        <e p="20190618061151_newmigraosi.cs" t="Include" />
-        <e p="20190618061151_newmigraosi.Designer.cs" t="Include" />
-        <e p="20190619072453_newasda.cs" t="Include" />
-        <e p="20190619072453_newasda.Designer.cs" t="Include" />
-        <e p="20190619165305_newasd.cs" t="Include" />
-        <e p="20190619165305_newasd.Designer.cs" t="Include" />
+        <e p="20190619233521_asdaosdkao.cs" t="Include" />
+        <e p="20190619233521_asdaosdkao.Designer.cs" t="Include" />
+        <e p="20190619234828_asdaosdkaosds.cs" t="Include" />
+        <e p="20190619234828_asdaosdkaosds.Designer.cs" t="Include" />
         <e p="ApplicationDbContextModelSnapshot.cs" t="Include" />
       </e>
       <e p="Models" t="Include">
@@ -147,6 +131,8 @@
         <e p="Request.cs" t="Include" />
         <e p="RequestDetails.cs" t="Include" />
         <e p="Return.cs" t="Include" />
+        <e p="ReturnDetails.cs" t="Include" />
+        <e p="ReturnProductsModel.cs" t="Include" />
         <e p="SalesDetails.cs" t="Include" />
       </e>
       <e p="obj" t="ExcludeRecursive">
@@ -183,6 +169,7 @@
         <e p="FeedBackViewModel.cs" t="Include" />
         <e p="IndexInventoryViewModel.cs" t="Include" />
         <e p="IndexOrderViewModel.cs" t="Include" />
+        <e p="IndexReturnsViewModel.cs" t="Include" />
         <e p="IndexUserViewModel.cs" t="Include" />
         <e p="IndexViewModel.cs" t="Include" />
         <e p="InventoryReportViewModel.cs" t="Include" />
@@ -267,7 +254,9 @@
           <e p="RequestTable.cshtml" t="Include" />
         </e>
         <e p="Return" t="Include">
+          <e p="Index.cshtml" t="Include" />
           <e p="ReturnConfirm.cshtml" t="Include" />
+          <e p="ReturnsTable.cshtml" t="Include" />
         </e>
         <e p="Shared" t="Include">
           <e p="_CookieConsentPartial.cshtml" t="Include" />
@@ -360,6 +349,7 @@
           <e p="work_cover.jpg" t="Include" />
         </e>
         <e p="img" t="Include">
+          <e p="64252489_476231189848859_8090157259541184512_n.jpg" t="Include" />
           <e p="paypal.png" t="Include" />
           <e p="undraw_posting_photo.svg" t="Include" />
         </e>

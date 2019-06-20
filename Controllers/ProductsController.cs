@@ -15,6 +15,7 @@ using Microsoft.EntityFrameworkCore.Internal;
 
 namespace EdmanOnlineShop.Controllers
 {
+
     public class ProductsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -137,11 +138,13 @@ namespace EdmanOnlineShop.Controllers
             return NotFound();
         }
 
-        [Authorize(Roles = "Admin, SalesClerk")]
+        [Authorize(Roles = "Admin, SalesClerk, InternationalCorrespondenceAndSecretary")]
         public async Task<IActionResult> ProductsTable()
         {
             return View(await _context.Products.Where(pd => pd.IsArchived == false).ToListAsync());
         }
+
+        [Authorize(Roles = "Admin, SalesClerk, InternationalCorrespondenceAndSecretary")]
 
         public async Task<IActionResult> Archived()
         {
@@ -192,7 +195,7 @@ namespace EdmanOnlineShop.Controllers
             return NotFound();
         }
 
-        [Authorize(Roles = "Admin, SalesClerk")]
+        [Authorize(Roles = "Admin, SalesClerk, InternationalCorrespondenceAndSecretary")]
         [HttpGet]
         public async Task<IActionResult> Add()
         {
@@ -200,6 +203,7 @@ namespace EdmanOnlineShop.Controllers
             vm.Categories = await _context.Categories.ToListAsync();
             return View(vm);
         }
+        [Authorize(Roles = "Admin, SalesClerk, InternationalCorrespondenceAndSecretary")]
 
         [HttpGet]
         public async Task<IActionResult> Archive(int? productId)
@@ -224,7 +228,7 @@ namespace EdmanOnlineShop.Controllers
 
             return View(vm);
         }
-
+        [Authorize(Roles = "Admin, SalesClerk, InternationalCorrespondenceAndSecretary")]
         [HttpPost, ActionName("Archive")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ArchiveConfirmed(int id)
@@ -255,6 +259,7 @@ namespace EdmanOnlineShop.Controllers
 
             return NotFound();
         }
+        [Authorize(Roles = "Admin, SalesClerk, InternationalCorrespondenceAndSecretary")]
 
         [HttpGet]
         public async Task<IActionResult> Restore(int? productId)
@@ -280,6 +285,7 @@ namespace EdmanOnlineShop.Controllers
             return View(vm);
         }
 
+        [Authorize(Roles = "Admin, SalesClerk, InternationalCorrespondenceAndSecretary")]
 
         [HttpPost, ActionName("Restore")]
         [ValidateAntiForgeryToken]
@@ -313,6 +319,7 @@ namespace EdmanOnlineShop.Controllers
             return NotFound();
         }
 
+        [Authorize(Roles = "Admin, SalesClerk, InternationalCorrespondenceAndSecretary")]
 
         [HttpGet]
         public async Task<IActionResult> Edit(int? productId)
@@ -342,6 +349,7 @@ namespace EdmanOnlineShop.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Admin, SalesClerk, InternationalCorrespondenceAndSecretary")]
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -391,6 +399,7 @@ namespace EdmanOnlineShop.Controllers
             return RedirectToAction(nameof(Edit));
         }
 
+        [Authorize(Roles = "Admin, SalesClerk, InternationalCorrespondenceAndSecretary")]
 
         [HttpPost]
         [ValidateAntiForgeryToken]

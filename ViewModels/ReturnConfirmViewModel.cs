@@ -7,5 +7,9 @@ namespace EdmanOnlineShop.ViewModels
         public int OrderID { get; set; }
         public Product Product { get; set; }
         public Order Order { get; set; }
+        public int QuantityToReturn { get; set; }
+        
+        public int ProductID { get; set; }
+        
     }
 }

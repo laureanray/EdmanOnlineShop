@@ -119,6 +119,8 @@ namespace EdmanOnlineShop.Controllers
 
         }
 
+        [Authorize(Roles = "Admin, SalesClerk, InternationalCorrespondenceAndSecretary, LogisticsClerk")]
+
         public async Task<IActionResult> RequestTable()
         {
             var requests = await _context.Requests.Where(r => r.RequestStatus == RequestStatus.PENDING).ToListAsync();
@@ -156,6 +158,9 @@ namespace EdmanOnlineShop.Controllers
             
         }
 
+        
+        [Authorize(Roles = "Admin, SalesClerk, InternationalCorrespondenceAndSecretary, LogisticsClerk")]
+
         public async Task<IActionResult> Approve(int id)
         {
             var request = await _context.Requests.FirstOrDefaultAsync(r => r.RequestID == id);
@@ -172,6 +177,9 @@ namespace EdmanOnlineShop.Controllers
 
             return NotFound();
         }
+        
+        [Authorize(Roles = "Admin, SalesClerk, InternationalCorrespondenceAndSecretary, LogisticsClerk")]
+
         
         public async Task<IActionResult> Reject(int id)
         {

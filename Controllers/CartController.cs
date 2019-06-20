@@ -13,6 +13,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EdmanOnlineShop.Controllers
 {
+    [Authorize(Roles = "Customer")]
+
     public class CartController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -109,7 +111,6 @@ namespace EdmanOnlineShop.Controllers
 
        
 
-        [Authorize(Roles = "Customer")]
         public async Task<IActionResult> AddToCart(int productId)
         {
             if (!_signInManager.IsSignedIn(User))

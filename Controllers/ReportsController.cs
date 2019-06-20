@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using EdmanOnlineShop.Data;
 using EdmanOnlineShop.Models;
 using EdmanOnlineShop.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ActionConstraints;
 using Microsoft.EntityFrameworkCore;
@@ -14,6 +15,8 @@ using Rotativa.AspNetCore.Options;
 
 namespace EdmanOnlineShop.Controllers
 {
+    [Authorize(Roles = "Admin, SalesClerk, InternationalCorrespondenceAndSecretary, Accounting, LogisticsClerk, OperationsManager")]
+
     public class ReportsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -31,42 +34,51 @@ namespace EdmanOnlineShop.Controllers
             
             var sales = await
                 _context.Orders.Where(o =>
-                    o.Status == Status.DELIVERED &&
-                    (o.DateOrdered >= startDateTime && o.DateOrdered <= endDateTime)).ToListAsync();
+                    o.Status == Status.DELIVERED && o.DateOrdered >= startDateTime && o.DateOrdered <= endDateTime).ToListAsync();
 
             var vm = new SalesReportViewModel();
             vm.Sales = new List<SalesDetails>();
             vm.FromDate = model.FromDate;
-            vm.ToDate = model.ToDate;
+            vm.ToDate = endDateTime;
 
-            if (sales != null)
+            if (sales != null && sales.Count > 0)
             {
                 foreach (var s in sales)
                 {
 
                     var product = await _context.Products.FirstOrDefaultAsync (p => p.ProductID == s.ProductID);
                     var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == s.UserID);
-                    var details = new SalesDetails
+
+                    if (product != null && user != null)
                     {
-                        OrderID = s.OrderID,
-                        Quantity = s.Quantity,
-                        PaymentMethod = s.PaymentMethod,
-                        Status = s.Status,
-                        TotalPrice = s.Amount,
-                        Price = product.Price,
-                        CustomerName = user.FirstName + " " + user.LastName,
-                        DateOrdered = s.DateOrdered,
-                        ProductName = product.ProductName
-                    };
+                        var details = new SalesDetails
+                        {
+                            OrderID = s.OrderID,
+                            Quantity = s.Quantity,
+                            PaymentMethod = s.PaymentMethod,
+                            Status = s.Status,
+                            TotalPrice = s.Amount,
+                            Price = product.Price,
+                            CustomerName = user.FirstName + " " + user.LastName,
+                            DateOrdered = s.DateOrdered,
+                            ProductName = product.ProductName
+                        };
+                        
+                        
+                        vm.Sales.Add(details);
+
+                    }
                     
-                    vm.Sales.Add(details);
+                  
                 }
                 
                 return new ViewAsPdf("SalesReport", vm)
                 {
                     PageOrientation = Orientation.Landscape,
-                    FileName = "SalesReport.pdf"
+                    FileName = "SalesReport_" + DateTime.Now + ".pdf"
                 };
+
+//                return View("SalesReport", vm);
 
 
             }
@@ -87,6 +99,10 @@ namespace EdmanOnlineShop.Controllers
                         return await SalesReport(model);
                     case Report.REQUEST:
                         return await RequestReport(model);
+                    case Report.RETURN:
+                        return await ReturnReport(model);
+                    case Report.DELIVERY:
+                        return await DeliveryReport(model);
                     default:
                         return NotFound();
                 }
@@ -102,12 +118,12 @@ namespace EdmanOnlineShop.Controllers
             DateTime endDateTime = model.ToDate.AddDays(1).AddTicks(-1);
             
             var requests = await
-                _context.Requests.Where(r => r.RequestDate >= startDateTime && r.RequestDate <= endDateTime).ToListAsync();
+                _context.Requests.Where(r => r.RequestDate >= startDateTime && r.RequestDate <= endDateTime && r.RequestStatus == RequestStatus.APPROVED).ToListAsync();
 
             var vm = new RequestReportViewModel();
             vm.Requests = new List<RequestDetails>();
             vm.FromDate = model.FromDate;
-            vm.ToDate = model.ToDate;
+            vm.ToDate = endDateTime;
             
             
             if (requests != null)
@@ -125,6 +141,7 @@ namespace EdmanOnlineShop.Controllers
                         DateRequested = r.RequestDate,
                         ProductName = product.ProductName,
                         RequestStatus = r.RequestStatus,
+                        RequestID = r.RequestID
                     };
                     
                     vm.Requests.Add(details);
@@ -133,7 +150,7 @@ namespace EdmanOnlineShop.Controllers
                 return new ViewAsPdf("RequestReport", vm)
                 {
                     PageOrientation = Orientation.Landscape,
-                    FileName = "RequestReport.pdf"
+                    FileName = "RequestReport_" + DateTime.Now +".pdf"
                 };
 
 
@@ -142,6 +159,106 @@ namespace EdmanOnlineShop.Controllers
             return NotFound();
              
         }
+        
+        public async Task<IActionResult> ReturnReport(ReportsViewModel model)
+        {
+            
+            DateTime startDateTime = model.FromDate;
+            DateTime endDateTime = model.ToDate.AddDays(1).AddTicks(-1);
+            
+            var returns = await
+                _context.Returns.Where(r => r.DateReturned >= startDateTime && r.DateReturned <= endDateTime && r.Status == ReturnStatus.RETURNED).ToListAsync();
+
+            var vm = new IndexReturnsViewModel();
+            vm.Returns = new List<ReturnDetails>();
+            vm.FromDate = model.FromDate;
+            vm.ToDate = endDateTime;
+            
+            
+            if (returns != null)
+            {
+                foreach (var r in returns)
+                {
+                    var product = await _context.Products.FirstOrDefaultAsync (p => p.ProductID == r.ProductID);
+                    var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == r.UserID);
+                    var details = new ReturnDetails
+                    {
+                        ReturnQuantity = r.Quantity,
+                        User = user,
+                        DateReturned = r.DateReturned,
+                        ProductName = product.ProductName,
+                        Status = r.Status,
+                        ReturnID = r.ReturnID
+                        
+                    };
+                    
+                    vm.Returns.Add(details);
+                }
+                
+                return new ViewAsPdf("ReturnReport", vm)
+                {
+                    PageOrientation = Orientation.Landscape,
+                    FileName = "ReturnReport_" + DateTime.Now +".pdf"
+                };
+
+
+            }
+
+            return NotFound();
+             
+        }
+        
+        public async Task<IActionResult> DeliveryReport(ReportsViewModel model)
+        {
+            
+            DateTime startDateTime = model.FromDate;
+            DateTime endDateTime = model.ToDate.AddDays(1).AddTicks(-1);
+            
+            var deliveries = await
+                _context.Orders.Where(r => r.DateDelivered >= startDateTime && r.DateDelivered <= endDateTime && r.Status == Status.DELIVERED).ToListAsync();
+
+            var vm = new IndexOrderViewModel();
+            vm.Orders = new List<OrderDetails>();
+            vm.FromDate = model.FromDate;
+            vm.ToDate = endDateTime;
+            
+            
+            if (deliveries != null)
+            {
+                foreach (var r in deliveries)
+                {
+                    var product = await _context.Products.FirstOrDefaultAsync (p => p.ProductID == r.ProductID);
+                    var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == r.UserID);
+                    var details = new OrderDetails
+                    {
+                        ReturnQuantity = r.Quantity,
+                        FirstName = user.FirstName,
+                        DeliveryAddress = user.Address,
+                        LastName = user.LastName,
+                        DeliverDate = r.DateDelivered,
+                        ProductName = product.ProductName,
+                        Status = r.Status,
+                        Quantity = r.Quantity,
+                        Amount = r.Amount,
+                        OrderID = r.OrderID
+                    };
+                    
+                    vm.Orders.Add(details);
+                }
+                
+                return new ViewAsPdf("DeliveryReport", vm)
+                {
+                    PageOrientation = Orientation.Landscape,
+                    FileName = "DeliveryReport_"+ DateTime.Now +".pdf"
+                };
+
+
+            }
+
+            return NotFound();
+             
+        }
+
         
         public async Task<IActionResult> InventoryReport()
         {
@@ -165,9 +282,10 @@ namespace EdmanOnlineShop.Controllers
                 }
 
 
-                return new ViewAsPdf(model)
+                return new ViewAsPdf("InventoryReport", model)
                 {
-                    PageOrientation = Orientation.Landscape
+                    PageOrientation = Orientation.Landscape,
+                    FileName = "Inventory_" + DateTime.Now + ".pdf"
                 };
             }
 

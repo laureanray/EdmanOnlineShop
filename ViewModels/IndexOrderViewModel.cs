@@ -11,5 +11,8 @@ namespace EdmanOnlineShop.ViewModels
         // this will be used for approving and rejecting order
         public DateTime DeliverDate { get; set; }
         public int OrderID { get; set; }
+        
+        public DateTime FromDate { get; set; }
+        public DateTime ToDate { get; set; }
     }
 }

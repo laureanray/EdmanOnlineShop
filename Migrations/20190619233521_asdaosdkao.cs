@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace EdmanOnlineShop.Migrations
 {
-    public partial class migrationsasda : Migration
+    public partial class asdaosdkao : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -45,10 +45,12 @@ namespace EdmanOnlineShop.Migrations
                     AccessFailedCount = table.Column<int>(nullable: false),
                     FirstName = table.Column<string>(nullable: true),
                     LastName = table.Column<string>(nullable: true),
-                    Phone = table.Column<string>(nullable: true),
+                    Phone = table.Column<int>(nullable: false),
                     Mobile = table.Column<string>(nullable: true),
                     Address = table.Column<string>(nullable: true),
-                    DateRegistered = table.Column<DateTime>(nullable: false)
+                    UserGender = table.Column<int>(nullable: false),
+                    DateRegistered = table.Column<DateTime>(nullable: false),
+                    IsActive = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -63,7 +65,8 @@ namespace EdmanOnlineShop.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     UserID = table.Column<string>(nullable: true),
                     ProductID = table.Column<int>(nullable: false),
-                    Quantity = table.Column<int>(nullable: false)
+                    Quantity = table.Column<int>(nullable: false),
+                    IsRequested = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -89,8 +92,12 @@ namespace EdmanOnlineShop.Migrations
                 {
                     FeedbackID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    ProductID = table.Column<int>(nullable: false),
                     UserID = table.Column<string>(nullable: true),
-                    FeedbackMessage = table.Column<string>(nullable: true)
+                    FeedbackMessage = table.Column<string>(nullable: true),
+                    DateCreated = table.Column<DateTime>(nullable: false),
+                    IsArchived = table.Column<bool>(nullable: false),
+                    Rating = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -105,7 +112,9 @@ namespace EdmanOnlineShop.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     FromUserID = table.Column<string>(nullable: true),
                     ToUserID = table.Column<string>(nullable: true),
-                    MessageContent = table.Column<string>(nullable: true)
+                    MessageContent = table.Column<string>(nullable: true),
+                    DateCreated = table.Column<DateTime>(nullable: false),
+                    IsArchived = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -126,7 +135,8 @@ namespace EdmanOnlineShop.Migrations
                     DateOrdered = table.Column<DateTime>(nullable: false),
                     PaymentMethod = table.Column<int>(nullable: false),
                     DateToDeliver = table.Column<DateTime>(nullable: false),
-                    DateDelivered = table.Column<DateTime>(nullable: false)
+                    DateDelivered = table.Column<DateTime>(nullable: false),
+                    IsRequested = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -160,15 +170,31 @@ namespace EdmanOnlineShop.Migrations
                 {
                     RequestID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    UserID = table.Column<int>(nullable: false),
-                    RequestHeader = table.Column<string>(nullable: true),
-                    RequestDetails = table.Column<string>(nullable: true),
                     RequestDate = table.Column<DateTime>(nullable: false),
-                    ProductID = table.Column<int>(nullable: false)
+                    UserID = table.Column<string>(nullable: true),
+                    CartItemID = table.Column<int>(nullable: false),
+                    RequestStatus = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Requests", x => x.RequestID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Returns",
+                columns: table => new
+                {
+                    ReturnID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    ProductID = table.Column<int>(nullable: false),
+                    UserID = table.Column<string>(nullable: true),
+                    Quantity = table.Column<int>(nullable: false),
+                    DateReturned = table.Column<DateTime>(nullable: false),
+                    Status = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Returns", x => x.ReturnID);
                 });
 
             migrationBuilder.CreateTable(
@@ -381,6 +407,9 @@ namespace EdmanOnlineShop.Migrations
 
             migrationBuilder.DropTable(
                 name: "Requests");
+
+            migrationBuilder.DropTable(
+                name: "Returns");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

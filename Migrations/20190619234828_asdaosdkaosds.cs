@@ -2,22 +2,22 @@
 
 namespace EdmanOnlineShop.Migrations
 {
-    public partial class newamsiadm : Migration
+    public partial class asdaosdkaosds : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<bool>(
-                name: "IsArchived",
-                table: "Messages",
+            migrationBuilder.AddColumn<int>(
+                name: "OrderID",
+                table: "Returns",
                 nullable: false,
-                defaultValue: false);
+                defaultValue: 0);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "IsArchived",
-                table: "Messages");
+                name: "OrderID",
+                table: "Returns");
         }
     }
 }

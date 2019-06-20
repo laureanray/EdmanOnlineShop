@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EdmanOnlineShop.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190619072453_newasda")]
-    partial class newasda
+    [Migration("20190619233521_asdaosdkao")]
+    partial class asdaosdkao
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -69,6 +69,8 @@ namespace EdmanOnlineShop.Migrations
                     b.Property<bool>("EmailConfirmed");
 
                     b.Property<string>("FirstName");
+
+                    b.Property<bool>("IsActive");
 
                     b.Property<string>("LastName");
 
@@ -292,6 +294,27 @@ namespace EdmanOnlineShop.Migrations
                     b.HasKey("RequestID");
 
                     b.ToTable("Requests");
+                });
+
+            modelBuilder.Entity("EdmanOnlineShop.Models.Return", b =>
+                {
+                    b.Property<int>("ReturnID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("DateReturned");
+
+                    b.Property<int>("ProductID");
+
+                    b.Property<int>("Quantity");
+
+                    b.Property<int>("Status");
+
+                    b.Property<string>("UserID");
+
+                    b.HasKey("ReturnID");
+
+                    b.ToTable("Returns");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

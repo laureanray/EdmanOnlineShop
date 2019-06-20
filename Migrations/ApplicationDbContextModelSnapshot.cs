@@ -302,9 +302,13 @@ namespace EdmanOnlineShop.Migrations
 
                     b.Property<DateTime>("DateReturned");
 
+                    b.Property<int>("OrderID");
+
                     b.Property<int>("ProductID");
 
                     b.Property<int>("Quantity");
+
+                    b.Property<int>("Status");
 
                     b.Property<string>("UserID");
 

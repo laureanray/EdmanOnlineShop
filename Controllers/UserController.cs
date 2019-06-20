@@ -4,12 +4,15 @@ using System.Threading.Tasks;
 using EdmanOnlineShop.Data;
 using EdmanOnlineShop.Models;
 using EdmanOnlineShop.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace EdmanOnlineShop.Controllers
 {
+    [Authorize(Roles = "Admin")]
+
     public class UserController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -94,7 +97,9 @@ namespace EdmanOnlineShop.Controllers
                         Role = roles,
                         Email = u.Email,
                         Id = u.Id,
-                        IsActive = u.IsActive
+                        IsActive = u.IsActive,
+                        Mobile = u.Mobile,
+                        Phone = u.Phone
                     };
                     vm.Users.Add(details);
                 }

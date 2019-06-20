@@ -7,6 +7,10 @@
     {
         @if (User.IsInRole("Customer"))
          {
+             
+             <li class="nav-item">
+                 <a href="/Return" id="return_link" class="nav-link texxt-dark nav-link-edman"> Returns </a>
+             </li>
              <li class="nav-item">
                  <a href="/Request" id="request_link" class="nav-link texxt-dark nav-link-edman"> Requests </a>
              </li>

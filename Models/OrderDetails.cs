@@ -20,5 +20,11 @@ namespace EdmanOnlineShop.Models
 
         public decimal Price { get; set; }
         public DateTime DeliverDate { get; set; }
+        public int ReturnQuantity { get; set; }
+        
+        public string DeliveryAddress { get; set; }
+
+
+        public DateTime CanBeReturnedUntil;
     }
 }

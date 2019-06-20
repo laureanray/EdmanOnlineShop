@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EdmanOnlineShop.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190616072115_asll")]
-    partial class asll
+    [Migration("20190619234828_asdaosdkaosds")]
+    partial class asdaosdkaosds
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -70,6 +70,8 @@ namespace EdmanOnlineShop.Migrations
 
                     b.Property<string>("FirstName");
 
+                    b.Property<bool>("IsActive");
+
                     b.Property<string>("LastName");
 
                     b.Property<bool>("LockoutEnabled");
@@ -86,7 +88,7 @@ namespace EdmanOnlineShop.Migrations
 
                     b.Property<string>("PasswordHash");
 
-                    b.Property<string>("Phone");
+                    b.Property<int>("Phone");
 
                     b.Property<string>("PhoneNumber");
 
@@ -95,6 +97,8 @@ namespace EdmanOnlineShop.Migrations
                     b.Property<string>("SecurityStamp");
 
                     b.Property<bool>("TwoFactorEnabled");
+
+                    b.Property<int>("UserGender");
 
                     b.Property<string>("UserName")
                         .HasMaxLength(256);
@@ -117,6 +121,8 @@ namespace EdmanOnlineShop.Migrations
                     b.Property<int>("CartItemID")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("IsRequested");
 
                     b.Property<int>("ProductID");
 
@@ -153,6 +159,10 @@ namespace EdmanOnlineShop.Migrations
                     b.Property<string>("FeedbackMessage");
 
                     b.Property<bool>("IsArchived");
+
+                    b.Property<int>("ProductID");
+
+                    b.Property<int>("Rating");
 
                     b.Property<string>("UserID");
 
@@ -273,19 +283,40 @@ namespace EdmanOnlineShop.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("ProductID");
+                    b.Property<int>("CartItemID");
 
                     b.Property<DateTime>("RequestDate");
 
-                    b.Property<string>("RequestDetails");
-
-                    b.Property<string>("RequestHeader");
+                    b.Property<int>("RequestStatus");
 
                     b.Property<string>("UserID");
 
                     b.HasKey("RequestID");
 
                     b.ToTable("Requests");
+                });
+
+            modelBuilder.Entity("EdmanOnlineShop.Models.Return", b =>
+                {
+                    b.Property<int>("ReturnID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("DateReturned");
+
+                    b.Property<int>("OrderID");
+
+                    b.Property<int>("ProductID");
+
+                    b.Property<int>("Quantity");
+
+                    b.Property<int>("Status");
+
+                    b.Property<string>("UserID");
+
+                    b.HasKey("ReturnID");
+
+                    b.ToTable("Returns");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

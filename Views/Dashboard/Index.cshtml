@@ -106,21 +106,21 @@
     @* </div> *@
 
     <!-- Pending Requests Card Example -->
-    <div class="col-xl-4 col-md-6 mb-4">
-        <div class="card border-left-warning shadow h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">New Users </div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">@Model.NumOfNewRegisterToday</div>
-                    </div>
-                    <div class="col-auto">
-                        <i class="fas fa-users fa-2x text-gray-300"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    @* <div class="col-xl-4 col-md-6 mb-4"> *@
+    @*     <div class="card border-left-warning shadow h-100 py-2"> *@
+    @*         <div class="card-body"> *@
+    @*             <div class="row no-gutters align-items-center"> *@
+    @*                 <div class="col mr-2"> *@
+    @*                     <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">New Users </div> *@
+    @*                     <div class="h5 mb-0 font-weight-bold text-gray-800">@Model.NumOfNewRegisterToday</div> *@
+    @*                 </div> *@
+    @*                 <div class="col-auto"> *@
+    @*                     <i class="fas fa-users fa-2x text-gray-300"></i> *@
+    @*                 </div> *@
+    @*             </div> *@
+    @*         </div> *@
+    @*     </div> *@
+    @* </div> *@
 </div>
 
 <h2 class="h2 mb-2">Charts</h2>
@@ -128,15 +128,26 @@
 <div class="row mt-2">
     <div class="col-12">
         <canvas id="myChart" width="400" height="100"></canvas>
+        <p class="text-dark"> As of @DateTime.Now </p>
     </div>
     
     
     <div class="col-12 mt-3">
-            <canvas id="request" width="400" height="100"></canvas>
+        <canvas id="request" width="400" height="100"></canvas>
+                <p class="text-dark"> As of @DateTime.Now </p>
+
+    </div>
+    
+     
+    <div class="col-12 mt-3">
+            <canvas id="return" width="400" height="100"></canvas>
+                    <p class="text-dark"> As of @DateTime.Now </p>
+ 
         </div>
     <script>
     var ctx = document.getElementById('myChart').getContext('2d');
     var request = document.getElementById('request').getContext('2d');
+    var returns = document.getElementById('return').getContext('2d');
     
     $.ajax({
         url: "/Dashboard/Top5LeastNumberOfProductsLeft",
@@ -167,7 +178,7 @@
                 data: {
                     labels: labels_,
                     datasets: [{
-                        label: 'Top 5 Least Number of Products Left',
+                        label: 'Remaining Products',
                         data: data_,
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',
@@ -271,5 +282,74 @@
                     }
                 });
         }
+        
+          $.ajax({
+                    url: "/Dashboard/ReturnProducts",
+                    type: 'GET',
+                    success: function(data)
+                    {
+                        returnProducts(data);
+                    },
+                    error: function()
+                    {
+                        alert("Errror");
+                    }
+                });
+                
+                function returnProducts(data)
+                {
+                    console.log(data);
+                    var labels_ = [];
+                    var data_  = [];
+                    
+                    for(var i = 0; i < data.length; i++)
+                        {
+                            labels_.push(data[i].productName);
+                            data_.push(data[i].quantity)
+                        }
+                    var myChart = new Chart(returns, {
+                            type: 'horizontalBar',
+                            data: {
+                                labels: labels_,
+                                datasets: [{
+                                    label: 'Returned Products',
+                                    data: data_,
+                                    backgroundColor: [
+                                        'rgba(255, 99, 132, 0.2)',
+                                        'rgba(54, 162, 235, 0.2)',
+                                        'rgba(255, 206, 86, 0.2)',
+                                        'rgba(75, 192, 192, 0.2)',
+                                        'rgba(153, 102, 255, 0.2)',
+                                        'rgba(255, 159, 64, 0.2)'
+                                    ],
+                                    borderColor: [
+                                        'rgba(255, 99, 132, 1)',
+                                        'rgba(54, 162, 235, 1)',
+                                        'rgba(255, 206, 86, 1)',
+                                        'rgba(75, 192, 192, 1)',
+                                        'rgba(153, 102, 255, 1)',
+                                        'rgba(255, 159, 64, 1)'
+                                    ],
+                                    borderWidth: 1
+                                }]
+                            },
+                            options: {
+                                scales: {
+                                    yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true
+                                        }
+                                    }],
+                                    xAxes: [{
+                                        ticks: {
+                                            beginAtZero: true
+                                        }
+                                    }]
+                                }
+                            }
+                        });
+                }
+                
+                
     </script>
 </div>

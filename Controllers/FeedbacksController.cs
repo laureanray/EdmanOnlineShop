@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using EdmanOnlineShop.Data;
 using EdmanOnlineShop.Models;
 using EdmanOnlineShop.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -22,6 +23,8 @@ namespace EdmanOnlineShop.Controllers
             _context = context;
             _userManager = userManager;
         }
+
+        [Authorize(Roles = "Customer")]
 
         public async Task<IActionResult> Index()
         {
@@ -125,7 +128,8 @@ namespace EdmanOnlineShop.Controllers
             
 
         }
-
+        
+        [Authorize(Roles = "Admin, SalesClerk, OperationsManager")]
         public async Task<IActionResult> FeedbacksTable()
         {
             var feedbacks = await _context.Feedbacks.Where(f => f.IsArchived == false).ToListAsync();
@@ -157,7 +161,7 @@ namespace EdmanOnlineShop.Controllers
             return View();
 
         }
-        
+        [Authorize(Roles = "Admin, SalesClerk, OperationsManager")]
         public async Task<IActionResult> ArchiveTable()
         {
             var feedbacks = await _context.Feedbacks.Where(f => f.IsArchived == true).ToListAsync();
@@ -214,6 +218,9 @@ namespace EdmanOnlineShop.Controllers
 
             return NotFound();
         }
+        
+        [Authorize(Roles = "Admin, SalesClerk, OperationsManager")]
+
         public async Task<IActionResult> ViewFeedback(int id)
         {
             var feedback = await _context.Feedbacks.FirstOrDefaultAsync(f => f.FeedbackID == id);
@@ -234,6 +241,9 @@ namespace EdmanOnlineShop.Controllers
 
             return NotFound();
         }
+
+        
+        [Authorize(Roles = "Admin, SalesClerk, OperationsManager")]
 
         public async Task<IActionResult> Archive(int id)
         {
@@ -266,6 +276,9 @@ namespace EdmanOnlineShop.Controllers
             return NotFound();
 
         }
+        
+        [Authorize(Roles = "Admin, SalesClerk, OperationsManager")]
+
         
         public async Task<IActionResult> Reply(int id)
         {

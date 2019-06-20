@@ -1,5 +1,5 @@
 @using System.Security.Cryptography
-@model EdmanOnlineShop.ViewModels.SalesReportViewModel
+@model EdmanOnlineShop.ViewModels.IndexReturnsViewModel
 
 @{
     ViewBag.Title = "Test";
@@ -19,36 +19,34 @@
 <body>
 <div class="container-fluid">
 <div class="reports-header">
-    <h5 class="mt-3 display-4" style="font-size: 30px;"> Sales Reports </h5>
+    <h5 class="mt-3 display-4" style="font-size: 30px;"> Return Reports </h5>
     <p class="py-2"> @Model.FromDate - @Model.ToDate </p>
 </div>
     <table class="table table-bordered table-sm mt-2">
         <thead>
         <tr>
-            <th> Order ID  </th>
-            <th> Date Ordered</th>
+            <th> Return ID  </th>
+            <th> Date Returned </th>
             <th> Customer Name </th>
             <th> Product Name </th>
-            <th> Quantity </th>
-            <th> Unit Price </th>
-            <th> Total Price  </th>
-            <th> Payment Method </th>
+            <th> Return Quantity </th>
+            <th> Status </th>
+
         </tr>
         </thead>
         <tbody>
-            @if (Model.Sales.Count > 0)
+            @if (Model.Returns.Count > 0)
             {    
-                foreach (var p in Model.Sales)
+                foreach (var p in Model.Returns)
                 {
                     <tr>
-                        <td> @p.OrderID</td>
-                        <td> @p.DateOrdered</td>
-                        <td> @p.CustomerName</td>
+                        <td> @p.ReturnID</td>
+                        <td> @p.DateReturned</td>
+                        <td> @p.User.FirstName @p.User.LastName</td>
                         <td> @p.ProductName </td>
-                        <td> @p.Quantity </td>
-                        <td> @p.Price </td>
-                        <td> @p.TotalPrice </td>
-                        <td> @p.PaymentMethod </td>
+                        <td> @p.ReturnQuantity</td>
+                        <td> @p.Status </td>
+
                     </tr>
                 }
             }

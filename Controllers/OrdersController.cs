@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using EdmanOnlineShop.Data;
 using EdmanOnlineShop.Models;
 using EdmanOnlineShop.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
@@ -12,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EdmanOnlineShop.Controllers
 {
+
     public class OrdersController : Controller
     {
 
@@ -22,6 +24,8 @@ namespace EdmanOnlineShop.Controllers
             _context = context;
             _userManager = userManager;
         }
+
+        [Authorize(Roles = "Admin, SalesClerk, LogisticsClerk, OperationsManager")]
 
         public async Task<IActionResult> Index()
         {
@@ -61,6 +65,8 @@ namespace EdmanOnlineShop.Controllers
             return NotFound();
         }
 
+        [Authorize(Roles = "Admin, SalesClerk, LogisticsClerk, OperationsManager")]
+
         [HttpPost]
         public async Task<IActionResult> Approve(IndexOrderViewModel model)
         {
@@ -99,6 +105,8 @@ namespace EdmanOnlineShop.Controllers
             return RedirectToAction(nameof(Index));
         }
         
+        [Authorize(Roles = "Admin, SalesClerk, LogisticsClerk, OperationsManager")]
+
         public async Task<IActionResult> Reject(int orderId)
         {
             var order = await _context.Orders.FirstOrDefaultAsync(o => o.OrderID == orderId);
@@ -113,6 +121,8 @@ namespace EdmanOnlineShop.Controllers
             return RedirectToAction(nameof(Index));
         }
         
+        [Authorize(Roles = "Customer")]
+   
         public async Task<IActionResult> MyOrders()
         {
             var user = await _userManager.GetUserAsync(HttpContext.User);
@@ -125,6 +135,12 @@ namespace EdmanOnlineShop.Controllers
                 foreach (var order in orders)
                 {
                     var Product = await _context.Products.FirstOrDefaultAsync(pd => pd.ProductID == order.ProductID);
+                    var return_ = await _context.Returns.FirstOrDefaultAsync(r => r.OrderID == order.OrderID);
+                    var returnQty = -1;
+                    if(return_ != null)
+                    {
+                        returnQty = return_.Quantity;
+                    }
                     var x = order.DateToDeliver;
                     var od = new OrderDetails
                     {
@@ -137,7 +153,10 @@ namespace EdmanOnlineShop.Controllers
                         DatePlaced = order.DateOrdered,
                         ProductImage = Product.ProductImage,
                         DeliverDate = order.DateToDeliver,
-                        ProductID =  Product.ProductID
+                        ProductID =  Product.ProductID,
+                        ReturnQuantity = returnQty,
+                        CanBeReturnedUntil = order.DateDelivered.AddDays(7)
+
                     };
                     
                     vm.Orders.Add(od);
@@ -149,6 +168,7 @@ namespace EdmanOnlineShop.Controllers
             return View();
         }
         
+        [Authorize(Roles = "Customer")]
 
         [HttpPost]
         public async Task<IActionResult> AddOrder(CheckoutViewModel viewModel)
@@ -196,6 +216,8 @@ namespace EdmanOnlineShop.Controllers
             
         }
         
+        [Authorize(Roles = "Cutomer")]
+
         [HttpPost]
         public async Task<IActionResult> AddOrderRequest(CartItemViewModel viewModel)
         {
@@ -236,6 +258,8 @@ namespace EdmanOnlineShop.Controllers
 //            return View("Checkout");
         }
 
+        [Authorize(Roles = "Customer")]
+
         public async Task<IActionResult> CheckoutRequestedProduct(int cartItemId)
         {
             var user = await _userManager.GetUserAsync(HttpContext.User);
@@ -264,6 +288,8 @@ namespace EdmanOnlineShop.Controllers
             
             return View();   
         }
+
+        [Authorize(Roles = "Customer")]
 
         public async Task<IActionResult> Checkout()
         {
